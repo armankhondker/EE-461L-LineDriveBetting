@@ -3,7 +3,7 @@ import logo from '../../assets/logo.svg';
 import './App.css';
 import About from './About';
 import Nba from './Nba'; 
-import Nba from './Nfl'; 
+import Nfl from './Nfl'; 
 
 
 function App() {
