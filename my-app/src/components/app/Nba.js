@@ -4,7 +4,7 @@ class Nba extends React.Component {
     render()
     {
         return(
-        <p>Nba page!</p>
+        <p>NBA page!</p>
         )
     }
 
