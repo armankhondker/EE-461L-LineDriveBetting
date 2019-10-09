@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import './App.css';
 import About from './About';
-import Nba from './Nba'; 
-import Nfl from './Nfl'; 
+import Nba from './Nba';
+import Nfl from './Nfl';
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <About></About> 
+      <About></About>
       <Nba></Nba>
       <Nfl></Nfl>
     </div>
