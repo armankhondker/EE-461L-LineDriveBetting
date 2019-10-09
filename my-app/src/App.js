@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
-import About from './About';
-import Nba from './Nba'; 
-import Nfl from './Nfl'; 
-import Mlb from './Mlb'; 
-import Home from './Home'; 
+import About from './components/About';
+import Nba from './components/Nba'; 
+import Nfl from './components/Nfl'; 
+import Mlb from './components/Mlb'; 
+import Home from './components/Home'; 
 
 
 function App() {

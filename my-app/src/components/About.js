@@ -61,7 +61,7 @@ class About extends React.Component {
 
            <ul>Punit Patel
               <br></br>
-               Bio:
+               Bio: 
                <br></br>
                Major:
                <br></br>
