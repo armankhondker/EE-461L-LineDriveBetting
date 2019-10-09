@@ -1,4 +1,5 @@
 import React from 'react';
+import Arman from '../../assets/images/Arman_Profile_Pic.jpg'
 
 class About extends React.Component {  
     render()
@@ -6,7 +7,7 @@ class About extends React.Component {
         return(
             <div>
             <body className="About">
-           <p>About page!</p>
+           <h1>LineDriveBetting - an aggregated sports betting data website</h1>
 
            <p><h1>Vision</h1>
            The vision for LineDriveBetting is to provide both an aggregated betting analytics 
@@ -25,6 +26,7 @@ class About extends React.Component {
            </p>
     
            <ul>Arman Khondker
+           {/* <img src={Arman} alt="Arman" /> */}
            <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
                <br></br>

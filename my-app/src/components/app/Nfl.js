@@ -7,7 +7,6 @@ class Nfl extends React.Component {
         <p>NFL page!</p>
         )
     }
-
 }
 
 export default Nfl; 

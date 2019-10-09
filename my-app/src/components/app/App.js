@@ -1,32 +1,33 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
+import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import About from './About';
 import Nba from './Nba'; 
 import Nfl from './Nfl'; 
+import Mlb from './Mlb'; 
+import Home from './Home'; 
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          LineDriveBetting BOYYYYS <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <About></About> 
-      <Nba></Nba>
-      <Nfl></Nfl>
-    </div>
+
+    <BrowserRouter>
+    <Route exact={true} path='/' render={() => (
+                     <Home />
+          )}/>  
+    <Route exact={true} path='/About' render={() => (
+                     <About />
+          )}/>
+    <Route exact={true} path='/Nba' render={() => (
+                     <Nba />
+          )}/>
+    <Route exact={true} path='/Nfl' render={() => (
+                     < Nfl/>
+          )}/>
+    <Route exact={true} path='/Mlb' render={() => (
+                     < Mlb/>
+          )}/>
+     </BrowserRouter>
   );
 }
 
