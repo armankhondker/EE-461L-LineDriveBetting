@@ -1,3 +1,18 @@
+ul:first-of-type {
+  border-top: 1px solid;
+}
+
+ul {
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+
 .About {
     text-align: left;
+}
+
+.prof_pic {
+  width: 100px;
+  display: inherit;
+  padding: 10px;
 }
