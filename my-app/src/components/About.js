@@ -51,7 +51,7 @@ class About extends React.Component {
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites: Backend development, database management, and web scraping
+               Responsibilites: Backend development using AWS S3, setup MongoDB, and web scraping
                <br></br>
                Number of Commits:
                <br></br>
