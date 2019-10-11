@@ -74,3 +74,5 @@ for scoreline in scorelines:
 client = MongoClient("mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7pi2.mongodb.net/test?retryWrites=true&w=majority")
 db = client.sports_data
 db.mlb_data.insert_many(upload)
+
+driver.quit()
