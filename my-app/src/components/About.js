@@ -34,7 +34,7 @@ class About extends React.Component {
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites:
+               Responsibilites: Front End Development in React, Set up website hosting, Set up about page, Wrote User Stories
                <br></br>
                Number of Commits:
                <br></br>
@@ -51,7 +51,7 @@ class About extends React.Component {
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites: Backend development using AWS S3, setup MongoDB, and web scraping
+               Responsibilites: Backend development using AWS S3, Set up MongoDB, Set up website hosting, Web scraping
                <br></br>
                Number of Commits:
                <br></br>
