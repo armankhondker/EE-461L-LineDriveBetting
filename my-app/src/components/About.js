@@ -1,5 +1,7 @@
 import React from 'react';
 import Arman from '../assets/images/Arman_Profile_Pic.jpg'
+import Josh from '../assets/images/Josh_Profile_Pic.jpg'
+import './About.css'
 
 class About extends React.Component {
     render()
@@ -26,7 +28,7 @@ class About extends React.Component {
            </p>
 
            <ul>Arman Khondker
-           {/* <img src={Arman} alt="Arman" /> */}
+           { <img class="prof_pic" src={Arman} alt="Arman" /> }
            <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
                <br></br>
@@ -43,12 +45,13 @@ class About extends React.Component {
            </ul>
 
            <ul>Josh Papermaster
+              { <img class="prof_pic" src={Josh} alt="Josh" /> }
               <br></br>
-               Bio:
+               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites:
+               Responsibilites: Backend development using AWS S3, setup MongoDB, and web scraping
                <br></br>
                Number of Commits:
                <br></br>
