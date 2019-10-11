@@ -9,37 +9,27 @@ from pymongo import MongoClient
 # //*[@id="op-results"]/div[2]
 # //*[@id="op-content-wrapper"]/div[1]/div[1]/div[5]
 
-def printList(list):
-    for elem in list:
-        print(elem)
-    print("Elements: " + str(len(list)))
-
-class Upload:
-    def __init__(self):
-        self.time = None
-        self.num1 = None
-        self.num2 = None
-        self.team1 = None
-        self.team2 = None
-
-
 driver = webdriver.Chrome()
 driver.implicitly_wait(10)
 
 driver.get('https://www.oddsshark.com/nfl/odds')
 teamdata = driver.find_element_by_xpath("//*[@id='op-content-wrapper']/div[1]/div[1]")
 matchups = teamdata.find_elements_by_class_name('op-matchup-wrapper')
-print(len(matchups))
 
 upload = []
 for matchup in matchups:
     data = matchup.text.split('\n')
     obj = {}
-    obj['time'] = data[0]
-    obj['num1'] = data[1]
-    obj['num2'] = data[2]
-    obj['team1'] = data[4]
-    obj['team2'] = data[5]
+    if len(data) < 5:
+        obj['time'] = data[0]
+        obj['team1'] = data[2]
+        obj['team2'] = data[3]
+    else:
+        obj['time'] = data[0]
+        obj['num1'] = data[1]
+        obj['num2'] = data[2]
+        obj['team1'] = data[4]
+        obj['team2'] = data[5]
     upload.append(obj)
 
 scorelines = driver.find_element_by_id("op-results").find_elements_by_class_name('op-item-row-wrapper')
@@ -50,6 +40,8 @@ for scoreline in scorelines:
     j = 0
     if(len(data) < 24):
         j = len(data)
+        if(j == 1):
+            data[0] = 'not released yet'
         while j < 24:
             data.append('not released yet')
             j = j + 1

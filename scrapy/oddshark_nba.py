@@ -40,6 +40,8 @@ for scoreline in scorelines:
     j = 0
     if(len(data) < 24):
         j = len(data)
+        if(j == 1):
+            data[0] = 'not released yet'
         while j < 24:
             data.append('not released yet')
             j = j + 1
