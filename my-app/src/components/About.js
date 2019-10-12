@@ -1,6 +1,7 @@
 import React from 'react';
 import Arman from '../assets/images/Arman_Profile_Pic.jpg'
 import Josh from '../assets/images/Josh_Profile_Pic.jpg'
+import Punit from '../assets/images/Punit_Profile_Pic.jpg'
 import './About.css'
 
 class About extends React.Component {
@@ -63,13 +64,14 @@ class About extends React.Component {
            </ul>
 
 
-           <ul>Punit Patel
+           <ul><b>Punit Patel </b>
+           { <img class="prof_pic" src={Punit} alt="Punit" /> }
               <br></br>
-               Bio:
+               Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichmnent
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering 
                <br></br>
-               Responsibilites:
+               Responsibilites: Front End Development, User Interface, and Design Report
                <br></br>
                Number of Commits:
                <br></br>
