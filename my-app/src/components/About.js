@@ -35,7 +35,7 @@ class About extends React.Component {
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites: Front End Development in React, Set up website hosting, Set up about page, Wrote User Stories
+               Responsibilites: Front End Development in React, Set up website hosting, Set up about page, Wrote User Stories, Design Report
                <br></br>
                Number of Commits:
                <br></br>
@@ -63,7 +63,7 @@ class About extends React.Component {
            </ul>
 
 
-           <ul>Punit Patel
+           <ul><b>Punit Patel</b>
               <br></br>
                Bio:
                <br></br>
@@ -126,6 +126,50 @@ class About extends React.Component {
                Total Number of Issues:
                <br></br>
            </ul>
+
+           <p><h1>Data</h1>
+           We will scrape data from the following websites: 
+           ESPN.com, FiveThirtyEight.com ,The-odds-api.com, Oddshark.com
+           <br></br>
+           The data we will specifically be pulling are: the scores of previous games, the former head to head results, and all betting lines (money line, point spread, and over/under) for all NBA, NFL, and MLB games. The data will be scraped from the following websites and API endpoints: 
+           <br></br>
+            http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard (NFL scores)
+            <br></br> 
+            http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard (NBA scores)
+            <br></br> 
+            http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard (MLB scores)
+            <br></br>
+            https://data.fivethirtyeight.com/ (NFL, NBA, and MLB predictions)
+            <br></br>
+            https://the-odds-api.com/ (NFL, NBA, and MLB betting lines)
+            <br></br>
+            https://www.oddsshark.com/nfl/odds (NFL odds)
+            <br></br>
+            https://www.oddsshark.com/nba/odds (NBA odds)
+            <br></br>
+            https://www.oddsshark.com/mlb/odds (MLB odds)
+            <br></br>
+
+          
+           </p>
+
+           <p><h1>Tools</h1>
+            React: Front End Javascript Framework
+            <br></br>
+            Github API: User stats dynamically pulled from Github.com
+            <br></br> 
+            AWS: Hosting of web applicaiton
+            <br></br>
+            MongoDB: Database to store our scrapping data
+            <br></br>
+            Namecheap: Purchase linedrivebetting domain 
+            <br></br>
+           </p>
+
+
+           <p><h1>Link to Github</h1>
+           https://github.com/ArmanKhondker/EE-461L-LineDriveBetting
+           </p>
 
            </body>
 
