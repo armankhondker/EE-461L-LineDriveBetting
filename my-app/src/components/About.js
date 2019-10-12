@@ -160,7 +160,9 @@ class About extends React.Component {
             <br></br>
             Github API: User stats dynamically pulled from Github.com
             <br></br> 
-            AWS: Hosting of web applicaiton
+            Amazon Web Services: Hosting of web applicaiton
+            <br></br>
+            Python: Backend webscrapping 
             <br></br>
             MongoDB: Database to store our scrapping data
             <br></br>
