@@ -64,12 +64,8 @@ class About extends React.Component {
            </ul>
 
 
-<<<<<<< HEAD
-           <ul><b>Punit Patel</b>
-=======
            <ul><b>Punit Patel </b>
            { <img class="prof_pic" src={Punit} alt="Punit" /> }
->>>>>>> b4756b755aad8b94440299b0a9f5363243966d2c
               <br></br>
                Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichmnent
                <br></br>
