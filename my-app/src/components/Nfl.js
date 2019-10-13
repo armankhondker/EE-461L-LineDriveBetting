@@ -10,6 +10,7 @@ class Nfl extends React.Component {
         return(
         <body className = "Pages">
              <div>
+             <h1>Placeholder</h1>
              <img src={Logo} className="App-logo-pages" alt="logo" />
              <img src={NFLLogo} className = "Logos" alt="NFL" />
 

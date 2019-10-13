@@ -9,7 +9,7 @@ class Mlb extends React.Component {
     {
         return(
             <body className = "Pages">
-
+                    <h1>Placeholder</h1>
                  <img src={Logo} className="App-logo-pages" alt="logo" />
                 <img src={MLBLogo} className = "Logos" alt="MLB" />
 

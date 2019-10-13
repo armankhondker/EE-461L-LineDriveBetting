@@ -10,6 +10,8 @@ class Nba extends React.Component {
 
         return(
             <div className="Pages">
+                <h1>Placeholder</h1>
+                
 
                 <img src={Logo} className="App-logo-pages" alt="logo" />
                 <img src={NBALogo} className = "Logos" alt="NBA" />
