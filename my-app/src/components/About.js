@@ -85,8 +85,12 @@ class About extends React.Component {
            </ul>
 
 
+<<<<<<< HEAD
            <ul><b>Zachary Herink </b>
            { <img class="prof_pic" src={Zachary} alt="Zachary" /> }
+=======
+           <ul>Zachary Herink
+>>>>>>> 57e4a18fcae4db9451f9c6dd7deff7691ee72f3f
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
                Major: Electrical and Computer Engineering

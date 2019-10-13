@@ -1,0 +1,20 @@
+.img-button {
+    display:inline-block;
+    background-color: #343a40;
+    color:#ffffff;
+    border-radius: 10px;
+    font-family:Arial;
+    font-size:40px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+}
+.img-button:hover {
+    background-color: #a1a1a1;
+}
+.btn-img {
+    display: block;
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+}
