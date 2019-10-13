@@ -4,7 +4,7 @@ import Josh from '../assets/images/Josh_Profile_Pic.jpg'
 import Punit from '../assets/images/Punit_Profile_Pic.jpg'
 import ThienSon from '../assets/images/ThienSon_Profile_Pic.jpg';
 import Rohan from '../assets/images/Rohan_Profile_Pic.jpg'
-import Zachary from '../assets/images/Zachary_Profile_Pic.JPG
+import Zachary from '../assets/images/Zachary_Profile_Pic.jpg'
 import './About.css'
 
 class About extends React.Component {
