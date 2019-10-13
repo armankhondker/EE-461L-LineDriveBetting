@@ -4,7 +4,7 @@ import Josh from '../assets/images/Josh_Profile_Pic.jpg'
 import Punit from '../assets/images/Punit_Profile_Pic.jpg'
 import ThienSon from '../assets/images/ThienSon_Profile_Pic.jpg';
 import Rohan from '../assets/images/Rohan_Profile_Pic.jpg'
-import Zachary from '../assets/images/Zachary_Profile_Pic.JPG'
+import Zachary from '../assets/images/Zachary_Profile_Pic.jpg'
 import './About.css'
 
 class About extends React.Component {
@@ -85,7 +85,8 @@ class About extends React.Component {
            </ul>
 
 
-           <ul>Zachary Herink
+           <ul><b>Zachary Herink </b>
+           { <img class="prof_pic" src={Zachary} alt="Zachary" /> }
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
                Major: Electrical and Computer Engineering
