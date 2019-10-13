@@ -1,6 +1,9 @@
 import React from 'react';
 import Arman from '../assets/images/Arman_Profile_Pic.jpg'
 import Josh from '../assets/images/Josh_Profile_Pic.jpg'
+import Punit from '../assets/images/Punit_Profile_Pic.jpg'
+import ThienSon from '../assets/images/ThienSon_Profile_Pic.jpg';
+import Rohan from '../assets/images/Rohan_Profile_Pic.jpg'
 import './About.css'
 
 class About extends React.Component {
@@ -35,7 +38,7 @@ class About extends React.Component {
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites: Front End Development in React, Set up website hosting, Set up about page, Wrote User Stories
+               Responsibilites: Front End Development in React, Set up website hosting, Set up about page, Wrote User Stories, Design Report
                <br></br>
                Number of Commits:
                <br></br>
@@ -63,13 +66,14 @@ class About extends React.Component {
            </ul>
 
 
-           <ul>Punit Patel
+           <ul><b>Punit Patel </b>
+           { <img class="prof_pic" src={Punit} alt="Punit" /> }
               <br></br>
-               Bio:
+               Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichmnent
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering 
                <br></br>
-               Responsibilites:
+               Responsibilites: Front End Development, User Interface, and Design Report
                <br></br>
                Number of Commits:
                <br></br>
@@ -83,7 +87,7 @@ class About extends React.Component {
            <ul>Zachary Herink
                Bio:
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering
                <br></br>
                Responsibilites:
                <br></br>
@@ -95,13 +99,14 @@ class About extends React.Component {
                <br></br>
            </ul>
 
-          <ul>Thienson Ho
+          <ul>ThienSon Ho
+              { <img class="prof_pic" src={ThienSon} alt="ThienSon" /> }
                <br></br>
-               Bio:
+               Bio: A senior ECE student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites:
+               Responsibilites: Front End Development, User Interface
                <br></br>
                Number of Commits:
                <br></br>
@@ -112,12 +117,13 @@ class About extends React.Component {
            </ul>
 
            <ul>Rohan Garg
+           { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }    
+	       <br></br>
+               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment. 
                <br></br>
-               Bio:
+               Major: Electrical and Computer Engineering.
                <br></br>
-               Major:
-               <br></br>
-               Responsibilites:
+               Responsibilites: Backend Development, User Interface, and  Design Report
                <br></br>
                Number of Commits:
                <br></br>
@@ -126,6 +132,52 @@ class About extends React.Component {
                Total Number of Issues:
                <br></br>
            </ul>
+
+           <p><h1>Data</h1>
+           We will scrape data from the following websites: 
+           ESPN.com, FiveThirtyEight.com ,The-odds-api.com, Oddshark.com
+           <br></br>
+           The data we will specifically be pulling are: the scores of previous games, the former head to head results, and all betting lines (money line, point spread, and over/under) for all NBA, NFL, and MLB games. The data will be scraped from the following websites and API endpoints: 
+           <br></br>
+            http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard (NFL scores)
+            <br></br> 
+            http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard (NBA scores)
+            <br></br> 
+            http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard (MLB scores)
+            <br></br>
+            https://data.fivethirtyeight.com/ (NFL, NBA, and MLB predictions)
+            <br></br>
+            https://the-odds-api.com/ (NFL, NBA, and MLB betting lines)
+            <br></br>
+            https://www.oddsshark.com/nfl/odds (NFL odds)
+            <br></br>
+            https://www.oddsshark.com/nba/odds (NBA odds)
+            <br></br>
+            https://www.oddsshark.com/mlb/odds (MLB odds)
+            <br></br>
+
+          
+           </p>
+
+           <p><h1>Tools</h1>
+            React: Front End Javascript Framework
+            <br></br>
+            Github API: User stats dynamically pulled from Github.com
+            <br></br> 
+            Amazon Web Services: Hosting of web applicaiton
+            <br></br>
+            Python: Backend webscrapping 
+            <br></br>
+            MongoDB: Database to store our scrapping data
+            <br></br>
+            Namecheap: Purchase linedrivebetting domain 
+            <br></br>
+           </p>
+
+
+           <p><h1>Link to Github</h1>
+           https://github.com/ArmanKhondker/EE-461L-LineDriveBetting
+           </p>
 
            </body>
 

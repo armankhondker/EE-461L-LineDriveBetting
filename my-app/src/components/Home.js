@@ -26,7 +26,7 @@ class Home extends React.Component {
                         <ImgButton image={Baseball} label="MLB"/>
                         <ImgButton image={Basketball} label="NBA"/>
                     </div>
-                </div>
+                </div>git p
             </div>
         );
     }
