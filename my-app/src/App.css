@@ -16,7 +16,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.btn-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .App-link {
   color: cyan;
 }
