@@ -2,6 +2,7 @@ import React from 'react';
 import Arman from '../assets/images/Arman_Profile_Pic.jpg'
 import Josh from '../assets/images/Josh_Profile_Pic.jpg'
 import Punit from '../assets/images/Punit_Profile_Pic.jpg'
+import ThienSon from '../assets/images/ThienSon_Profile_Pic.jpg';
 import Rohan from '../assets/images/Rohan_Profile_Pic.jpg'
 import './About.css'
 
@@ -86,7 +87,7 @@ class About extends React.Component {
            <ul>Zachary Herink
                Bio:
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering
                <br></br>
                Responsibilites:
                <br></br>
@@ -98,13 +99,14 @@ class About extends React.Component {
                <br></br>
            </ul>
 
-          <ul>Thienson Ho
+          <ul>ThienSon Ho
+              { <img class="prof_pic" src={ThienSon} alt="ThienSon" /> }
                <br></br>
-               Bio:
+               Bio: A senior ECE student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
-               Major:
+               Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites:
+               Responsibilites: Front End Development, User Interface
                <br></br>
                Number of Commits:
                <br></br>
