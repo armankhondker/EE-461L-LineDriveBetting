@@ -1,0 +1,25 @@
+ul:first-of-type {
+  border-top: 3px solid;
+}
+
+ul {
+  border-bottom: 3px solid;
+  padding: 10px;
+}
+
+.About {
+    text-align: left;
+    background-color: #fffdd0
+}
+
+h1 {
+  color: red;
+  font-weight: bold;
+
+}
+
+.prof_pic {
+  width: 200px;
+  display: inherit; 
+  padding: 10px;
+}

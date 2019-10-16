@@ -51,7 +51,6 @@ for scoreline in scorelines:
     #query mongoDB to see if game is already recorded
     #if not, do the lines below
     #if it is, make a new function that updates the data
-    
     upload[i]['sys_time'] = [systime]
     upload[i]['opening_ps_1'] = [data[0]]
     upload[i]['opening_ml_1'] = [data[1]]
