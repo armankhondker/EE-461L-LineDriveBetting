@@ -3,10 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from utility import getTime
 
 from pymongo import MongoClient
-
-import time
 
 # //*[@id="op-results"]/div[2]
 # //*[@id="op-content-wrapper"]/div[1]/div[1]/div[5]
@@ -18,6 +17,8 @@ driver.get('https://www.oddsshark.com/nfl/odds')
 teamdata = driver.find_element_by_xpath("//*[@id='op-content-wrapper']/div[1]/div[1]")
 matchups = teamdata.find_elements_by_class_name('op-matchup-wrapper')
 
+client = MongoClient("mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7pi2.mongodb.net/test?retryWrites=true&w=majority")
+db = client.sports_data
 upload = []
 for matchup in matchups:
     data = matchup.text.split('\n')
@@ -32,11 +33,11 @@ for matchup in matchups:
         obj['num2'] = data[2]
         obj['team1'] = data[4]
         obj['team2'] = data[5]
-    upload.append(obj)
+    if (db.nfl_data.collection.count_documents({'num1': data[1], 'num2': data[2]}) == 0):
+        upload.append(obj)
 
 scorelines = driver.find_element_by_id("op-results").find_elements_by_class_name('op-item-row-wrapper')
 i = 0
-systime = time.gmtime()
 #if there is missing data, it might not be saved under the correct website
 for scoreline in scorelines:
     data = scoreline.text.split('\n')
@@ -48,10 +49,6 @@ for scoreline in scorelines:
         while j < 24:
             data.append('not released yet')
             j = j + 1
-    #query mongoDB to see if game is already recorded
-    #if not, do the lines below
-    #if it is, make a new function that updates the data
-    upload[i]['sys_time'] = [systime]
     upload[i]['opening_ps_1'] = [data[0]]
     upload[i]['opening_ml_1'] = [data[1]]
     upload[i]['opening_ps_2'] = [data[2]]
@@ -77,9 +74,8 @@ for scoreline in scorelines:
     upload[i]['betnow_ps_2'] = [data[22]]
     upload[i]['betnow_ml_2'] = [data[23]]
     i = i + 1
+upload[i]['timestamp'] = [getTime()]
 
-client = MongoClient("mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7pi2.mongodb.net/test?retryWrites=true&w=majority")
-db = client.sports_data
 db.nfl_data.insert_many(upload)
 
 driver.quit()
