@@ -4,7 +4,7 @@ import Josh from '../assets/images/Josh_Profile_Pic.jpg'
 import Punit from '../assets/images/Punit_Profile_Pic.jpg'
 import ThienSon from '../assets/images/ThienSon_Profile_Pic.jpg';
 import Rohan from '../assets/images/Rohan_Profile_Pic.jpg'
-import Zachary from '../assets/images/Zachary_Profile_Pic.jpg'
+import Zachary from '../assets/images/Zachary_Profile_Pic.JPG'
 import './About.css'
 
 class About extends React.Component {
@@ -13,7 +13,7 @@ class About extends React.Component {
         return(
             <div>
             <body className="About">
-           <h1>LineDriveBetting - an aggregated sports betting data website</h1>
+           <h1>placeholder</h1>
 
            <p><h1 className = "AboutTitles">  Vision</h1>
            The vision for LineDriveBetting is to provide both an aggregated betting analytics
@@ -101,7 +101,7 @@ class About extends React.Component {
                <br></br>
            </ul>
 
-          <ul>ThienSon Ho
+          <ul><b>ThienSon Ho</b>
               { <img class="prof_pic" src={ThienSon} alt="ThienSon" /> }
                <br></br>
                Bio: A senior ECE student with technical cores in Software Engineering and Academic Enrichment
@@ -118,7 +118,7 @@ class About extends React.Component {
                <br></br>
            </ul>
 
-           <ul>Rohan Garg
+           <ul><b>Rohan Garg</b>
            { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }    
 	       <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment. 
