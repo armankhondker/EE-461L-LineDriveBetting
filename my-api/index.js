@@ -15,9 +15,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true});
-var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true});
+mongoose.connect('mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7pi2.mongodb.net/sports_data', { useNewUrlParser: true});
 
+var db = mongoose.connection;
 // Added check for DB connection
 if(!db)
     console.log("Error connecting db")
@@ -28,7 +29,7 @@ else
 var port = process.env.PORT || 8080;
 
 // Send message for default URL
-app.get('/', (req, res) => res.send('Hello World with Express'));
+app.get('/', (req, res) => res.send('Hello World!'));
 
 // Use Api routes in the App
 app.use('/api', apiRoutes);
