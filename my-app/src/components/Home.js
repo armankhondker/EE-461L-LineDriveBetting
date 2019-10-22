@@ -22,9 +22,9 @@ class Home extends React.Component {
                     <a className="App-link" href="Nfl">NFL</a>
                     <a className="App-link" href="Mlb">MLB</a>
                     <div className="btn-row">
-                        <ImgButton image={Football} label="NFL"/>
-                        <ImgButton image={Baseball} label="MLB"/>
-                        <ImgButton image={Basketball} label="NBA"/>
+                       <a href="nfl"><ImgButton image={Football} label="NFL"/></a> 
+                        <a href="Mlb"><ImgButton image={Baseball} label="MLB"/></a>
+                        <a href="nba"><ImgButton image={Basketball} label="NBA"/></a>
                     </div>
                 </div>git p
             </div>
