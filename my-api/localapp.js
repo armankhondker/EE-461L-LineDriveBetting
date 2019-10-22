@@ -1,3 +1,4 @@
+'use strict'
 // Import express
 let express = require('express');
 // Import Body parser
@@ -33,7 +34,9 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 // Use Api routes in the App
 app.use('/api', apiRoutes);
-// Launch app to listen to specified port
+
+// Locally launch app to listen to specified port
+
 app.listen(port, function () {
     console.log("Running RestHub on port " + port);
 });
