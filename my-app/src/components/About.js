@@ -13,7 +13,7 @@ class About extends React.Component {
         return(
             <div>
             <body className="About">
-           <h1>LineDriveBetting - an aggregated sports betting data website</h1>
+           <h1>placeholder</h1>
 
            <p><h1 className = "AboutTitles">  Vision</h1>
            The vision for LineDriveBetting is to provide both an aggregated betting analytics

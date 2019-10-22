@@ -4,18 +4,18 @@ import Logo from '../assets/images/LDBLogo.png';
 import './Logos.css';
 import './Pages.css';
 
-class Mlb extends React.Component {
+class Blog extends React.Component {
     render()
     {
         return(
             <body className = "Pages">
-                <h1>Placeholder</h1>
-                <img src={Logo} className="App-logo-pages" alt="logo" />
-                <img src={MLBLogo} className = "Logos" alt="MLB" />
+                 <h1>Placeholder</h1>
+                 <img src={Logo} className="App-logo-pages" alt="logo" />
+
+            <p>HEYY</p>
 
                </body>
         );
     }
 }
-
-export default Mlb;
+export default Blog;
