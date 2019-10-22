@@ -4,6 +4,7 @@
 
 # Don't track content of these folders
 node_modules/
+my-api/node_modules/
 
 
 # Compiled source #
