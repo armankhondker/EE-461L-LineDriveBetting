@@ -8,13 +8,16 @@ class Blog extends React.Component {
     render()
     {
         return(
+            <div className = "App">
             <body className = "Pages">
                  <h1>Placeholder</h1>
                  <img src={Logo} className="App-logo-pages" alt="logo" />
 
-            <p>HEYY</p>
+           <h2>BLOG POSTS HERE</h2>
 
                </body>
+
+               </div>
         );
     }
 }
