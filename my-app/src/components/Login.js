@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../assets/images/LDBLogo.png';
 import './Logos.css';
-import './Pages.css';
+import './Login.css';
 import Form from "react-bootstrap/Form";
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'

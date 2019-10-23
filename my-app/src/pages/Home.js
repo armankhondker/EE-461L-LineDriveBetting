@@ -3,7 +3,7 @@ import Logo from '../assets/images/LDBLogo.png';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
-import ImgButton from "./ImgButton";
+import ImgButton from "../components/ImgButton";
 import Football from '../assets/images/white-football.png';
 import NFL from '../assets/images/NFL/NFL_Team_Logos/NFL_NFL.png'
 import NBA from '../assets/images/NBA/NBA_Team_Logos/NBA_NBA.png'
@@ -22,13 +22,13 @@ class Home extends React.Component {
                         <FormControl size="lg" type="text" placeholder="Search" className="mr-sm-2" />
                         <Button variant="outline-info">Go</Button>
                     </Form>
-                    <a className="App-link" href="Nba">NBA</a>
-                    <a className="App-link" href="Nfl">NFL</a>
-                    <a className="App-link" href="Mlb">MLB</a>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div className="btn-row">
-                       <a href="nfl"><ImgButton image={NFL} label="NFL"/></a> 
-                        <a href="Mlb"><ImgButton image={MLB} label="MLB"/></a>
-                        <a href="nba"><ImgButton image={NBA} label="NBA"/></a>
+                       <ImgButton image={Football} label="NFL" path="nfl"/>
+                       <ImgButton image={Baseball} label="MLB" path="mlb"/>
+                       <ImgButton image={Basketball} label="NBA" path="nba"/>
                     </div>
                 </div>
             </div>

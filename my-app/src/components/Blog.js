@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../assets/images/LDBLogo.png';
 import './Logos.css';
-import './Pages.css';
+import '../pages/Pages.css';
 
 class Blog extends React.Component {
     render()

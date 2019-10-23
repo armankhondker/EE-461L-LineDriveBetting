@@ -1,13 +1,18 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import './ImgButton.css'
 
 function ImgButton(props) {
-    return(
-        <button className="img-button">
-            <img className="btn-img" src={props.image}/>
-            {props.label}
-        </button>
 
+    var link = `/${props.path}`;
+
+    return(
+        <Link to={link} style={{ textDecoration: 'none' }}>
+            <button className="img-button" onClick="location.href='/NFL'">
+                <img className="btn-img" src={props.image}/>
+                {props.label}
+            </button>
+        </Link>
     );
 }
 

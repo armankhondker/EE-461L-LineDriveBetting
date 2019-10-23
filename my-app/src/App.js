@@ -2,11 +2,11 @@ import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import About from './components/About';
-import Nba from './components/Nba';
-import Nfl from './components/Nfl';
-import Mlb from './components/Mlb';
-import Home from './components/Home';
+import About from './pages/About';
+import Nba from './pages/Nba';
+import Nfl from './pages/Nfl';
+import Mlb from './pages/Mlb';
+import Home from './pages/Home';
 import Blog from './components/Blog'
 import Login from './components/Login'
 import StickNavbar from "./components/StickyNavbar";
