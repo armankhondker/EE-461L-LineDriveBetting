@@ -8,6 +8,7 @@ import Nfl from './pages/Nfl';
 import Mlb from './pages/Mlb';
 import Home from './pages/Home';
 import Blog from './components/Blog'
+import Login from './components/Login'
 import StickNavbar from "./components/StickyNavbar";
 
 
@@ -21,6 +22,7 @@ function App() {
             <Route exact={true} path='/Nfl' render={() => (<Nfl />)}/>
             <Route exact={true} path='/Mlb' render={() => (<Mlb />)}/>
             <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
+            <Route exact={true} path='/Login' render={() => (<Login />)}/>
          </BrowserRouter>
     );
 }

@@ -25,3 +25,8 @@
 .App-link {
   color: cyan;
 }
+
+.Login{
+  position: absolute;
+  right: 10px; 
+}

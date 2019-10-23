@@ -5,6 +5,10 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import ImgButton from "../components/ImgButton";
 import Football from '../assets/images/white-football.png';
+import NFL from '../assets/images/NFL/NFL_Team_Logos/NFL_NFL.png'
+import NBA from '../assets/images/NBA/NBA_Team_Logos/NBA_NBA.png'
+import MLB from '../assets/images/MLB/MLB_Team_Logos/MLB_MLB.png'
+
 import Baseball from '../assets/images/white-baseball.png';
 import Basketball from '../assets/images/white-basketball.png';
 
