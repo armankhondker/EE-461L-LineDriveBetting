@@ -8,13 +8,87 @@ import Zachary from '../assets/images/Zachary_Profile_Pic.JPG'
 import './About.css'
 
 class About extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        rohangit: {
+          total: null
+        },
+        punitgit: {
+          total: null
+        },
+        zachgit: {
+          total: null
+        },
+        thiensongit: {
+          total: null
+        },
+        joshgit: {
+          total: null
+        },
+        armangit: {
+          total: null
+        },
+        issues: []
+      };
+    }
+
+    // Apologize for the ugly code but this was the only way to determine who is who since the order changes
+    componentDidMount() {
+      fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/stats/contributors?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&anon=true')
+        .then(response => response.json())
+        .then(data => this.setState({
+          rohangit: data[0].author.login == "rohanvgarg" ? data[0] : data[1].author.login == "rohanvgarg" ? data[1] : data[2].author.login == "rohanvgarg" ? data[2] : data[3].author.login == "rohanvgarg" ? data[3] : data[4].author.login == "rohanvgarg" ? data[4] : data[5],
+          punitgit: data[0].author.login == "PatelPunit" ? data[0] : data[1].author.login == "PatelPunit" ? data[1] : data[2].author.login == "PatelPunit" ? data[2] : data[3].author.login == "PatelPunit" ? data[3] : data[4].author.login == "PatelPunit" ? data[4] : data[5],
+          zachgit: data[0].author.login == "zherink" ? data[0] : data[1].author.login == "zherink" ? data[1] : data[2].author.login == "zherink" ? data[2] : data[3].author.login == "zherink" ? data[3] : data[4].author.login == "zherink" ? data[4] : data[5],
+          thiensongit: data[0].author.login == "thienson-ho" ? data[0] : data[1].author.login == "thienson-ho" ? data[1] : data[2].author.login == "thienson-ho" ? data[2] : data[3].author.login == "thienson-ho" ? data[3] : data[4].author.login == "thienson-ho" ? data[4] : data[5],
+          joshgit: data[0].author.login == "joshpapermaster" ? data[0] : data[1].author.login == "joshpapermaster" ? data[1] : data[2].author.login == "joshpapermaster" ? data[2] : data[3].author.login == "joshpapermaster" ? data[3] : data[4].author.login == "joshpapermaster" ? data[4] : data[5],
+          armangit: data[0].author.login == "ArmanKhondker" ? data[0] : data[1].author.login == "ArmanKhondker" ? data[1] : data[2].author.login == "ArmanKhondker" ? data[2] : data[3].author.login == "ArmanKhondker" ? data[3] : data[4].author.login == "ArmanKhondker" ? data[4] : data[5],
+        }));
+        fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/issues?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&state=all')
+          .then(response => response.json())
+          .then(data => this.setState({
+            issues: data
+          }));
+    }
+
     render()
     {
+        var issues = this.state.issues
+        var rohanIssues = 0;
+        var punitIssues = 0;
+        var zachIssues = 0;
+        var thiensonIssues = 0;
+        var joshIssues = 0;
+        var armanIssues = 0;
+
+        var i;
+        for (i=0; i<issues.length; i++) {
+          if (issues[i].user.login == "rohanvgarg") {
+            rohanIssues += 1;
+          }
+          else if (issues[i].user.login == "PatelPunit") {
+            punitIssues += 1;
+          }
+          else if (issues[i].user.login == "zherink") {
+            zachIssues += 1;
+          }
+          else if (issues[i].user.login == "thienson-ho") {
+            thiensonIssues += 1;
+          }
+          else if (issues[i].user.login == "joshpapermaster") {
+            joshIssues += 1;
+          }
+          else if (issues[i].user.login == "ArmanKhondker") {
+            armanIssues += 1;
+          }
+        }
         return(
             <div>
             <body className="About">
            <h1>placeholder</h1>
-
+           <div className="AboutInformation">
            <p><h1 className = "AboutTitles">  Vision</h1>
            The vision for LineDriveBetting is to provide both an aggregated betting analytics
            platform that provides bettors nationwide with moneyline and point spreads from the most popular websites,
@@ -31,7 +105,7 @@ class About extends React.Component {
 
            <p><h1>LineDriveBetting Development Team</h1>
            </p>
-
+           </div>
            <ul><b>Arman Khondker</b>
            { <img class="prof_pic" src={Arman} alt="Arman" /> }
            <br></br>
@@ -41,11 +115,11 @@ class About extends React.Component {
                <br></br>
                Responsibilites: Front End Development in React, Set up website hosting, Set up about page, Wrote User Stories, Design Report
                <br></br>
-               Number of Commits:
+               Number of Commits: {this.state.armangit.total}
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {armanIssues}
                <br></br>
            </ul>
 
@@ -56,13 +130,13 @@ class About extends React.Component {
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
-               Responsibilites: Backend development using AWS S3, Set up MongoDB, Set up website hosting, Web scraping
+               Responsibilites: Backend development using AWS S3, Set up MongoDB, Built API using Node.js, Set up website hosting, Web scraping
                <br></br>
-               Number of Commits:
+               Number of Commits: {this.state.joshgit.total}
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {joshIssues}
                <br></br>
            </ul>
 
@@ -72,15 +146,15 @@ class About extends React.Component {
               <br></br>
                Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichmnent
                <br></br>
-               Major: Electrical and Computer Engineering 
+               Major: Electrical and Computer Engineering
                <br></br>
                Responsibilites: Front End Development, User Interface, and Design Report
                <br></br>
-               Number of Commits:
+               Number of Commits: {this.state.punitgit.total}
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {punitIssues}
                <br></br>
            </ul>
 
@@ -93,11 +167,11 @@ class About extends React.Component {
                <br></br>
                Responsibilites: Back End Development, Data Collection, Web Scraping, API Handling
                <br></br>
-               Number of Commits:
+               Number of Commits: {this.state.zachgit.total}
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {zachIssues}
                <br></br>
            </ul>
 
@@ -110,41 +184,40 @@ class About extends React.Component {
                <br></br>
                Responsibilites: Front End Development, User Interface
                <br></br>
-               Number of Commits:
+               Number of Commits: {this.state.thiensongit.total}
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {thiensonIssues}
                <br></br>
            </ul>
-
            <ul><b>Rohan Garg</b>
-           { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }    
-	       <br></br>
-               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment. 
+              { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }
+	             <br></br>
+               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment.
                <br></br>
                Major: Electrical and Computer Engineering.
                <br></br>
                Responsibilites: Backend Development, User Interface, and  Design Report
                <br></br>
-               Number of Commits:
+               Number of Commits: {this.state.rohangit.total}
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {rohanIssues}
                <br></br>
            </ul>
-
+           <div className="AboutInformation">
            <p><h1>Data</h1>
-           We will scrape data from the following websites: 
+           We will scrape data from the following websites:
            ESPN.com, FiveThirtyEight.com ,The-odds-api.com, Oddshark.com
            <br></br>
-           The data we will specifically be pulling are: the scores of previous games, the former head to head results, and all betting lines (money line, point spread, and over/under) for all NBA, NFL, and MLB games. The data will be scraped from the following websites and API endpoints: 
+           The data we will specifically be pulling are: the scores of previous games, the former head to head results, and all betting lines (money line, point spread, and over/under) for all NBA, NFL, and MLB games. The data will be scraped from the following websites and API endpoints:
            <br></br>
             http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard (NFL scores)
-            <br></br> 
+            <br></br>
             http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard (NBA scores)
-            <br></br> 
+            <br></br>
             http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard (MLB scores)
             <br></br>
             https://data.fivethirtyeight.com/ (NFL, NBA, and MLB predictions)
@@ -158,21 +231,21 @@ class About extends React.Component {
             https://www.oddsshark.com/mlb/odds (MLB odds)
             <br></br>
 
-          
+
            </p>
 
            <p><h1>Tools</h1>
             React: Front End Javascript Framework
             <br></br>
             Github API: User stats dynamically pulled from Github.com
-            <br></br> 
+            <br></br>
             Amazon Web Services: Hosting of web applicaiton
             <br></br>
-            Python: Backend webscrapping 
+            Python: Backend webscrapping
             <br></br>
             MongoDB: Database to store our scrapping data
             <br></br>
-            Namecheap: Purchase linedrivebetting domain 
+            Namecheap: Purchase linedrivebetting domain
             <br></br>
            </p>
 
@@ -180,7 +253,7 @@ class About extends React.Component {
            <p><h1>Link to Github</h1>
            https://github.com/ArmanKhondker/EE-461L-LineDriveBetting
            </p>
-
+           </div>
            </body>
 
             </div>
