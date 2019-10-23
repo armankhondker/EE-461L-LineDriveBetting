@@ -3,6 +3,7 @@ import NFLLogo from '../assets/images/NFL.png';
 import Logo from '../assets/images/LDBLogo.png';
 import '../components/Logos.css';
 import './Pages.css';
+import GameBar from "../components/GameBar";
 
 class Nfl extends React.Component {
     render()
@@ -15,7 +16,9 @@ class Nfl extends React.Component {
              <img src={NFLLogo} className = "Logos" alt="NFL" />
 
              </div>
+             <GameBar
 
+             />
         <p>NFL page!</p>
 
            </body>

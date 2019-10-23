@@ -1,0 +1,23 @@
+.gb-btn {
+    display: flex;
+    justify-content: space-between;
+    background-color: #343a40;
+    color: #ffffff;
+    border-radius: 10px;
+    font-family: Arial;
+    max-height: 150px;
+    min-height: 150px;
+    max-width: 800px;
+    min-width: 800px;
+}
+.gb-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gb-img {
+    display: block;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+}
