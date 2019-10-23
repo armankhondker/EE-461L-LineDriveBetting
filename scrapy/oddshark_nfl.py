@@ -34,27 +34,19 @@ driver.get(url)
 teamdata = driver.find_element_by_xpath("//*[@id='op-content-wrapper']/div[1]/div[1]")
 matchups = teamdata.find_elements_by_class_name('op-matchup-wrapper')
 scorelines = driver.find_element_by_id("op-results").find_elements_by_class_name('op-item-row-wrapper')
-upload = []
 systime = time.gmtime()
 for matchup, date, scoreline in zip(matchups, dates, scorelines):
     match_data = matchup.text.split('\n')
     obj = {}
 
-    obj['date'] = date
     if len(match_data) < 5:
         match_time = match_data[0]
         team1 = match_data[2]
         team2 = match_data[3]
-        obj['time'] = match_time
-        obj['team1'] = team1
-        obj['team2'] = team2
     else:
         match_time = match_data[0]
         team1 = match_data[4]
         team2 = match_data[5]
-        obj['time'] = match_time
-        obj['team1'] = team1
-        obj['team2'] = team2
     
     score_data = scoreline.text.split('\n')
     j = 0
@@ -96,6 +88,10 @@ for matchup, date, scoreline in zip(matchups, dates, scorelines):
         db.nfl_data.replace_one({'_id': match['_id']}, match)
     else:
         #make a new one
+        obj['date'] = date
+        obj['time'] = match_time
+        obj['team1'] = team1
+        obj['team2'] = team2
         obj['sys_time'] = [systime]
         obj['opening_ps_1'] = [score_data[0]]
         obj['opening_ml_1'] = [score_data[1]]
@@ -124,48 +120,3 @@ for matchup, date, scoreline in zip(matchups, dates, scorelines):
         db.nfl_data.insert_one(obj)
 
 driver.quit()
-exit()
-
-i = 0
-#if there is missing data, it might not be saved under the correct website
-for scoreline in scorelines:
-    score_data = scoreline.text.split('\n')
-    j = 0
-    if(len(score_data) < 24):
-        j = len(score_data)
-        if(j == 1):
-            score_data[0] = 'not released yet'
-        while j < 24:
-            score_data.append('not released yet')
-            j = j + 1
-    #query mongoDB to see if game is already recorded
-    #if not, do the lines below
-    #if it is, make a new function that updates the data
-    upload[i]['sys_time'] = [systime]
-    upload[i]['opening_ps_1'] = [score_data[0]]
-    upload[i]['opening_ml_1'] = [score_data[1]]
-    upload[i]['opening_ps_2'] = [score_data[2]]
-    upload[i]['opening_ml_2'] = [score_data[3]]
-    upload[i]['bovada_ps_1'] = [score_data[4]]
-    upload[i]['bovada_ml_1'] = [score_data[5]]
-    upload[i]['bovada_ps_2'] = [score_data[6]]
-    upload[i]['bovada_ml_2'] = [score_data[7]]
-    upload[i]['betonline_ps_1'] = [score_data[8]]
-    upload[i]['betonline_ml_1'] = [score_data[9]]
-    upload[i]['betonline_ps_2'] = [score_data[10]]
-    upload[i]['betonline_ml_2'] = [score_data[11]]
-    upload[i]['intertops_ps_1'] = [score_data[12]]
-    upload[i]['intertops_ml_1'] = [score_data[13]]
-    upload[i]['intertops_ps_2'] = [score_data[14]]
-    upload[i]['intertops_ml_2'] = [score_data[15]]
-    upload[i]['sportsbetting_ps_1'] = [score_data[16]]
-    upload[i]['sportsbetting_ml_1'] = [score_data[17]]
-    upload[i]['sportsbetting_ps_2'] = [score_data[18]]
-    upload[i]['sportsbetting_ml_2'] = [score_data[19]]
-    upload[i]['betnow_ps_1'] = [score_data[20]]
-    upload[i]['betnow_ml_1'] = [score_data[21]]
-    upload[i]['betnow_ps_2'] = [score_data[22]]
-    upload[i]['betnow_ml_2'] = [score_data[23]]
-    i = i + 1
-
-db.nfl_data.insert_many(upload)
