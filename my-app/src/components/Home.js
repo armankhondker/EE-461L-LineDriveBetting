@@ -5,6 +5,10 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import ImgButton from "./ImgButton";
 import Football from '../assets/images/white-football.png';
+import NFL from '../assets/images/NFL/NFL_Team_Logos/NFL_NFL.png'
+import NBA from '../assets/images/NBA/NBA_Team_Logos/NBA_NBA.png'
+import MLB from '../assets/images/MLB/MLB_Team_Logos/MLB_MLB.png'
+
 import Baseball from '../assets/images/white-baseball.png';
 import Basketball from '../assets/images/white-basketball.png';
 
@@ -22,9 +26,9 @@ class Home extends React.Component {
                     <a className="App-link" href="Nfl">NFL</a>
                     <a className="App-link" href="Mlb">MLB</a>
                     <div className="btn-row">
-                       <a href="nfl"><ImgButton image={Football} label="NFL"/></a> 
-                        <a href="Mlb"><ImgButton image={Baseball} label="MLB"/></a>
-                        <a href="nba"><ImgButton image={Basketball} label="NBA"/></a>
+                       <a href="nfl"><ImgButton image={NFL} label="NFL"/></a> 
+                        <a href="Mlb"><ImgButton image={MLB} label="MLB"/></a>
+                        <a href="nba"><ImgButton image={NBA} label="NBA"/></a>
                     </div>
                 </div>
             </div>
