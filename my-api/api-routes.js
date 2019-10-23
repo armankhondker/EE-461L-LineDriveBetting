@@ -11,7 +11,11 @@ router.get('/', function (req, res) {
 // Import nfl controller
 var nflController = require('./nflController');
 var nbaController = require('./nbaController');
-var mlbController = require('./mlbController')
+var mlbController = require('./mlbController');
+var nflPredController = require('./nflPredController');
+var nbaPredController = require('./nbaPredController');
+var mlbPredController = require('./mlbPredController');
+
 // nfl routes
 router.route('/nfl')
     .get(nflController.index)
@@ -41,5 +45,36 @@ router.route('/mlb/:mlb_id')
     .patch(mlbController.update)
     .put(mlbController.update)
     .delete(mlbController.delete);
+
+//nfl pred routes
+router.route('/nfl_pred')
+    .get(nflPredController.index)
+    .post(nflPredController.new);
+router.route('/nfl_pred/:nfl_id')
+    .get(nflPredController.view)
+    .patch(nflPredController.update)
+    .put(nflPredController.update)
+    .delete(nflPredController.delete);
+
+//nba pred routes
+router.route('/nba_pred')
+    .get(nbaPredController.index)
+    .post(nbaPredController.new);
+router.route('/nba_pred/:nba_id')
+    .get(nbaPredController.view)
+    .patch(nbaPredController.update)
+    .put(nbaPredController.update)
+    .delete(nbaPredController.delete);
+
+//mlb pred routes
+router.route('/mlb_pred')
+    .get(mlbPredController.index)
+    .post(mlbPredController.new);
+router.route('/mlb_pred/:mlb_id')
+    .get(mlbPredController.view)
+    .patch(mlbPredController.update)
+    .put(mlbPredController.update)
+    .delete(mlbPredController.delete);
+
 // Export API routes
 module.exports = router;
