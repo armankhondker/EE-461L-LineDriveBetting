@@ -1,7 +1,7 @@
 import React from 'react';
 import MLBLogo from '../assets/images/MLB.png';
 import Logo from '../assets/images/LDBLogo.png';
-import './Logos.css';
+import '../components/Logos.css';
 import './Pages.css';
 
 class Mlb extends React.Component {

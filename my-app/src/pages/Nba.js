@@ -1,7 +1,7 @@
 import React from 'react';
 import NBALogo from '../assets/images/NBA.png';
 import Logo from '../assets/images/LDBLogo.png';
-import './Logos.css';
+import '../components/Logos.css';
 import './Pages.css';
 
 class Nba extends React.Component {

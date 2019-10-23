@@ -3,7 +3,7 @@ import Logo from '../assets/images/LDBLogo.png';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
-import ImgButton from "./ImgButton";
+import ImgButton from "../components/ImgButton";
 import Football from '../assets/images/white-football.png';
 import Baseball from '../assets/images/white-baseball.png';
 import Basketball from '../assets/images/white-basketball.png';

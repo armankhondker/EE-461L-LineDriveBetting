@@ -1,7 +1,7 @@
 import React from 'react';
 import NFLLogo from '../assets/images/NFL.png';
 import Logo from '../assets/images/LDBLogo.png';
-import './Logos.css';
+import '../components/Logos.css';
 import './Pages.css';
 
 class Nfl extends React.Component {
