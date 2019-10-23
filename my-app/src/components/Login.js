@@ -39,9 +39,9 @@ class Login extends React.Component {
             </Form>
 
 
-            <ButtonToolbar className="LoginButtons">
-                <Button variant="danger">Login</Button>
-                <Button variant="light">Create Account</Button>
+            <ButtonToolbar>
+                <Button className="LoginButton" variant="danger">Login</Button>
+                <Button className="CreateAccount" variant="light">Create Account</Button>
             </ButtonToolbar>
                </body> 
                </div>
