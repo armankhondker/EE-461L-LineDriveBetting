@@ -39,18 +39,26 @@ class About extends React.Component {
       fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/stats/contributors?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&anon=true')
         .then(response => response.json())
         .then(data => this.setState({
-          rohangit: data[0].author.login == "rohanvgarg" ? data[0] : data[1].author.login == "rohanvgarg" ? data[1] : data[2].author.login == "rohanvgarg" ? data[2] : data[3].author.login == "rohanvgarg" ? data[3] : data[4].author.login == "rohanvgarg" ? data[4] : data[5],
-          punitgit: data[0].author.login == "PatelPunit" ? data[0] : data[1].author.login == "PatelPunit" ? data[1] : data[2].author.login == "PatelPunit" ? data[2] : data[3].author.login == "PatelPunit" ? data[3] : data[4].author.login == "PatelPunit" ? data[4] : data[5],
-          zachgit: data[0].author.login == "zherink" ? data[0] : data[1].author.login == "zherink" ? data[1] : data[2].author.login == "zherink" ? data[2] : data[3].author.login == "zherink" ? data[3] : data[4].author.login == "zherink" ? data[4] : data[5],
-          thiensongit: data[0].author.login == "thienson-ho" ? data[0] : data[1].author.login == "thienson-ho" ? data[1] : data[2].author.login == "thienson-ho" ? data[2] : data[3].author.login == "thienson-ho" ? data[3] : data[4].author.login == "thienson-ho" ? data[4] : data[5],
-          joshgit: data[0].author.login == "joshpapermaster" ? data[0] : data[1].author.login == "joshpapermaster" ? data[1] : data[2].author.login == "joshpapermaster" ? data[2] : data[3].author.login == "joshpapermaster" ? data[3] : data[4].author.login == "joshpapermaster" ? data[4] : data[5],
-          armangit: data[0].author.login == "ArmanKhondker" ? data[0] : data[1].author.login == "ArmanKhondker" ? data[1] : data[2].author.login == "ArmanKhondker" ? data[2] : data[3].author.login == "ArmanKhondker" ? data[3] : data[4].author.login == "ArmanKhondker" ? data[4] : data[5],
-        }));
+          rohangit: data[0].author.login === "rohanvgarg" ? data[0] : data[1].author.login === "rohanvgarg" ? data[1] : data[2].author.login === "rohanvgarg" ? data[2] : data[3].author.login === "rohanvgarg" ? data[3] : data[4].author.login === "rohanvgarg" ? data[4] : data[5],
+          punitgit: data[0].author.login === "PatelPunit" ? data[0] : data[1].author.login === "PatelPunit" ? data[1] : data[2].author.login === "PatelPunit" ? data[2] : data[3].author.login === "PatelPunit" ? data[3] : data[4].author.login === "PatelPunit" ? data[4] : data[5],
+          zachgit: data[0].author.login === "zherink" ? data[0] : data[1].author.login === "zherink" ? data[1] : data[2].author.login === "zherink" ? data[2] : data[3].author.login === "zherink" ? data[3] : data[4].author.login === "zherink" ? data[4] : data[5],
+          thiensongit: data[0].author.login === "thienson-ho" ? data[0] : data[1].author.login === "thienson-ho" ? data[1] : data[2].author.login === "thienson-ho" ? data[2] : data[3].author.login === "thienson-ho" ? data[3] : data[4].author.login === "thienson-ho" ? data[4] : data[5],
+          joshgit: data[0].author.login === "joshpapermaster" ? data[0] : data[1].author.login === "joshpapermaster" ? data[1] : data[2].author.login === "joshpapermaster" ? data[2] : data[3].author.login === "joshpapermaster" ? data[3] : data[4].author.login === "joshpapermaster" ? data[4] : data[5],
+          armangit: data[0].author.login === "ArmanKhondker" ? data[0] : data[1].author.login === "ArmanKhondker" ? data[1] : data[2].author.login === "ArmanKhondker" ? data[2] : data[3].author.login === "ArmanKhondker" ? data[3] : data[4].author.login === "ArmanKhondker" ? data[4] : data[5],
+        }), (error) => {
+          if (error) {
+            console.log(error)
+          }
+        });
         fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/issues?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&state=all')
           .then(response => response.json())
           .then(data => this.setState({
             issues: data
-          }));
+          }), (error) => {
+            if (error) {
+              console.log(error)
+            }
+          });
     }
 
     render()
@@ -65,22 +73,22 @@ class About extends React.Component {
 
         var i;
         for (i=0; i<issues.length; i++) {
-          if (issues[i].user.login == "rohanvgarg") {
+          if (issues[i].user.login === "rohanvgarg") {
             rohanIssues += 1;
           }
-          else if (issues[i].user.login == "PatelPunit") {
+          else if (issues[i].user.login === "PatelPunit") {
             punitIssues += 1;
           }
-          else if (issues[i].user.login == "zherink") {
+          else if (issues[i].user.login === "zherink") {
             zachIssues += 1;
           }
-          else if (issues[i].user.login == "thienson-ho") {
+          else if (issues[i].user.login === "thienson-ho") {
             thiensonIssues += 1;
           }
-          else if (issues[i].user.login == "joshpapermaster") {
+          else if (issues[i].user.login === "joshpapermaster") {
             joshIssues += 1;
           }
-          else if (issues[i].user.login == "ArmanKhondker") {
+          else if (issues[i].user.login === "ArmanKhondker") {
             armanIssues += 1;
           }
         }
