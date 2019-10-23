@@ -17,7 +17,12 @@ class Nfl extends React.Component {
 
              </div>
              <GameBar
-
+                league="NFL"
+                team1="HOU"
+                team2="IND"
+                dateTime=""
+                spread1="+3"
+                spread2="-3"
              />
         <p>NFL page!</p>
 

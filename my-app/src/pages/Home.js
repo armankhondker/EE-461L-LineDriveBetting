@@ -18,13 +18,13 @@ class Home extends React.Component {
                         <FormControl size="lg" type="text" placeholder="Search" className="mr-sm-2" />
                         <Button variant="outline-info">Go</Button>
                     </Form>
-                    <a className="App-link" href="Nba">NBA</a>
-                    <a className="App-link" href="Nfl">NFL</a>
-                    <a className="App-link" href="Mlb">MLB</a>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div className="btn-row">
-                       <a href="nfl"><ImgButton image={Football} label="NFL"/></a> 
-                        <a href="Mlb"><ImgButton image={Baseball} label="MLB"/></a>
-                        <a href="nba"><ImgButton image={Basketball} label="NBA"/></a>
+                       <ImgButton image={Football} label="NFL" path="nfl"/>
+                       <ImgButton image={Baseball} label="MLB" path="mlb"/>
+                       <ImgButton image={Basketball} label="NBA" path="nba"/>
                     </div>
                 </div>
             </div>

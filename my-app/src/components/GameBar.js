@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 import './GameBar.css';
 
 /**
@@ -13,31 +14,35 @@ import './GameBar.css';
  * @param props
  * @constructor
  *
- * need to get logo1 and logo2.
+ * TODO parse dateTime prop
+ * TODO figure out dynamic linking
  */
 function GameBar(props) {
     var date = '10/19';
     var time = '8:00pm';
     var day = 'Sunday';
-    var logo1 = `${props.league}/Logos/${props.league}_${props.team1}.png`;
-    var logo2 = `${props.league}/Logos/${props.league}_${props.team2}.png`;
+    var logo1 = `/${props.league}/Logos/${props.league}_${props.team1}.png`;
+    var logo2 = `/${props.league}/Logos/${props.league}_${props.team2}.png`;
+    var link = '/';
 
     return(
-        <div className="gb-btn">
-            <div className="gb-column">
-                <img src={logo1} className="gb-logo"/>
-                <h3>{props.team1}</h3>
+        <Link to={link} style={{ textDecoration: 'none' }}>
+            <div className="gb-btn" onClick="location.href='/NBA'">
+                <div className="gb-column">
+                    <img src={logo1} className="gb-logo"/>
+                    <h3>{props.team1} {props.spread1}</h3>
+                </div>
+                <div className="gb-column">
+                    <h3>{date}</h3>
+                    <h3>{day}</h3>
+                    <h3>@ {time}</h3>
+                </div>
+                <div className="gb-column">
+                    <img src={logo2} className="gb-logo"/>
+                    <h3>{props.spread2} {props.team2}</h3>
+                </div>
             </div>
-            <div className="gb-column">
-                <h3>{date}</h3>
-                <h3>{day}</h3>
-                <h3>@ {time}</h3>
-            </div>
-            <div className="gb-column">
-                <img src={logo2} className="gb-logo"/>
-                <h3>{props.team2}</h3>
-            </div>
-        </div>
+        </Link>
     );
 }
 
