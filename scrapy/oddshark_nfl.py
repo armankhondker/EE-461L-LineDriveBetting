@@ -18,7 +18,7 @@ client = MongoClient("mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7p
 db = client.sports_data
 
 driver.get(url)
-
+time.sleep(1)
 link_elements = driver.find_elements_by_class_name('full-matchup')
 links = []
 for link in link_elements:
