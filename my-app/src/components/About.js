@@ -29,7 +29,8 @@ class About extends React.Component {
         },
         armangit: {
           total: null
-        }
+        },
+        issues: []
       };
     }
 
@@ -45,15 +46,49 @@ class About extends React.Component {
           joshgit: data[0].author.login == "joshpapermaster" ? data[0] : data[1].author.login == "joshpapermaster" ? data[1] : data[2].author.login == "joshpapermaster" ? data[2] : data[3].author.login == "joshpapermaster" ? data[3] : data[4].author.login == "joshpapermaster" ? data[4] : data[5],
           armangit: data[0].author.login == "ArmanKhondker" ? data[0] : data[1].author.login == "ArmanKhondker" ? data[1] : data[2].author.login == "ArmanKhondker" ? data[2] : data[3].author.login == "ArmanKhondker" ? data[3] : data[4].author.login == "ArmanKhondker" ? data[4] : data[5],
         }));
+        fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/issues?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&state=all')
+          .then(response => response.json())
+          .then(data => this.setState({
+            issues: data
+          }));
     }
 
     render()
     {
+        var issues = this.state.issues
+        var rohanIssues = 0;
+        var punitIssues = 0;
+        var zachIssues = 0;
+        var thiensonIssues = 0;
+        var joshIssues = 0;
+        var armanIssues = 0;
+
+        var i;
+        for (i=0; i<issues.length; i++) {
+          if (issues[i].user.login == "rohanvgarg") {
+            rohanIssues += 1;
+          }
+          else if (issues[i].user.login == "PatelPunit") {
+            punitIssues += 1;
+          }
+          else if (issues[i].user.login == "zherink") {
+            zachIssues += 1;
+          }
+          else if (issues[i].user.login == "thienson-ho") {
+            thiensonIssues += 1;
+          }
+          else if (issues[i].user.login == "joshpapermaster") {
+            joshIssues += 1;
+          }
+          else if (issues[i].user.login == "ArmanKhondker") {
+            armanIssues += 1;
+          }
+        }
         return(
             <div>
             <body className="About">
            <h1>placeholder</h1>
-
+           <div className="AboutInformation">
            <p><h1 className = "AboutTitles">  Vision</h1>
            The vision for LineDriveBetting is to provide both an aggregated betting analytics
            platform that provides bettors nationwide with moneyline and point spreads from the most popular websites,
@@ -70,7 +105,7 @@ class About extends React.Component {
 
            <p><h1>LineDriveBetting Development Team</h1>
            </p>
-
+           </div>
            <ul><b>Arman Khondker</b>
            { <img class="prof_pic" src={Arman} alt="Arman" /> }
            <br></br>
@@ -84,7 +119,7 @@ class About extends React.Component {
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {armanIssues}
                <br></br>
            </ul>
 
@@ -101,7 +136,7 @@ class About extends React.Component {
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {joshIssues}
                <br></br>
            </ul>
 
@@ -119,7 +154,7 @@ class About extends React.Component {
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {punitIssues}
                <br></br>
            </ul>
 
@@ -136,7 +171,7 @@ class About extends React.Component {
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {zachIssues}
                <br></br>
            </ul>
 
@@ -153,11 +188,11 @@ class About extends React.Component {
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {thiensonIssues}
                <br></br>
            </ul>
            <ul><b>Rohan Garg</b>
-              { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }  
+              { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }
 	             <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment.
                <br></br>
@@ -169,10 +204,10 @@ class About extends React.Component {
                <br></br>
                Total Number of Unit Tests:
                <br></br>
-               Total Number of Issues:
+               Total Number of Github Issues Authored: {rohanIssues}
                <br></br>
            </ul>
-
+           <div className="AboutInformation">
            <p><h1>Data</h1>
            We will scrape data from the following websites:
            ESPN.com, FiveThirtyEight.com ,The-odds-api.com, Oddshark.com
@@ -218,7 +253,7 @@ class About extends React.Component {
            <p><h1>Link to Github</h1>
            https://github.com/ArmanKhondker/EE-461L-LineDriveBetting
            </p>
-
+           </div>
            </body>
 
             </div>
