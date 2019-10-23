@@ -2,3 +2,14 @@
     background-color: #282c34;
     height: 100vh; 
 }
+
+.LoginButton{
+    position: absolute;
+    left: 620px;
+}
+
+.CreateAccount{
+    position: absolute;
+    left: 700px;
+}
+

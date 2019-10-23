@@ -5,6 +5,8 @@ import './Pages.css';
 import Form from "react-bootstrap/Form";
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Button from "react-bootstrap/Button"
 
 class Login extends React.Component {
     render()
@@ -35,6 +37,12 @@ class Login extends React.Component {
                 </Col>
             </Form.Group>
             </Form>
+
+
+            <ButtonToolbar>
+                <Button className="LoginButton" variant="danger">Login</Button>
+                <Button className="CreateAccount" variant="light">Create Account</Button>
+            </ButtonToolbar>
                </body> 
                </div>
         );
