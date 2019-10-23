@@ -8,6 +8,5 @@ from pymongo import MongoClient
 
 client = MongoClient("mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7pi2.mongodb.net/test?retryWrites=true&w=majority")
 db = client.sports_data.nfl_data
-num1 = '303'
-num2 = '304'
-print(db.count_documents({'num1': num1, 'num2': num2}))
+date = 'October 27, 2019, 1:00 PM ET'
+print(db.count_documents({'date': date}))
