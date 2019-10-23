@@ -50,16 +50,16 @@ class About extends React.Component {
             console.log(error)
           }
         });
-        fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/issues?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&state=all')
-          .then(response => response.json())
-          .then(data => this.setState({
-            issues: data
-          }), (error) => {
-            if (error) {
-              console.log(error)
-            }
-          });
-    }
+      fetch('https://api.github.com/repos/armankhondker/ee-461l-linedrivebetting/issues?access_token=4498e22ed10af7668695cb5afa35c77ccf635b62&state=all')
+        .then(response => response.json())
+        .then(data => this.setState({
+          issues: data
+        }), (error) => {
+          if (error) {
+            console.log(error)
+          }
+        });
+      }
 
     render()
     {
@@ -93,17 +93,18 @@ class About extends React.Component {
           }
         }
         return(
-            <div>
-            <body className="About">
+            <div className="About">
            <h1>placeholder</h1>
            <div className="AboutInformation">
-           <p><h1 className = "AboutTitles">  Vision</h1>
+           <h1 className = "AboutTitles">  Vision</h1>
+           <p>
            The vision for LineDriveBetting is to provide both an aggregated betting analytics
            platform that provides bettors nationwide with moneyline and point spreads from the most popular websites,
            as well as a reddit-like blog forum to have intellectual conversations about betting lines.
            </p>
 
-           <p><h1>Intended Users</h1>
+           <h1>Intended Users</h1>
+           <p>
            LineDriveBetting aims to target all bettors and sports enthusiasts. By providing a single hub for all
            necessary betting data of their desired team as well as a discussion forum, there are numerous use cases.
            Bettors who are looking for opportune bets benefit from the display of information of different betting websites,
@@ -111,11 +112,10 @@ class About extends React.Component {
            about why they think a certain team will win all benefit from LineDriveBetting’s platform.
            </p>
 
-           <p><h1>LineDriveBetting Development Team</h1>
-           </p>
+           <h1>LineDriveBetting Development Team</h1>
            </div>
            <ul><b>Arman Khondker</b>
-           { <img class="prof_pic" src={Arman} alt="Arman" /> }
+           { <img className="prof_pic" src={Arman} alt="Arman" /> }
            <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
                <br></br>
@@ -132,7 +132,7 @@ class About extends React.Component {
            </ul>
 
            <ul><b>Josh Papermaster</b>
-              { <img class="prof_pic" src={Josh} alt="Josh" /> }
+              { <img className="prof_pic" src={Josh} alt="Josh" /> }
               <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
                <br></br>
@@ -150,7 +150,7 @@ class About extends React.Component {
 
 
            <ul><b>Punit Patel </b>
-           { <img class="prof_pic" src={Punit} alt="Punit" /> }
+           { <img className="prof_pic" src={Punit} alt="Punit" /> }
               <br></br>
                Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichmnent
                <br></br>
@@ -168,7 +168,7 @@ class About extends React.Component {
 
 
            <ul><b>Zachary Herink </b>
-           { <img class="prof_pic" src={Zachary} alt="Zachary" /> }
+           { <img className="prof_pic" src={Zachary} alt="Zachary" /> }
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
                Major: Electrical and Computer Engineering
@@ -184,7 +184,7 @@ class About extends React.Component {
            </ul>
 
           <ul><b>ThienSon Ho</b>
-              { <img class="prof_pic" src={ThienSon} alt="ThienSon" /> }
+              { <img className="prof_pic" src={ThienSon} alt="ThienSon" /> }
                <br></br>
                Bio: A senior ECE student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
@@ -200,7 +200,7 @@ class About extends React.Component {
                <br></br>
            </ul>
            <ul><b>Rohan Garg</b>
-              { <img class="prof_pic" src ={Rohan} alt = "Rohan" /> }
+              { <img className="prof_pic" src ={Rohan} alt = "Rohan" /> }
 	             <br></br>
                Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment.
                <br></br>
@@ -216,7 +216,8 @@ class About extends React.Component {
                <br></br>
            </ul>
            <div className="AboutInformation">
-           <p><h1>Data</h1>
+           <h1>Data</h1>
+           <p>
            We will scrape data from the following websites:
            ESPN.com, FiveThirtyEight.com ,The-odds-api.com, Oddshark.com
            <br></br>
@@ -242,7 +243,8 @@ class About extends React.Component {
 
            </p>
 
-           <p><h1>Tools</h1>
+           <h1>Tools</h1>
+           <p>
             React: Front End Javascript Framework
             <br></br>
             Github API: User stats dynamically pulled from Github.com
@@ -258,13 +260,13 @@ class About extends React.Component {
            </p>
 
 
-           <p><h1>Link to Github</h1>
+           <h1>Link to Github</h1>
+           <p>
            https://github.com/ArmanKhondker/EE-461L-LineDriveBetting
            </p>
            </div>
-           </body>
 
-            </div>
+          </div>
         )
     }
 
