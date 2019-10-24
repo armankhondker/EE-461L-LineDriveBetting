@@ -1,16 +1,13 @@
 .Logos {
   
         height: 20vmin;
-        margin-left: auto;
-        margin-right: auto;
+        text-align: left;
         
   }
   
   .App-logo-pages {
-      display: block;
+    text-align: center;  
       margin-left: auto;
       margin-right: auto;
      height: 10vmin; 
   }
-  
-  

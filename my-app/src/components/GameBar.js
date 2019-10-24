@@ -19,7 +19,7 @@ import './GameBar.css';
  */
 function GameBar(props) {
     var date = '10/19';
-    var time = '8:00pm';
+    var time = '7:00pm';
     var day = 'Sunday';
     var logo1 = `/${props.league}/Logos/${props.league}_${props.team1}.png`;
     var logo2 = `/${props.league}/Logos/${props.league}_${props.team2}.png`;

@@ -11,9 +11,9 @@ class Nfl extends React.Component {
         return(
         <body className = "Pages">
              <div>
-             <h1>Placeholder</h1>
-             <img src={Logo} className="App-logo-pages" alt="logo" />
              <img src={NFLLogo} className = "Logos" alt="NFL" />
+             <img src={Logo} className="App-logo-pages" alt="logo" />
+            
 
              </div>
              <GameBar
@@ -24,7 +24,28 @@ class Nfl extends React.Component {
                 spread1="+3"
                 spread2="-3"
              />
-        <p>NFL page!</p>
+
+            <br/>
+             <GameBar
+                league="NFL"
+                team1="DAL"
+                team2="GB"
+                dateTime=""
+                spread1="-6"
+                spread2="+6"
+             />
+             <br/>
+             <GameBar
+                league="NFL"
+                team1="NYG"
+                team2="NE"
+                dateTime=""
+                spread1="+10"
+                spread2="-10"
+             />
+            
+    
+
 
            </body>
            );
