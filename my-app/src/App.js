@@ -7,8 +7,9 @@ import Nba from './pages/Nba';
 import Nfl from './pages/Nfl';
 import Mlb from './pages/Mlb';
 import Home from './pages/Home';
-import Blog from './components/Blog'
-import Login from './components/Login'
+import Blog from './components/Blog';
+import Login from './components/Login';
+import NflGame from './pages/NflGame';
 import StickNavbar from "./components/StickyNavbar";
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route exact={true} path='/Mlb' render={() => (<Mlb />)}/>
             <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
             <Route exact={true} path='/Login' render={() => (<Login />)}/>
+            <Route exact={true} path='/Nflgame' render={() => (<NflGame />)}/>
          </BrowserRouter>
     );
 }
