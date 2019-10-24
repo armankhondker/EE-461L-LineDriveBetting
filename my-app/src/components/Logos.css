@@ -1,9 +1,26 @@
-.Logos {
+.NBALogos {
+    
   
-        height: 20vmin;
-        text-align: left;
+        height: 2vmin;
+        width: 100px;
+        height: 200px;
+        position: absolute;
+        left:0;
+        top:1;
         
   }
+  .NFLLogos {
+    
+  
+    height: 2vmin;
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    left:0;
+    top:1;
+    
+}
+
   
   .App-logo-pages {
     text-align: center;  
@@ -11,3 +28,15 @@
       margin-right: auto;
      height: 10vmin; 
   }
+  
+.MLBLogos {
+    
+  
+    height: 2vmin;
+    width: 200px;
+    height: 125px;
+    position: absolute;
+    left:0;
+    top:1;
+    
+}

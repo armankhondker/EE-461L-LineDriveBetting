@@ -4,6 +4,13 @@ import Logo from '../assets/images/LDBLogo.png';
 import '../components/Logos.css';
 import './Pages.css';
 import GameBar from "../components/GameBar";
+import ImgButton from "../components/ImgButton";
+import Button from "react-bootstrap/Button";
+import FormControl from "react-bootstrap/FormControl";
+import Football from '../assets/images/white-football.png';
+import Baseball from '../assets/images/white-baseball.png';
+import Basketball from '../assets/images/white-basketball.png';
+import '../components/ImgButton.css';
 
 class Nba extends React.Component {
     render()
@@ -12,7 +19,7 @@ class Nba extends React.Component {
         <body className = "Pages">
            
             <div>
-             <img src={NBALogo} className = "Logos" alt="NBA" />
+             <img src={NBALogo} className = "NBALogos" alt="NBA" />
              <img src={Logo} className="App-logo-pages" alt="logo" />
              </div>
 
@@ -44,6 +51,17 @@ class Nba extends React.Component {
                 spread2="-8"
              />
             <br/>
+            <GameBar
+                league="NBA"
+                team1="BKN"
+                team2="LAC"
+                dateTime=""
+                spread1="+4"
+                spread2="-4"
+             />
+            <br/>
+
+            
 
            </body>
            );
