@@ -1,6 +1,18 @@
 .Pages {
     background-color: #282c34;
-    min-height: flex;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.Pages-Nfl {
+    background-color: #282c34;
+    min-height: 420vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -26,7 +26,7 @@ function GameBar(props) {
     var link = '/';
 
     return(
-        <Link to={link} style={{ textDecoration: 'none' }}>
+        <Link to={props.link} style={{ textDecoration: 'none' }}>
             <div className="gb-btn" onClick="location.href='/NBA'">
                 <div className="gb-column">
                     <img src={logo1} className="gb-logo"/>
