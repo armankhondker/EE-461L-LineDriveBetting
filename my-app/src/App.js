@@ -11,6 +11,7 @@ import Blog from './components/Blog';
 import Login from './components/Login';
 import NflGame from './pages/NflGame';
 import StickNavbar from "./components/StickyNavbar";
+import ReactLoading from 'react-loading';
 
 
 class App extends React.Component{
@@ -62,13 +63,13 @@ class App extends React.Component{
                                 exact={true}
                                 path={`/Nfl/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}`}
                                 render={() => (
-                                    <NflGame/>
+                                    <NflGame gameData={value}/>
                                 )}
                             />
                         );
                     })
                 ) : (
-                    <div/>
+                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
                 )}
                 <Route exact={true} path='/Mlb' render={() => (<Mlb />)}/>
                 <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
