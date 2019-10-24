@@ -20,6 +20,10 @@ h1 {
 
 .prof_pic {
   width: 200px;
-  display: inherit; 
+  display: inherit;
+  padding: 10px;
+}
+
+.AboutInformation {
   padding: 10px;
 }
