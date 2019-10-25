@@ -61,6 +61,7 @@ class Nfl extends React.Component {
                          <>
                              <GameBar
                                  league="NFL"
+                                 date={value.date}
                                  team1={this.encodeTeam(value.team1)}
                                  team2={this.encodeTeam(value.team2)}
                                  spread1={value.opening_ps_1.slice(-1)[0]}

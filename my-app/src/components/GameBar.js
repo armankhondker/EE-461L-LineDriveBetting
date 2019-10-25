@@ -18,9 +18,13 @@ import './GameBar.css';
  * TODO figure out dynamic linking
  */
 function GameBar(props) {
-    var date = '10/19';
-    var time = '7:00pm';
-    var day = 'Sunday';
+    var dateTime = props.date;
+    console.log(props);
+    var comma1 = dateTime.indexOf(',');
+    var comma2 = dateTime.indexOf(',', comma1 + 1);
+    var date = dateTime.substring(0,comma1);
+    var time = dateTime.substring(comma2 + 1);
+    // var day = 'Sunday';
     var logo1 = `/${props.league}/Logos/${props.league}_${props.team1}.png`;
     var logo2 = `/${props.league}/Logos/${props.league}_${props.team2}.png`;
     var link = '/';
@@ -34,8 +38,7 @@ function GameBar(props) {
                 </div>
                 <div className="gb-column">
                     <h3>{date}</h3>
-                    <h3>{day}</h3>
-                    <h3>@ {time}</h3>
+                    <h3>{time}</h3>
                 </div>
                 <div className="gb-column">
                     <img src={logo2} className="gb-logo"/>
