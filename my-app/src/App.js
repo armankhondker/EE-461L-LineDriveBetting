@@ -7,24 +7,80 @@ import Nba from './pages/Nba';
 import Nfl from './pages/Nfl';
 import Mlb from './pages/Mlb';
 import Home from './pages/Home';
-import Blog from './components/Blog'
-import Login from './components/Login'
+import Blog from './components/Blog';
+import Login from './components/Login';
+import NflGame from './pages/NflGame';
 import StickNavbar from "./components/StickyNavbar";
+import ReactLoading from 'react-loading';
 
 
-function App() {
-    return (
-        <BrowserRouter>
-            <Route path ='/' render={() => (<StickNavbar />)}/>
-            <Route exact={true} path='/' render={() => (<Home />)}/>
-            <Route exact={true} path='/About' render={() => (<About />)}/>
-            <Route exact={true} path='/Nba' render={() => (<Nba />)}/>
-            <Route exact={true} path='/Nfl' render={() => (<Nfl />)}/>
-            <Route exact={true} path='/Mlb' render={() => (<Mlb />)}/>
-            <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
-            <Route exact={true} path='/Login' render={() => (<Login />)}/>
-         </BrowserRouter>
-    );
+class App extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            nflGames: null,
+        }
+    }
+
+    componentDidMount() {
+        fetch('https://cors-anywhere.herokuapp.com/nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+                'Access-Control-Allow-Credentials' : true ,
+                'Access-Control-Allow-Headers': 'X-Requested-With'
+            },
+        })
+            .then(response => {
+                response.json().then(data => {
+                    if(data.status !== 'success') {
+                        throw Error('Network request failed.')
+                    }
+                    this.setState({
+                        nflGames: data.data
+                    });
+                });
+            })
+            .catch(err => console.log(err));
+    }
+
+
+    render() {
+        var hasMounted = false;
+        if(this.state.nflGames !== null) hasMounted = true;
+
+        return (
+            <BrowserRouter>
+                <Route path ='/' render={() => (<StickNavbar />)}/>
+                <Route exact={true} path='/' render={() => (<Home />)}/>
+                <Route exact={true} path='/About' render={() => (<About />)}/>
+                <Route exact={true} path='/Nba' render={() => (<Nba />)}/>
+                <Route exact={true} path='/Nfl' render={() => (<Nfl games={this.state.nflGames} />)}/>
+                {hasMounted ? (
+                    this.state.nflGames.map((value, index) => {
+                        return (
+                            <Route
+                                key={index}
+                                exact={true}
+                                path={`/Nfl/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}`}
+                                render={() => (
+                                    <NflGame gameData={value}/>
+                                )}
+                            />
+                        );
+                    })
+                ) : (
+                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                )}
+                <Route exact={true} path='/Mlb' render={() => (<Mlb />)}/>
+                <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
+                <Route exact={true} path='/Login' render={() => (<Login />)}/>
+                <Route exact={true} path='/Nflgame' render={() => (<NflGame />)}/>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;

@@ -14,44 +14,34 @@
 }
 
 .NBALogos {
-
-
-        height: 2vmin;
-        width: 100px;
-        height: 200px;
-        position: absolute;
-        left:5mm;
-        top:1;
-
-  }
-  .NFLLogos {
-
-
+    height: 2vmin;
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    left:5mm;
+    top:1mm;
+}
+.NFLLogos {
     height: 2vmin;
     width: 150px;
     height: 200px;
     position: absolute;
     left:5mm;
     top:15mm;
-
+}
+.App-logo-pages {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  height: 10vmin;
 }
 
-
-  .App-logo-pages {
-    text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-     height: 10vmin;
-  }
-
 .MLBLogos {
-
-
     height: 2vmin;
     width: 200px;
     height: 125px;
     position: absolute;
     left:5mm;
-    top:1;
-
+    top:1mm;
 }
