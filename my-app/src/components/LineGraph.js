@@ -14,11 +14,11 @@ function LineGraph(props) {
     console.log(props.type);
 
     if(props.type === 'ml') {
-        T1 = gameData.betnow_ml_1;
-        T2 = gameData.betnow_ml_2;
+        T1 = gameData.bovada_ml_1;
+        T2 = gameData.bovada_ml_2;
     } else if(props.type === 'ps') {
-        T1 = gameData.betnow_ps_1;
-        T2 = gameData.betnow_ps_2;
+        T1 = gameData.bovada_ps_1;
+        T2 = gameData.bovada_ps_2;
     }
 
     console.log(T1);

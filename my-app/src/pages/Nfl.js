@@ -41,41 +41,40 @@ class Nfl extends React.Component {
         }
     }
 
-    render()
-    {
+    render() {
         var hasMounted = false;
         if(this.props.games !== null) hasMounted = true;
         return(
-        <div className = "Pages-Nfl">
-             <div>
-                 <br/>
-                 <img src={NFLLogo} className = "NFLLogos" alt="NFL" />
-                 <img src={Logo} className="App-logo-pages" alt="logo" />
-                 <br/>
-             </div>
-             {hasMounted ? (
-                 this.props.games.map((value, index) => {
-                     return(
-                         <React.Fragment key={index}>
-                             <GameBar
-                                 key={index}
-                                 league="NFL"
-                                 date={value.date}
-                                 team1={this.encodeTeam(value.team1)}
-                                 team2={this.encodeTeam(value.team2)}
-                                 spread1={value.opening_ps_1.slice(-1)[0]}
-                                 spread2={value.opening_ps_2.slice(-1)[0]}
-                                 link={`/Nfl/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}`}
-                             />
-                             <br/>
-                         </React.Fragment>
-                     )
-                 })
-             ) : (
-                 <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
-             )}
-           </div>
-           );
+            <div className = "Pages-Nfl">
+                 <div>
+                     <br/>
+                     <img src={NFLLogo} className = "NFLLogos" alt="NFL" />
+                     <img src={Logo} className="App-logo-pages" alt="logo" />
+                     <br/>
+                 </div>
+                 {hasMounted ? (
+                     this.props.games.map((value, index) => {
+                         return(
+                             <React.Fragment key={index}>
+                                 <GameBar
+                                     key={index}
+                                     league="NFL"
+                                     date={value.date}
+                                     team1={this.encodeTeam(value.team1)}
+                                     team2={this.encodeTeam(value.team2)}
+                                     spread1={value.opening_ps_1.slice(-1)[0]}
+                                     spread2={value.opening_ps_2.slice(-1)[0]}
+                                     link={`/Nfl/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                 />
+                                 <br/>
+                             </React.Fragment>
+                         )
+                     })
+                 ) : (
+                     <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                 )}
+            </div>
+        );
     }
 }
 
