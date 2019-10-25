@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "9dc8d240-48c1-462a-a484-dccc50dc450c",
+		"name": "LineDriveBettingAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3138c0c1-dda3-4611-a3e5-f094e4263dd0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl",
+					"protocol": "https",
+					"host": [
+						"nu97ojsfol",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"latest",
+						"api",
+						"nfl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3138c0c1-dda3-4611-a3e5-f094e4263dd0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba",
+					"protocol": "https",
+					"host": [
+						"nu97ojsfol",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"latest",
+						"api",
+						"nba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3138c0c1-dda3-4611-a3e5-f094e4263dd0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb",
+					"protocol": "https",
+					"host": [
+						"nu97ojsfol",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"latest",
+						"api",
+						"mlb"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
