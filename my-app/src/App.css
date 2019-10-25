@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: flex;
 }
 
 .App-logo {
@@ -17,9 +17,10 @@
   color: white;
 }
 .btn-row {
+  min-width: 60vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 .App-link {
   color: cyan;
