@@ -5,60 +5,77 @@ import '../components/Logos.css';
 import './Pages.css';
 import GameBar from "../components/GameBar";
 import '../components/ImgButton.css';
+import ReactLoading from "react-loading";
 
 class Nba extends React.Component {
-    render()
-    {
+    constructor(props) {
+        super(props);
+        this.state = {
+            games: props.games,
+            teams: null,
+        }
+        console.log(this.state.games);
+    }
+
+    componentDidMount() {
+        fetch('/NBA/Teams.json')
+            .then(response => {
+                response.json().then(data => {
+                    console.log(data);
+                    this.setState({
+                        teams: data
+                    });
+                })
+            })
+            .catch(err => console.log(err));
+
+    }
+
+    encodeTeam(team) {
+        if(this.state.teams === null) return 0;
+        var i;
+        var teams = this.state.teams;
+        for(i = 0; i < teams.length; i ++) {
+            if(teams[i].location === team) {
+                return teams[i].code;
+            }
+        }
+    }
+
+    render() {
+        var hasMounted = false;
+        if(this.props.games !== null) hasMounted = true;
         return(
-        <body className = "Pages">
-           
-            <div>
-             <img src={NBALogo} className = "NBALogos" alt="NBA" />
-             <img src={Logo} className="App-logo-pages" alt="logo" />
-             </div>
-
-             <GameBar
-                league="NBA"
-                team1="HOU"
-                team2="DAL"
-                dateTime=""
-                spread1="-7"
-                spread2="+7"
-             />
-            <br/>
-            < GameBar
-                league="NBA"
-                team1="WAS"
-                team2="MEM"
-                dateTime=""
-                spread1="-2"
-                spread2="+2"
-             />
-                 <br/>
-
-            <GameBar
-                league="NBA"
-                team1="GSW"
-                team2="LAL"
-                dateTime=""
-                spread1="+8"
-                spread2="-8"
-             />
-            <br/>
-            <GameBar
-                league="NBA"
-                team1="BKN"
-                team2="LAC"
-                dateTime=""
-                spread1="+4"
-                spread2="-4"
-             />
-            <br/>
-
-            
-
-           </body>
-           );
+            <div className = "Pages-Nfl">
+                <div>
+                    <br/>
+                    <img src={NBALogo} className = "NBALogos" alt="NBA" />
+                    <img src={Logo} className="App-logo-pages" alt="logo" />
+                    <br/>
+                </div>
+                {hasMounted ? (
+                    this.props.games.map((value, index) => {
+                        return(
+                            <React.Fragment key={index}>
+                                <GameBar
+                                    key={index}
+                                    league="NBA"
+                                    date={value.date}
+                                    team1={this.encodeTeam(value.team1)}
+                                    team2={this.encodeTeam(value.team2)}
+                                    spread1={value.opening_ps_1.slice(-1)[0]}
+                                    spread2={value.opening_ps_2.slice(-1)[0]}
+                                    link={`/Nba/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                />
+                                <br/>
+                            </React.Fragment>
+                        )
+                    })
+                ) : (
+                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                )}
+            </div>
+        );
     }
 }
 
