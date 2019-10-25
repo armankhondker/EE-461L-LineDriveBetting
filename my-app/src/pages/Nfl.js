@@ -45,8 +45,6 @@ class Nfl extends React.Component {
     {
         var hasMounted = false;
         if(this.props.games !== null) hasMounted = true;
-        console.log("NFL mounted" + hasMounted);
-        console.log(this.state.teams);
         return(
         <div className = "Pages-Nfl">
              <div>
@@ -58,8 +56,9 @@ class Nfl extends React.Component {
              {hasMounted ? (
                  this.props.games.map((value, index) => {
                      return(
-                         <>
+                         <React.Fragment key={index}>
                              <GameBar
+                                 key={index}
                                  league="NFL"
                                  date={value.date}
                                  team1={this.encodeTeam(value.team1)}
@@ -69,7 +68,7 @@ class Nfl extends React.Component {
                                  link={`/Nfl/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}`}
                              />
                              <br/>
-                         </>
+                         </React.Fragment>
                      )
                  })
              ) : (

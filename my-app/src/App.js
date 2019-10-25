@@ -36,7 +36,6 @@ class App extends React.Component{
                     this.setState({
                         nflGames: data.data
                     });
-                    console.log(data.data)
                 });
             })
             .catch(err => console.log(err));
@@ -46,7 +45,6 @@ class App extends React.Component{
     render() {
         var hasMounted = false;
         if(this.state.nflGames !== null) hasMounted = true;
-        console.log("hasMounted" + hasMounted);
 
         return (
             <BrowserRouter>

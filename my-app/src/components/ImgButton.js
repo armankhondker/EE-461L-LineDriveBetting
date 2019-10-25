@@ -9,7 +9,7 @@ function ImgButton(props) {
     return(
         <Link to={link} style={{ textDecoration: 'none' }}>
             <button className="img-button" onClick="location.href='/NFL'">
-                <img className="btn-img" src={props.image}/>
+                <img className="btn-img" src={props.image} alt="Logo"/>
                 {props.label}
             </button>
         </Link>

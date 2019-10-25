@@ -19,7 +19,6 @@ import './GameBar.css';
  */
 function GameBar(props) {
     var dateTime = props.date;
-    console.log(props);
     var comma1 = dateTime.indexOf(',');
     var comma2 = dateTime.indexOf(',', comma1 + 1);
     var date = dateTime.substring(0,comma1);
@@ -27,13 +26,12 @@ function GameBar(props) {
     // var day = 'Sunday';
     var logo1 = `/${props.league}/Logos/${props.league}_${props.team1}.png`;
     var logo2 = `/${props.league}/Logos/${props.league}_${props.team2}.png`;
-    var link = '/';
 
     return(
         <Link to={props.link} style={{ textDecoration: 'none' }}>
-            <div className="gb-btn" onClick="location.href='/NBA'">
+            <div className="gb-btn" onClick={() => "location.href='/NBA'"}>
                 <div className="gb-column">
-                    <img src={logo1} className="gb-logo"/>
+                    <img src={logo1} className="gb-logo" alt="Logo"/>
                     <h3>{props.team1} {props.spread1}</h3>
                 </div>
                 <div className="gb-column">
@@ -41,7 +39,7 @@ function GameBar(props) {
                     <h3>{time}</h3>
                 </div>
                 <div className="gb-column">
-                    <img src={logo2} className="gb-logo"/>
+                    <img src={logo2} className="gb-logo" alt="Logo"/>
                     <h3>{props.spread2} {props.team2}</h3>
                 </div>
             </div>
