@@ -16,12 +16,13 @@ class Login extends React.Component {
         data: [
           {
             username: null,
-            password: null,
-            realPassword: null
+            password: null
           }
         ],
+        response: null,
         username: "",
         password: "",
+        realPassword: "",
         message: ""
         };
         this.checkIfAccountExists = this.checkIfAccountExists.bind(this);
@@ -31,21 +32,32 @@ class Login extends React.Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
-    checkIfAccountExists() {
-      fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
+    componentDidMount() {
+      fetch('https://cors-anywhere.herokuapp.com/e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
+        method: 'GET',
         mode: 'cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+          'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+          'Access-Control-Allow-Credentials' : true ,
+          'Access-Control-Allow-Headers': 'X-Requested-With'
+        },
       })
         .then(response => response.json())
         .then(data => this.setState({
-          data: data
+          data: data.data
         }), (error) => {
           if (error) {
             console.log(error)
           }
       });
+    }
+
+    checkIfAccountExists() {
       var i;
-      for (i=0; i<this.state.data.length; i++) {
-        if(this.state.username === this.state.data[i].username)
+      var logins = this.state.data;
+      for (i=0; i<logins.length; i++) {
+        if(this.state.username === logins[i].username)
           return true;
       }
       return false;
@@ -53,21 +65,22 @@ class Login extends React.Component {
 
     handleLogin(event) {
       event.preventDefault();
-      fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts')
-        .then(response => response.json())
-        .then(data => this.setState({
-          data: data
-        }), (error) => {
-          if (error) {
-            console.log(error)
-          }
-      });
+      let un = localStorage.getItem('username');
+      let str1 = "Already logged in as ";
+      if (un == null) {}
+      else if(un.length>0) {
+        this.setState({
+          message:  str1.concat(un)
+        })
+        return;
+      }
       var i;
       for (i=0; i<this.state.data.length; i++) {
-        if(this.state.username === this.state.data[i].username && this.state.password === this.state.data[i].password)
-        this.setState({
-          message: "Successful login. More features to be implemented in phase 3"
-        })
+        if(this.state.username === this.state.data[i].username && this.state.realPassword === this.state.data[i].password) {
+          localStorage.setItem('username', this.state.username);
+          document.location.href="/";
+          return;
+        }
       }
       this.setState({
         message: "Incorrect username or password"
@@ -76,6 +89,15 @@ class Login extends React.Component {
 
     createAccount(event) {
       event.preventDefault();
+      let un = localStorage.getItem('username');
+      let str1 = "Already logged in as ";
+      if (un == null) {}
+      else if(un.length>0) {
+        this.setState({
+          message:  str1.concat(un)
+        })
+        return;
+      }
       if (this.checkIfAccountExists() === true) {
         this.setState({
           message: "This account username already exists"
@@ -84,7 +106,7 @@ class Login extends React.Component {
       }
       var details = {
         'username': this.state.username,
-        'password': this.state.password
+        'password': this.state.realPassword
       };
       var formBody = [];
       for (var property in details) {
@@ -93,22 +115,31 @@ class Login extends React.Component {
         formBody.push(encodedKey + "=" + encodedValue);
       }
       formBody = formBody.join("&");
-      fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
+      fetch('https://cors-anywhere.herokuapp.com/e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
           method: 'POST',
-          mode: 'no-cors',
+          mode: 'cors',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
             'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
             'Access-Control-Allow-Credentials' : true ,
-            'Access-Control-Allow-Headers': 'x-auth, content-type'
+            'Access-Control-Allow-Headers': 'X-Requested-With'
           },
           body: formBody
         })
+        .then(response => response.json())
+        .then(data => this.setState({
+          response: data
+        }), (error) => {
+          if (error) {
+            console.log(error)
+          }
+        });
       this.setState({
         message: "Successful account creation"
       })
+      localStorage.setItem('username', this.state.username);
+      document.location.href="/";
     }
-
 
     handleUsernameChange(e) {
        this.setState({username: e.target.value});
