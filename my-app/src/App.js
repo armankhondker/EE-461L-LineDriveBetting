@@ -23,11 +23,16 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        // const url = 'https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl';
-        const url = 'http://localhost:8080/api/nfl';
-        fetch(url, {
-                mode: "cors",
-            })
+        fetch('https://cors-anywhere.herokuapp.com/nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+                'Access-Control-Allow-Credentials' : true ,
+                'Access-Control-Allow-Headers': 'X-Requested-With'
+            },
+        })
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
