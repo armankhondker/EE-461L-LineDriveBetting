@@ -34,6 +34,8 @@ for link in links:
     dates.append(date)
 
 driver.get(url)
+driver.find_element_by_xpath('//*[@id="op-sticky-header-wrapper"]/div[1]/div/button').click()
+driver.find_element_by_xpath('//*[@id="op-sticky-header-wrapper"]/div[1]/div/ul/li[2]/a').click()
 teamdata = driver.find_element_by_xpath("//*[@id='op-content-wrapper']/div[1]/div[1]")
 matchups = teamdata.find_elements_by_class_name('op-matchup-wrapper')
 scorelines = driver.find_element_by_id("op-results").find_elements_by_class_name('op-item-row-wrapper')
