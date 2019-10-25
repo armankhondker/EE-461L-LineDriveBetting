@@ -11,7 +11,6 @@ import Football from '../assets/images/white-football.png';
 
 import Baseball from '../assets/images/white-baseball.png';
 import Basketball from '../assets/images/white-basketball.png';
-import LineGraph from "../components/LineGraph";
 
 class Home extends React.Component {
     render() {

@@ -4,63 +4,78 @@ import Logo from '../assets/images/LDBLogo.png';
 import '../components/Logos.css';
 import './Pages.css';
 import GameBar from "../components/GameBar";
+import ReactLoading from "react-loading";
 
 class Mlb extends React.Component {
-    render()
-    {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            games: props.games,
+            teams: null,
+        }
+        console.log(this.state.games);
+    }
+
+    componentDidMount() {
+        fetch('/Mlb/Teams.json')
+            .then(response => {
+                response.json().then(data => {
+                    console.log(data);
+                    this.setState({
+                        teams: data
+                    });
+                })
+            })
+            .catch(err => console.log(err));
+
+    }
+
+    encodeTeam(team) {
+        if(this.state.teams === null) return 0;
+        var i;
+        var teams = this.state.teams;
+        for(i = 0; i < teams.length; i ++) {
+            if(teams[i].location === team) {
+                return teams[i].abbreviation;
+            }
+        }
+    }
+
+    render() {
+        var hasMounted = false;
+        if(this.props.games !== null) hasMounted = true;
         return(
-        <body className = "Pages">
-            <div>
-            <img src={MLBLogo} className = "MLBLogos" alt="MLB" />
-             
-            
-
-             </div>
-
-             <div>
-
-             <img src={Logo} className="App-logo-pages" alt="logo" />    
-             </div>
-             <GameBar
-                league="MLB"
-                team1="HOU"
-                team2="WAS"
-                dateTime=""
-                spread1="-1.5"
-                spread2="+1.5"
-             />
-            <br/>
-            < GameBar
-                league="MLB"
-                team1="TEX"
-                team2="STL"
-                dateTime=""
-                spread1="-2"
-                spread2="+2"
-             />
-                 <br/>
-
-            <GameBar
-                league="MLB"
-                team1="LAD"
-                team2="BOS"
-                dateTime=""
-                spread1="+0.5"
-                spread2="-0.5"
-             />
-            <br/>
-            <GameBar
-                league="MLB"
-                team1="CHC"
-                team2="OAK"
-                dateTime=""
-                spread1="+0.5"
-                spread2="-0.5"
-             />
-            <br/>
-
-           </body>
-           );
+            <div className = "Pages-Nfl">
+                <div>
+                    <br/>
+                    <img src={MLBLogo} className = "MLBLogos" alt="MLB" />
+                    <img src={Logo} className="App-logo-pages" alt="logo" />
+                    <br/>
+                </div>
+                {hasMounted ? (
+                    this.props.games.map((value, index) => {
+                        return(
+                            <React.Fragment key={index}>
+                                <GameBar
+                                    key={index}
+                                    league="MLB"
+                                    date={value.date}
+                                    team1={this.encodeTeam(value.team1)}
+                                    team2={this.encodeTeam(value.team2)}
+                                    spread1={value.opening_ps_1.slice(-1)[0]}
+                                    spread2={value.opening_ps_2.slice(-1)[0]}
+                                    link={`/Mlb/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                />
+                                <br/>
+                            </React.Fragment>
+                        )
+                    })
+                ) : (
+                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                )}
+            </div>
+        );
     }
 }
 

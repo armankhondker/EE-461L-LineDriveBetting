@@ -3,7 +3,7 @@ import './Pages.css';
 import OddsTable from "../components/OddsTable";
 import LineGraph from "../components/LineGraph";
 
-function NflGame(props) {
+function Game(props) {
     var gameData = props.gameData;
 
     return(
@@ -57,4 +57,4 @@ function NflGame(props) {
     );
 }
 
-export default NflGame;
+export default Game;

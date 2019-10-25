@@ -1,182 +1,182 @@
 [
   {
-    "abbreviation": "ATL",
-    "teamName": "Atlanta Hawks",
-    "simpleName": "Hawks",
+    "code": "ATL",
+    "fullName": "Atlanta Hawks",
+    "shortName": "Hawks",
     "location": "Atlanta"
   },
   {
-    "abbreviation": "BOS",
-    "teamName": "Boston Celtics",
-    "simpleName": "Celtics",
+    "code": "BOS",
+    "fullName": "Boston Celtics",
+    "shortName": "Celtics",
     "location": "Boston"
   },
   {
-    "abbreviation": "BKN",
-    "teamName": "Brooklyn Nets",
-    "simpleName": "Nets",
+    "code": "BKN",
+    "fullName": "Brooklyn Nets",
+    "shortName": "Nets",
     "location": "Brooklyn"
   },
   {
-    "abbreviation": "CHA",
-    "teamName": "Charlotte Hornets",
-    "simpleName": "Hornets",
+    "code": "CHA",
+    "fullName": "Charlotte Hornets",
+    "shortName": "Hornets",
     "location": "Charlotte"
   },
   {
-    "abbreviation": "CHI",
-    "teamName": "Chicago Bulls",
-    "simpleName": "Bulls",
+    "code": "CHI",
+    "fullName": "Chicago Bulls",
+    "shortName": "Bulls",
     "location": "Chicago"
   },
   {
-    "abbreviation": "CLE",
-    "teamName": "Cleveland Cavaliers",
-    "simpleName": "Cavaliers",
+    "code": "CLE",
+    "fullName": "Cleveland Cavaliers",
+    "shortName": "Cavaliers",
     "location": "Cleveland"
   },
   {
-    "abbreviation": "DAL",
-    "teamName": "Dallas Mavericks",
-    "simpleName": "Mavericks",
+    "code": "DAL",
+    "fullName": "Dallas Mavericks",
+    "shortName": "Mavericks",
     "location": "Dallas"
   },
   {
-    "abbreviation": "DEN",
-    "teamName": "Denver Nuggets",
-    "simpleName": "Nuggets",
+    "code": "DEN",
+    "fullName": "Denver Nuggets",
+    "shortName": "Nuggets",
     "location": "Denver"
   },
   {
-    "abbreviation": "DET",
-    "teamName": "Detroit Pistons",
-    "simpleName": "Pistons",
+    "code": "DET",
+    "fullName": "Detroit Pistons",
+    "shortName": "Pistons",
     "location": "Detroit"
   },
   {
-    "abbreviation": "GSW",
-    "teamName": "Golden State Warriors",
-    "simpleName": "Warriors",
+    "code": "GSW",
+    "fullName": "Golden State Warriors",
+    "shortName": "Warriors",
     "location": "Golden State"
   },
   {
-    "abbreviation": "HOU",
-    "teamName": "Houston Rockets",
-    "simpleName": "Rockets",
+    "code": "HOU",
+    "fullName": "Houston Rockets",
+    "shortName": "Rockets",
     "location": "Houston"
   },
   {
-    "abbreviation": "IND",
-    "teamName": "Indiana Pacers",
-    "simpleName": "Pacers",
+    "code": "IND",
+    "fullName": "Indiana Pacers",
+    "shortName": "Pacers",
     "location": "Indiana"
   },
   {
-    "abbreviation": "LAC",
-    "teamName": "Los Angeles Clippers",
-    "simpleName": "Clippers",
-    "location": "Los Angeles"
+    "code": "LAC",
+    "fullName": "Los Angeles Clippers",
+    "shortName": "Clippers",
+    "location": "LA Clippers"
   },
   {
-    "abbreviation": "LAL",
-    "teamName": "Los Angeles Lakers",
-    "simpleName": "Lakers",
-    "location": "Los Angeles"
+    "code": "LAL",
+    "fullName": "Los Angeles Lakers",
+    "shortName": "Lakers",
+    "location": "LA Lakers"
   },
   {
-    "abbreviation": "MEM",
-    "teamName": "Memphis Grizzlies",
-    "simpleName": "Grizzlies",
+    "code": "MEM",
+    "fullName": "Memphis Grizzlies",
+    "shortName": "Grizzlies",
     "location": "Memphis"
   },
   {
-    "abbreviation": "MIA",
-    "teamName": "Miami Heat",
-    "simpleName": "Heat",
+    "code": "MIA",
+    "fullName": "Miami Heat",
+    "shortName": "Heat",
     "location": "Miami"
   },
   {
-    "abbreviation": "MIL",
-    "teamName": "Milwaukee Bucks",
-    "simpleName": "Bucks",
+    "code": "MIL",
+    "fullName": "Milwaukee Bucks",
+    "shortName": "Bucks",
     "location": "Milwaukee"
   },
   {
-    "abbreviation": "MIN",
-    "teamName": "Minnesota Timberwolves",
-    "simpleName": "Timberwolves",
+    "code": "MIN",
+    "fullName": "Minnesota Timberwolves",
+    "shortName": "Timberwolves",
     "location": "Minnesota"
   },
   {
-    "abbreviation": "NOP",
-    "teamName": "New Orleans Pelicans",
-    "simpleName": "Pelicans",
+    "code": "NOP",
+    "fullName": "New Orleans Pelicans",
+    "shortName": "Pelicans",
     "location": "New Orleans"
   },
   {
-    "abbreviation": "NYK",
-    "teamName": "New York Knicks",
-    "simpleName": "Knicks",
+    "code": "NYK",
+    "fullName": "New York Knicks",
+    "shortName": "Knicks",
     "location": "New York"
   },
   {
-    "abbreviation": "OKC",
-    "teamName": "Oklahoma City Thunder",
-    "simpleName": "Thunder",
+    "code": "OKC",
+    "fullName": "Oklahoma City Thunder",
+    "shortName": "Thunder",
     "location": "Oklahoma City"
   },
   {
-    "abbreviation": "ORL",
-    "teamName": "Orlando Magic",
-    "simpleName": "Magic",
+    "code": "ORL",
+    "fullName": "Orlando Magic",
+    "shortName": "Magic",
     "location": "Orlando"
   },
   {
-    "abbreviation": "PHI",
-    "teamName": "Philadelphia 76ers",
-    "simpleName": "76ers",
+    "code": "PHI",
+    "fullName": "Philadelphia 76ers",
+    "shortName": "76ers",
     "location": "Philadelphia"
   },
   {
-    "abbreviation": "PHX",
-    "teamName": "Phoenix Suns",
-    "simpleName": "Suns",
+    "code": "PHX",
+    "fullName": "Phoenix Suns",
+    "shortName": "Suns",
     "location": "Phoenix"
   },
   {
-    "abbreviation": "POR",
-    "teamName": "Portland Trail Blazers",
-    "simpleName": "Trail Blazers",
+    "code": "POR",
+    "fullName": "Portland Trail Blazers",
+    "shortName": "Trail Blazers",
     "location": "Portland"
   },
   {
-    "abbreviation": "SAC",
-    "teamName": "Sacramento Kings",
-    "simpleName": "Kings",
+    "code": "SAC",
+    "fullName": "Sacramento Kings",
+    "shortName": "Kings",
     "location": "Sacramento"
   },
   {
-    "abbreviation": "SAS",
-    "teamName": "San Antonio Spurs",
-    "simpleName": "Spurs",
+    "code": "SAS",
+    "fullName": "San Antonio Spurs",
+    "shortName": "Spurs",
     "location": "San Antonio"
   },
   {
-    "abbreviation": "TOR",
-    "teamName": "Toronto Raptors",
-    "simpleName": "Raptors",
+    "code": "TOR",
+    "fullName": "Toronto Raptors",
+    "shortName": "Raptors",
     "location": "Toronto"
   },
   {
-    "abbreviation": "UTA",
-    "teamName": "Utah Jazz",
-    "simpleName": "Jazz",
+    "code": "UTA",
+    "fullName": "Utah Jazz",
+    "shortName": "Jazz",
     "location": "Utah"
   },
   {
-    "abbreviation": "WAS",
-    "teamName": "Washington Wizards",
-    "simpleName": "Wizards",
+    "code": "WAS",
+    "fullName": "Washington Wizards",
+    "shortName": "Wizards",
     "location": "Washington"
   }
 ]
