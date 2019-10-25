@@ -1,23 +1,39 @@
-import React from 'react';
+
 import Logo from '../assets/images/LDBLogo.png';
 import './Logos.css';
 import '../pages/Pages.css';
+import React, { Component } from 'react';
+import { Widget, addResponseMessage } from 'react-chat-widget';
+import 'react-chat-widget/lib/styles.css';
 
-class Blog extends React.Component {
-    render()
-    {
-        return(
-            <div className = "App">
-            <body className = "Pages">
-                 <h1>Placeholder</h1>
-                 <img src={Logo} className="App-logo-pages" alt="logo" />
+class App extends Component {
+  componentDidMount() {
+    addResponseMessage("Who do you think will win?");
+  }
 
-           <h2>BLOG POSTS HERE</h2>
+  handleNewUserMessage = (newMessage) => {
+    console.log(`New message incomig! ${newMessage}`);
+    // Now send the message throught the backend API
+  }
 
-               </body>
-
-               </div>
-        );
-    }
+  render() {
+    return (
+      <div className="App">
+        <Widget
+          handleNewUserMessage={this.handleNewUserMessage}
+          profileAvatar={Logo}
+          title="LineDriveBetting"
+          subtitle="Share your Opinions Here!"
+        />
+      </div>
+    );
+  } 
 }
-export default Blog;
+
+export default App;
+
+
+
+
+
+
