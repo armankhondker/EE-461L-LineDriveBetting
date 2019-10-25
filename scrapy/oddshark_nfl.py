@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -11,7 +12,9 @@ import time
 
 url = 'https://www.oddsshark.com/nfl/odds'
 
-driver = webdriver.Chrome()
+options = Options()
+options.headless = True
+driver = webdriver.Chrome(options=options)
 driver.implicitly_wait(10)
 
 client = MongoClient("mongodb+srv://linedrivebetting:texaslonghorns@cluster0-w7pi2.mongodb.net/test?retryWrites=true&w=majority")
