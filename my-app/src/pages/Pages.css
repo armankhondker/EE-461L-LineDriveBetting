@@ -11,7 +11,8 @@
 }
 .Pages-Nfl {
     background-color: #282c34;
-    min-height: 420vh;
+    min-height: 100vh;
+    height: fit-content;
     overflow: hidden;
     display: flex;
     flex-direction: column;

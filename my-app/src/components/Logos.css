@@ -23,10 +23,11 @@
 
   
   .App-logo-pages {
-    text-align: center;  
+      text-align: center;
       margin-left: auto;
       margin-right: auto;
-     height: 10vmin; 
+      margin-top: 20px;
+      height: 10vmin;
   }
   
 .MLBLogos {

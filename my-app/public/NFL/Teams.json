@@ -91,13 +91,13 @@
               },
               {
                   "code": "NYG",
-                  "fullName": "N.Y. Giants",
-                  "shortName": "N.Y. Giants"
+                  "fullName": "New York Giants",
+                  "shortName": "NY Giants"
               },
               {
                   "code": "NYJ",
-                  "fullName": "N.Y. Jets",
-                  "shortName": "N.Y. Jets"
+                  "fullName": "New York Jets",
+                  "shortName": "NY Jets"
               },
               {
                   "code": "NE",
@@ -125,9 +125,9 @@
                   "shortName": "Pittsburgh"
               },
               {
-                  "code": "SD",
-                  "fullName": "San Diego Chargers",
-                  "shortName": "San Diego"
+                  "code": "LAC",
+                  "fullName": "Los Angeles Chargers",
+                  "shortName": "LA Chargers"
               },
               {
                   "code": "SF",
@@ -140,9 +140,9 @@
                   "shortName": "Seattle"
               },
               {
-                  "code": "STL",
-                  "fullName": "St. Louis Rams",
-                  "shortName": "St. Louis"
+                  "code": "LAR",
+                  "fullName": "Los Angeles Rams",
+                  "shortName": "LA Rams"
               },
               {
                   "code": "TB",
@@ -159,3 +159,4 @@
                   "fullName": "Washington Redskins",
                   "shortName": "Washington"
               }
+  ]
