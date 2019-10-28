@@ -166,7 +166,6 @@ class Login extends React.Component {
     {
         return(
             <body className = "Pages App">
-                 <h1>Placeholder</h1>
                  <img src={Logo} className="App-logo-pages" alt="logo" />
 
              <Form>
