@@ -19,6 +19,7 @@ class Login extends React.Component {
             password: null
           }
         ],
+        isLoaded: false,
         response: null,
         username: "",
         password: "",
@@ -51,7 +52,8 @@ class Login extends React.Component {
       })
       .then(response => response.json())
       .then(data => this.setState({
-        data: data.data
+        data: data.data,
+        isLoaded: true
       }), (error) => {
         if (error) {
           console.log(error)
@@ -75,7 +77,6 @@ class Login extends React.Component {
     }
 
     handleLogin(event) {
-      event.preventDefault();
       let un = localStorage.getItem('username');
       let str1 = "Already logged in as ";
       if (un == null) {}
@@ -99,7 +100,6 @@ class Login extends React.Component {
     }
 
     createAccount(event) {
-      event.preventDefault();
       let un = localStorage.getItem('username');
       let str1 = "Already logged in as ";
       if (un == null) {}
@@ -109,7 +109,6 @@ class Login extends React.Component {
         })
         return;
       }
-      debugger;
       if (this.checkIfAccountExists() === true) {
         this.setState({
           message: "This account username already exists"
