@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 // Setup schema
 var mlbGameSchema = mongoose.Schema({
   time: String,
-  num1: String,
-  num2: String,
+  date: String,
   team1: String,
   team2: String,
   sys_time: Array,
