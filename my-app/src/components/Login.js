@@ -27,12 +27,18 @@ class Login extends React.Component {
         };
         this.checkIfAccountExists = this.checkIfAccountExists.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
         this.createAccount = this.createAccount.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.updateData = this.updateData.bind(this);
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
+      this.updateData();
+    }
+
+    updateData() {
       fetch('https://cors-anywhere.herokuapp.com/e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
         method: 'GET',
         mode: 'cors',
@@ -43,13 +49,13 @@ class Login extends React.Component {
           'Access-Control-Allow-Headers': 'X-Requested-With'
         },
       })
-        .then(response => response.json())
-        .then(data => this.setState({
-          data: data.data
-        }), (error) => {
-          if (error) {
-            console.log(error)
-          }
+      .then(response => response.json())
+      .then(data => this.setState({
+        data: data.data
+      }), (error) => {
+        if (error) {
+          console.log(error)
+        }
       });
     }
 
@@ -61,6 +67,11 @@ class Login extends React.Component {
           return true;
       }
       return false;
+    }
+
+    handleLogout() {
+      localStorage.clear();
+      document.location.href="/";
     }
 
     handleLogin(event) {
@@ -98,6 +109,7 @@ class Login extends React.Component {
         })
         return;
       }
+      debugger;
       if (this.checkIfAccountExists() === true) {
         this.setState({
           message: "This account username already exists"
@@ -115,30 +127,30 @@ class Login extends React.Component {
         formBody.push(encodedKey + "=" + encodedValue);
       }
       formBody = formBody.join("&");
-      fetch('https://cors-anywhere.herokuapp.com/e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
+      fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
           method: 'POST',
-          mode: 'cors',
+          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
             'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
             'Access-Control-Allow-Credentials' : true ,
-            'Access-Control-Allow-Headers': 'X-Requested-With'
+            'Access-Control-Allow-Headers': 'x-auth, content-type'
           },
           body: formBody
-        })
-        .then(response => response.json())
-        .then(data => this.setState({
-          response: data
-        }), (error) => {
-          if (error) {
-            console.log(error)
-          }
-        });
-      this.setState({
-        message: "Successful account creation"
       })
-      localStorage.setItem('username', this.state.username);
-      document.location.href="/";
+      .then(response => response.json())
+      .then(data => this.setState({
+        response: data
+      }), (error) => {
+        if (error) {
+          console.log(error)
+        }
+      });
+    this.setState({
+      message: "Successful account creation"
+    })
+    localStorage.setItem('username', this.state.username);
+    document.location.href="/";
     }
 
     handleUsernameChange(e) {
@@ -165,12 +177,12 @@ class Login extends React.Component {
     render()
     {
         return(
-            <body className = "Pages App">
+            <div className = "Pages App">
                  <img src={Logo} className="App-logo-pages" alt="logo" />
 
              <Form>
 
-            <Form.Group as={Row} className = "login" controlId="formPlaintextPassword">
+            <Form.Group as={Row} className = "login" controlId="formPlaintextUsername">
                 <Form.Label column sm="3">
                 Username
                 </Form.Label>
@@ -193,9 +205,10 @@ class Login extends React.Component {
             <ButtonToolbar>
                 <Button onClick={this.handleLogin} className="LoginButton" variant="danger">Login</Button>
                 <Button onClick={this.createAccount} className="CreateAccount" variant="light">Create Account</Button>
+                <Button onClick={this.handleLogout} className="LoginButton" variant="light">Logout</Button>
             </ButtonToolbar>
             <p>{this.state.message}</p>
-               </body>
+               </div>
         );
     }
 }

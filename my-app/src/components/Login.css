@@ -1,15 +1,12 @@
 .Pages {
     background-color: #282c34;
-    height: 100vh; 
+    height: 100vh;
 }
 
-.LoginButton{
-    position: absolute;
-    left: 620px;
+.form-label {
+  margin-right: 10px; 
 }
 
-.CreateAccount{
-    position: absolute;
-    left: 700px;
+svg {
+  display: none;
 }
-
