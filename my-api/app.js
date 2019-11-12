@@ -11,6 +11,10 @@ let app = express();
 // Import routes
 let apiRoutes = require("./api-routes");
 // Configure bodyparser to handle post requests
+
+// Needed for cors
+let cors = require('cors');
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -32,7 +36,9 @@ var port = process.env.PORT || 8080;
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World!'));
 
+app.use(cors());
 // Use Api routes in the App
+
 app.use('/api', apiRoutes);
 
 //Launch to lambda
