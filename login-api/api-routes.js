@@ -8,8 +8,9 @@ router.get('/', function (req, res) {
         message: 'Welcome to RESTHub crafted with love!',
     });
 });
-// Import account controller
+// Import controllers
 var accountController = require('./accountController');
+var blogController = require('./blogController');
 
 // account routes
 router.route('/accounts')
