@@ -18,7 +18,7 @@ class Mlb extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/Mlb/Teams.json')
+        fetch('/MLB/Teams.json')
             .then(response => {
                 response.json().then(data => {
                     console.log(data);

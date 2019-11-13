@@ -27,13 +27,14 @@ class Login extends React.Component {
         };
         this.checkIfAccountExists = this.checkIfAccountExists.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
         this.createAccount = this.createAccount.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
     componentDidMount() {
-      fetch('https://cors-anywhere.herokuapp.com/e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
+      fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -87,6 +88,12 @@ class Login extends React.Component {
       })
     }
 
+    handleLogout(event) {
+      event.preventDefault();
+      localStorage.clear();
+      document.location.href="/";
+    }
+
     createAccount(event) {
       event.preventDefault();
       let un = localStorage.getItem('username');
@@ -95,6 +102,18 @@ class Login extends React.Component {
       else if(un.length>0) {
         this.setState({
           message:  str1.concat(un)
+        })
+        return;
+      }
+      if (this.state.username.length < 4) {
+        this.setState({
+          message: "Username must be at least 4 characters"
+        })
+        return;
+      }
+      if (this.state.password.length < 1) {
+        this.setState({
+          message: "Password cannot be empty"
         })
         return;
       }
@@ -115,14 +134,14 @@ class Login extends React.Component {
         formBody.push(encodedKey + "=" + encodedValue);
       }
       formBody = formBody.join("&");
-      fetch('https://cors-anywhere.herokuapp.com/e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
+      fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts', {
           method: 'POST',
-          mode: 'cors',
+          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
             'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
             'Access-Control-Allow-Credentials' : true ,
-            'Access-Control-Allow-Headers': 'X-Requested-With'
+            'Access-Control-Allow-Headers': 'x-auth, content-type'
           },
           body: formBody
         })
@@ -166,7 +185,6 @@ class Login extends React.Component {
     {
         return(
             <body className = "Pages App">
-                 <h1>Placeholder</h1>
                  <img src={Logo} className="App-logo-pages" alt="logo" />
 
              <Form>
@@ -194,6 +212,7 @@ class Login extends React.Component {
             <ButtonToolbar>
                 <Button onClick={this.handleLogin} className="LoginButton" variant="danger">Login</Button>
                 <Button onClick={this.createAccount} className="CreateAccount" variant="light">Create Account</Button>
+                <Button onClick={this.handleLogout} className="LoginButton" variant="danger">Logout</Button>
             </ButtonToolbar>
             <p>{this.state.message}</p>
                </body>
