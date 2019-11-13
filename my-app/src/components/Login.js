@@ -105,6 +105,18 @@ class Login extends React.Component {
         })
         return;
       }
+      if (this.state.username.length < 4) {
+        this.setState({
+          message: "Username must be at least 4 characters"
+        })
+        return;
+      }
+      if (this.state.password.length < 1) {
+        this.setState({
+          message: "Password cannot be empty"
+        })
+        return;
+      }
       if (this.checkIfAccountExists() === true) {
         this.setState({
           message: "This account username already exists"
