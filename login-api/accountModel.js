@@ -1,4 +1,4 @@
-// nflModel.js
+// accountModel.js
 var mongoose = require('mongoose');
 // Setup schema
 var accountSchema = mongoose.Schema({

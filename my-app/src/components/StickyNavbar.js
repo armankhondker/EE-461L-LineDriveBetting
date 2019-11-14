@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import '.././App.css';
+import '../App.css';
 
 function StickNavbar() {
 
@@ -21,6 +21,7 @@ function StickNavbar() {
                   un.length === 0 ? <Nav.Link className="Login" href="Login">Login</Nav.Link>
                   : <Nav.Link className="Login" href="Login">{un}</Nav.Link>
                 }
+                 <Nav.Link href="Bet">Bet</Nav.Link>
             </Nav>
         </Navbar>
     );

@@ -3,7 +3,35 @@
 nflPred = require('./nflPredModel');
 // Handle index actions
 exports.index = function (req, res) {
-    nflPred.get(function (err, games) {
+  var dateObj = new Date();
+  var days = 7;
+
+  var lastWeek = new Date(dateObj.getTime() - (days * 24 * 60 * 60 * 1000))
+  var month = ('0' + (lastWeek.getMonth() + 1)).slice(-2);
+  var date = ('0' + lastWeek.getDate()).slice(-2);
+  var year = lastWeek.getFullYear();
+  var lastWeekDate = year + '-' + month + '-' + date;
+
+  var nextWeek = new Date(dateObj.getTime() + (days * 24 * 60 * 60 * 1000))
+  var month = ('0' + (nextWeek.getMonth() + 1)).slice(-2);
+  var date = ('0' + nextWeek.getDate()).slice(-2);
+  var year = nextWeek.getFullYear();
+  var nextWeekDate = year + '-' + month + '-' + date;
+
+  var query = {
+      '$and': [
+          {
+              'date': {
+                  '$gte': lastWeekDate
+              }
+          }, {
+              'date': {
+                  '$lte': nextWeekDate
+              }
+          }
+      ]
+  };
+  nflPred.find(query, function (err, games) {
         if (err) {
             res.json({
                 status: "error",
