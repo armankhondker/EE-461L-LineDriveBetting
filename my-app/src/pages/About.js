@@ -169,7 +169,7 @@ class About extends React.Component {
                <br></br>
                Responsibilites: Back End Development, Data Collection, Web Scraping, API Handling
                <br></br>
-               Number of Commits: {this.state.zachgit.total},
+               Number of Commits: {this.state.zachgit.total}
                <br></br>
                Total Number of Github Issues Authored: {zachIssues}
                <br></br>

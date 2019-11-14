@@ -9,13 +9,19 @@ ul {
 
 .About {
     text-align: left;
-    background-color: #fffdd0
+    background-color:#282c34;
 }
 
 h1 {
   color: red;
   font-weight: bold;
 
+}
+p{
+  color: white;
+}
+ul{
+  color: white;
 }
 
 .prof_pic {
