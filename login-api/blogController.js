@@ -22,7 +22,7 @@ exports.new = function (req, res) {
     var user = new blog();
     user.username = req.body.username ? req.body.username : user.username;
     user.content = req.body.content;
-    user.likes = req.body.likes;
+    user.game_id = req.body.game_id;
     user.team1 = req.body.team1;
     user.team2 = req.body.team2;
     user.game_date = req.body.game_date;
@@ -38,7 +38,10 @@ exports.new = function (req, res) {
 };
 // Handle view user info
 exports.view = function (req, res) {
-    blog.findById(req.params.blog_id, function (err, user) {
+    var query = {
+      game_id : req.params.blog_id
+    }
+    blog.find(query, function (err, user) {
         if (err)
             res.send(err);
         res.json({
@@ -54,7 +57,7 @@ blog.findById(req.params.blog_id, function (err, user) {
             res.send(err);
             user.username = req.body.username ? req.body.username : user.username;
             user.content = req.body.content;
-            user.likes = req.body.likes;
+            user.game_id = req.body.game_id;
             user.team1 = req.body.team1;
             user.team2 = req.body.team2;
             user.game_date = req.body.game_date;
