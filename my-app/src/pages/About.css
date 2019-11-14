@@ -15,13 +15,19 @@ ul {
 h1 {
   color: red;
   font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 
 }
 p{
   color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+
+
 }
 ul{
   color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+
 }
 
 .prof_pic {
