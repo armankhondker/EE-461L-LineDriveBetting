@@ -22,6 +22,7 @@ function StickNavbar() {
                   : <Nav.Link className="Login" href="Login">{un}</Nav.Link>
                 }
                  <Nav.Link href="Bet">Bet</Nav.Link>
+                 <Nav.Link href="/Search">Search</Nav.Link>
             </Nav>
         </Navbar>
     );
