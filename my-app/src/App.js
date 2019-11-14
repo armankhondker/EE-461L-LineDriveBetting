@@ -107,8 +107,8 @@ class App extends React.Component{
                 <Route exact={true} path='/Nba' render={() => (<Nba games={this.state.nbaGames} />)}/>
                 <Route exact={true} path='/Nfl' render={() => (<Nfl games={this.state.nflGames} />)}/>
                 <Route exact={true} path='/Mlb' render={() => (<Mlb games={this.state.mlbGames} />)}/>
-         
-                
+
+
                 {hasMounted ? (
                     this.state.nflGames.map((value, index) => {
                         return (

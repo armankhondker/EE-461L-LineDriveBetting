@@ -23,7 +23,8 @@ class Game extends React.Component {
           intertopsCSS : "secondary",
           sportsbettingCSS : "secondary",
           betnowCSS : "secondary",
-          postContent: ""
+          postContent: "",
+          blogPosts: []
         };
         this.setOpening = this.setOpening.bind(this);
         this.setBovada = this.setBovada.bind(this);
@@ -32,10 +33,35 @@ class Game extends React.Component {
         this.setSportsbetting = this.setSportsbetting.bind(this);
         this.setBetnow = this.setBetnow.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
+        this.handlePost = this.handlePost.bind(this);
+        this.updateData = this.updateData.bind(this);
       }
 
       componentDidMount() {
         window.scrollTo(0, 0);
+      }
+
+      updateData() {
+        let id = this.props.gameData._id;
+        let api = 'https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/blog_posts/' + id;
+        fetch(api, {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+            'Access-Control-Allow-Credentials' : true ,
+            'Access-Control-Allow-Headers': 'X-Requested-With'
+          },
+        })
+          .then(response => response.json())
+          .then(data => this.setState({
+            blogPosts: data.data.reverse()
+          }), (error) => {
+            if (error) {
+              console.log(error)
+            }
+        });
       }
 
       setOpening() {
@@ -132,7 +158,57 @@ class Game extends React.Component {
          this.setState({postContent: e.target.value});
       }
 
+      handlePost(content) {
+        var username = localStorage.getItem('username');
+        if (content == "" || username == null) {
+          return;
+        }
+        var team1 = this.props.gameData.team1;
+        var team2 = this.props.gameData.team2;
+        var game_date = this.props.gameData.date;
+        var game_id = this.props.gameData._id;
+        var details = {
+          'username': username,
+          'content': content,
+          'team1' : team1,
+          'team2' : team2,
+          'game_date': game_date,
+          'game_id' : game_id
+        };
+        var formBody = [];
+        for (var property in details) {
+          var encodedKey = encodeURIComponent(property);
+          var encodedValue = encodeURIComponent(details[property]);
+          formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+        fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/blog_posts', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+              'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+              'Access-Control-Allow-Credentials' : true ,
+              'Access-Control-Allow-Headers': 'x-auth, content-type'
+            },
+            body: formBody
+          })
+        .then(response => response.json())
+        .then(data => this.setState({
+          response: data
+        }), (error) => {
+          if (error) {
+            console.log(error);
+          }
+        });
+        this.setState({
+          postContent: ""
+        })
+        this.updateData();
+      }
+
       render() {
+      this.updateData();
       var gameData = this.props.gameData;
       var team1_ml_Data = this.state.team1_ml_Data;
       var team2_ml_Data = this.state.team2_ml_Data;
@@ -215,11 +291,17 @@ class Game extends React.Component {
                       <Form.Label>Post:</Form.Label>
                       <Form.Control as="textarea" rows="3" value={this.state.postContent} onChange={this.handleContentChange} />
                     </Form.Group>
-                    <Button className="submit-button" variant="primary">Submit</Button>
+                    <Button onClick={() => this.handlePost(this.state.postContent)} className="submit-button" variant="primary">Submit</Button>
                     <br/>
                   </div>
                   <div className="comments-section">
-                    <BlogPost/>
+                  {
+                    this.state.blogPosts.map((value, index) => {
+                      return(
+                        <BlogPost key={index} username={value.username} content={value.content} create_date={value.create_date}/>
+                      )
+                    })
+                  }
                   </div>
               </div>
           </div>
