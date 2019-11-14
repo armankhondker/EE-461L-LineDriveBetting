@@ -2,6 +2,7 @@ import React from "react";
 import './Pages.css';
 import OddsTable from "../components/OddsTable";
 import LineGraph from "../components/LineGraph";
+import BlogPost from "../components/BlogPost";
 import Table from 'react-bootstrap/Table';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -218,11 +219,7 @@ class Game extends React.Component {
                     <br/>
                   </div>
                   <div className="comments-section">
-                    <div className="post">
-                      <p className="post-username">username:</p>
-                      <p className="post-content">content goes here</p>
-                      <p className="like-count">8 likes</p>
-                    </div>
+                    <BlogPost/>
                   </div>
               </div>
           </div>
