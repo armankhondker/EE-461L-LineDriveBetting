@@ -125,8 +125,6 @@ class About extends React.Component {
                <br></br>
                Number of Commits: {this.state.armangit.total}
                <br></br>
-               Total Number of Unit Tests:
-               <br></br>
                Total Number of Github Issues Authored: {armanIssues}
                <br></br>
            </ul>
@@ -141,8 +139,6 @@ class About extends React.Component {
                Responsibilites: Backend development using AWS S3, Set up MongoDB, Built API using Node.js, Set up website hosting, Web scraping
                <br></br>
                Number of Commits: {this.state.joshgit.total}
-               <br></br>
-               Total Number of Unit Tests:
                <br></br>
                Total Number of Github Issues Authored: {joshIssues}
                <br></br>
@@ -160,8 +156,6 @@ class About extends React.Component {
                <br></br>
                Number of Commits: {this.state.punitgit.total}
                <br></br>
-               Total Number of Unit Tests:
-               <br></br>
                Total Number of Github Issues Authored: {punitIssues}
                <br></br>
            </ul>
@@ -175,9 +169,7 @@ class About extends React.Component {
                <br></br>
                Responsibilites: Back End Development, Data Collection, Web Scraping, API Handling
                <br></br>
-               Number of Commits: {this.state.zachgit.total}
-               <br></br>
-               Total Number of Unit Tests:
+               Number of Commits: {this.state.zachgit.total},
                <br></br>
                Total Number of Github Issues Authored: {zachIssues}
                <br></br>
@@ -194,8 +186,6 @@ class About extends React.Component {
                <br></br>
                Number of Commits: {this.state.thiensongit.total}
                <br></br>
-               Total Number of Unit Tests:
-               <br></br>
                Total Number of Github Issues Authored: {thiensonIssues}
                <br></br>
            </ul>
@@ -209,8 +199,6 @@ class About extends React.Component {
                Responsibilites: Backend Development, User Interface, and  Design Report
                <br></br>
                Number of Commits: {this.state.rohangit.total}
-               <br></br>
-               Total Number of Unit Tests:
                <br></br>
                Total Number of Github Issues Authored: {rohanIssues}
                <br></br>

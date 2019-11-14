@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 
-class App extends Component {
+class Blog extends Component {
   componentDidMount() {
     addResponseMessage("Who do you think will win?");
   }
@@ -30,7 +30,7 @@ class App extends Component {
   } 
 }
 
-export default App;
+export default Blog;
 
 
 
