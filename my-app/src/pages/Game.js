@@ -28,6 +28,10 @@ class Game extends React.Component {
         this.setBetnow = this.setBetnow.bind(this);
       }
 
+      componentDidMount() {
+        window.scrollTo(0, 0);
+      }
+
       setOpening() {
           this.setState({
             team1_ml_Data : this.props.gameData.opening_ml_1,
