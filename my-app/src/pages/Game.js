@@ -2,8 +2,12 @@ import React from "react";
 import './Pages.css';
 import OddsTable from "../components/OddsTable";
 import LineGraph from "../components/LineGraph";
+import BlogPost from "../components/BlogPost";
 import Table from 'react-bootstrap/Table';
-import Button from "react-bootstrap/Button"
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class Game extends React.Component {
       constructor(props) {
@@ -13,12 +17,13 @@ class Game extends React.Component {
           team2_ml_Data : null,
           team1_ps_Data : null,
           team2_ps_Data : null,
-          openingCSS : "primary",
+          openingCSS : "secondary",
           bovadaCSS : "success",
-          betonlineCSS : "primary",
-          intertopsCSS : "primary",
-          sportsbettingCSS : "primary",
-          betnowCSS : "primary"
+          betonlineCSS : "secondary",
+          intertopsCSS : "secondary",
+          sportsbettingCSS : "secondary",
+          betnowCSS : "secondary",
+          postContent: ""
         };
         this.setOpening = this.setOpening.bind(this);
         this.setBovada = this.setBovada.bind(this);
@@ -26,6 +31,7 @@ class Game extends React.Component {
         this.setIntertops = this.setIntertops.bind(this);
         this.setSportsbetting = this.setSportsbetting.bind(this);
         this.setBetnow = this.setBetnow.bind(this);
+        this.handleContentChange = this.handleContentChange.bind(this);
       }
 
       componentDidMount() {
@@ -39,11 +45,11 @@ class Game extends React.Component {
             team1_ps_Data : this.props.gameData.opening_ps_1,
             team2_ps_Data : this.props.gameData.opening_ps_2,
             openingCSS : "success",
-            bovadaCSS : "primary",
-            betonlineCSS : "primary",
-            intertopsCSS : "primary",
-            sportsbettingCSS : "primary",
-            betnowCSS : "primary"
+            bovadaCSS : "secondary",
+            betonlineCSS : "secondary",
+            intertopsCSS : "secondary",
+            sportsbettingCSS : "secondary",
+            betnowCSS : "secondary"
           });
         }
 
@@ -53,12 +59,12 @@ class Game extends React.Component {
             team2_ml_Data : this.props.gameData.bovada_ml_2,
             team1_ps_Data : this.props.gameData.bovada_ps_1,
             team2_ps_Data : this.props.gameData.bovada_ps_2,
-            openingCSS : "primary",
+            openingCSS : "secondary",
             bovadaCSS : "success",
-            betonlineCSS : "primary",
-            intertopsCSS : "primary",
-            sportsbettingCSS : "primary",
-            betnowCSS : "primary"
+            betonlineCSS : "secondary",
+            intertopsCSS : "secondary",
+            sportsbettingCSS : "secondary",
+            betnowCSS : "secondary"
           });
       }
 
@@ -68,12 +74,12 @@ class Game extends React.Component {
             team2_ml_Data : this.props.gameData.betonline_ml_2,
             team1_ps_Data : this.props.gameData.betonline_ps_1,
             team2_ps_Data : this.props.gameData.betonline_ps_2,
-            openingCSS : "primary",
-            bovadaCSS : "primary",
+            openingCSS : "secondary",
+            bovadaCSS : "secondary",
             betonlineCSS : "success",
-            intertopsCSS : "primary",
-            sportsbettingCSS : "primary",
-            betnowCSS : "primary"
+            intertopsCSS : "secondary",
+            sportsbettingCSS : "secondary",
+            betnowCSS : "secondary"
           });
       }
 
@@ -83,12 +89,12 @@ class Game extends React.Component {
             team2_ml_Data : this.props.gameData.intertops_ml_2,
             team1_ps_Data : this.props.gameData.intertops_ps_1,
             team2_ps_Data : this.props.gameData.intertops_ps_2,
-            openingCSS : "primary",
-            bovadaCSS : "primary",
-            betonlineCSS : "primary",
+            openingCSS : "secondary",
+            bovadaCSS : "secondary",
+            betonlineCSS : "secondary",
             intertopsCSS : "success",
-            sportsbettingCSS : "primary",
-            betnowCSS : "primary"
+            sportsbettingCSS : "secondary",
+            betnowCSS : "secondary"
           });
       }
 
@@ -98,12 +104,12 @@ class Game extends React.Component {
             team2_ml_Data : this.props.gameData.sportsbetting_ml_2,
             team1_ps_Data : this.props.gameData.sportsbetting_ps_1,
             team2_ps_Data : this.props.gameData.sportsbetting_ps_2,
-            openingCSS : "primary",
-            bovadaCSS : "primary",
-            betonlineCSS : "primary",
-            intertopsCSS : "primary",
+            openingCSS : "secondary",
+            bovadaCSS : "secondary",
+            betonlineCSS : "secondary",
+            intertopsCSS : "secondary",
             sportsbettingCSS : "success",
-            betnowCSS : "primary"
+            betnowCSS : "secondary"
           });
       }
 
@@ -113,13 +119,17 @@ class Game extends React.Component {
             team2_ml_Data : this.props.gameData.betnow_ml_2,
             team1_ps_Data : this.props.gameData.betnow_ps_1,
             team2_ps_Data : this.props.gameData.betnow_ps_2,
-            openingCSS : "primary",
-            bovadaCSS : "primary",
-            betonlineCSS : "primary",
-            intertopsCSS : "primary",
-            sportsbettingCSS : "primary",
+            openingCSS : "secondary",
+            bovadaCSS : "secondary",
+            betonlineCSS : "secondary",
+            intertopsCSS : "secondary",
+            sportsbettingCSS : "secondary",
             betnowCSS : "success"
           });
+      }
+
+      handleContentChange(e) {
+         this.setState({postContent: e.target.value});
       }
 
       render() {
@@ -200,6 +210,17 @@ class Game extends React.Component {
                       </thead>
                   </Table>
                   <br/>
+                  <div className = "post-section">
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                      <Form.Label>Post:</Form.Label>
+                      <Form.Control as="textarea" rows="3" value={this.state.postContent} onChange={this.handleContentChange} />
+                    </Form.Group>
+                    <Button className="submit-button" variant="primary">Submit</Button>
+                    <br/>
+                  </div>
+                  <div className="comments-section">
+                    <BlogPost/>
+                  </div>
               </div>
           </div>
       );
