@@ -105,13 +105,16 @@ function LineGraph(props) {
 
 function filterGameData(data1, data2, time) {
   const msg = "not released yet";
+  const msg2 = "Ev"
   let i1 = data1.lastIndexOf(msg);
   let i2 = data2.lastIndexOf(msg);
-  let max = Math.max.apply(Math, [i1, i2]);
+  let i3 = data1.lastIndexOf(msg2);
+  let i4 = data2.lastIndexOf(msg2);
+  let max = Math.max.apply(Math, [i1, i2, i3, i4]);
   if (max+1 === data1.length)
     max--;
   if (max === NaN)
-    max = 0;
+    max = -1;
   data1 = data1.slice(max+1);
   data2 = data2.slice(max+1);
   time = time.slice(max+1);
