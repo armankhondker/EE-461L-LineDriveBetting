@@ -54,13 +54,11 @@
   margin-top: -10px;
 }
 
-.like-button {
-  float: right;
-  padding: 4px;
-  margin-top: -50px;
-  margin-right: 5px;
-}
-
 .post p {
   padding-left: 10px;
+}
+
+.post-content {
+  text-align: center;
+  padding: 10px;
 }

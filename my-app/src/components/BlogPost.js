@@ -8,8 +8,7 @@ class BlogPost extends React.Component {
       <div className="post">
         <p className="post-username">username:</p>
         <p className="post-content">content goes here</p>
-        <p className="like-count">8 likes</p>
-        <Button className="like-button" variant="primary">Like</Button>
+        <p className="post-date">Create date</p>
       </div>
     )
   }
