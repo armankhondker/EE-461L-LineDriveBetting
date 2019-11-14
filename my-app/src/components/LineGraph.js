@@ -3,6 +3,7 @@ import {Line} from "react-chartjs-2";
 
 function LineGraph(props) {
     let gameData = props.gameData;
+    gameData = filterGameData(gameData)
     let times = gameData.sys_time;
     let T1;
     let T2;
@@ -111,5 +112,23 @@ function LineGraph(props) {
     );
 }
 
-export default LineGraph;
+function filterGameData(data) {
+  const msg = "not released yet";
+  let i1 = data.bovada_ml_1.lastIndexOf(msg);
+  let i2 = data.bovada_ml_2.lastIndexOf(msg);
+  let i3 = data.bovada_ps_1.lastIndexOf(msg);
+  let i4 = data.bovada_ps_2.lastIndexOf(msg);
+  let max = Math.max.apply(Math, [i1, i2, i3, i4]);
+  if (max+1 === data.bovada_ml_1.length)
+    max--;
+  if (max === NaN)
+    max = 0;
+  data.bovada_ml_1 = data.bovada_ml_1.slice(max+1);
+  data.bovada_ml_2 = data.bovada_ml_2.slice(max+1);
+  data.bovada_ps_1 = data.bovada_ps_1.slice(max+1);
+  data.bovada_ps_2 = data.bovada_ps_2.slice(max+1);
+  data.sys_time = data.sys_time.slice(max+1);
+  return data;
+}
 
+export default LineGraph;
