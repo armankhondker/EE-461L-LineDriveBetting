@@ -21,3 +21,7 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+
+.chartClicker {
+  margin-top: 10px;
+}

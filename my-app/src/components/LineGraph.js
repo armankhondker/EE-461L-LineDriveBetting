@@ -2,27 +2,20 @@ import React from 'react';
 import {Line} from "react-chartjs-2";
 
 function LineGraph(props) {
-    let gameData = props.gameData;
-    gameData = filterGameData(gameData)
-    let times = gameData.sys_time;
-    let T1;
-    let T2;
-    console.log(gameData);
+    var team1_Data = props.team1_Data;
+    var team2_Data = props.team2_Data;
+    var times = props.times;
+    if (team1_Data == null)
+      return (<div></div>)
+    var gameData = filterGameData(team1_Data, team2_Data, times);
+    let T1 = gameData.data1;
+    let T2 = gameData.data2;
+    times = gameData.time;
+
     let xLabels = [];
     let team1Data = [];
     let team2Data = [];
 
-    console.log(props.type);
-
-    if(props.type === 'ml') {
-        T1 = gameData.bovada_ml_1;
-        T2 = gameData.bovada_ml_2;
-    } else if(props.type === 'ps') {
-        T1 = gameData.bovada_ps_1;
-        T2 = gameData.bovada_ps_2;
-    }
-
-    console.log(T1);
     let i;
     //Loop through the amount of data points. Assume that all the arrays have the same size
     for(i = 0; i < times.length; i++) {
@@ -53,15 +46,13 @@ function LineGraph(props) {
 
     }
 
-    console.log(xLabels);
-
     const color1 = 'rgba(255,0,0,1)';
     const color2 = 'rgba(75,192,192,1)';
     const data = {
         labels: xLabels,
         datasets: [
             {
-                label: gameData.team1,
+                label: props.team1,
                 fill: false,
                 lineTension: 0.1,
                 backgroundColor: color1,
@@ -82,7 +73,7 @@ function LineGraph(props) {
                 data: team1Data,
             },
             {
-                label: gameData.team2,
+                label: props.team2,
                 fill: false,
                 lineTension: 0.1,
                 backgroundColor: color2,
@@ -112,23 +103,19 @@ function LineGraph(props) {
     );
 }
 
-function filterGameData(data) {
+function filterGameData(data1, data2, time) {
   const msg = "not released yet";
-  let i1 = data.bovada_ml_1.lastIndexOf(msg);
-  let i2 = data.bovada_ml_2.lastIndexOf(msg);
-  let i3 = data.bovada_ps_1.lastIndexOf(msg);
-  let i4 = data.bovada_ps_2.lastIndexOf(msg);
-  let max = Math.max.apply(Math, [i1, i2, i3, i4]);
-  if (max+1 === data.bovada_ml_1.length)
+  let i1 = data1.lastIndexOf(msg);
+  let i2 = data2.lastIndexOf(msg);
+  let max = Math.max.apply(Math, [i1, i2]);
+  if (max+1 === data1.length)
     max--;
   if (max === NaN)
     max = 0;
-  data.bovada_ml_1 = data.bovada_ml_1.slice(max+1);
-  data.bovada_ml_2 = data.bovada_ml_2.slice(max+1);
-  data.bovada_ps_1 = data.bovada_ps_1.slice(max+1);
-  data.bovada_ps_2 = data.bovada_ps_2.slice(max+1);
-  data.sys_time = data.sys_time.slice(max+1);
-  return data;
+  data1 = data1.slice(max+1);
+  data2 = data2.slice(max+1);
+  time = time.slice(max+1);
+  return {'data1' : data1, 'data2' : data2, 'time' : time};
 }
 
 export default LineGraph;
