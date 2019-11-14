@@ -25,3 +25,15 @@
 .chartClicker {
   margin-top: 10px;
 }
+
+.App-logo {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+.sport-buttons {
+  flex-wrap: wrap;
+  justify-content: center;
+}
