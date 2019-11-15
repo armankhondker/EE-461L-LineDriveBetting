@@ -296,7 +296,7 @@ class Game extends React.Component {
                   {
                     this.state.blogPosts.map((value, index) => {
                       return(
-                        <BlogPost key={index} username={value.username} content={value.content} create_date={value.create_date}/>
+                        <BlogPost key={index} team1={value.team1} team2={value.team2} game_date={value.game_date} username={value.username} content={value.content} create_date={value.create_date}/>
                       )
                     })
                   }

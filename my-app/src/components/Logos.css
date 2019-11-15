@@ -13,22 +13,14 @@
   right: 0 !important;
 }
 
-.NBALogos {
-    height: 2vmin;
+.NBALogos, .NFLLogos, .MLBLogos {
     width: 100px;
-    height: 200px;
+    height: auto;
     position: absolute;
     left:5mm;
     top:15mm;
 }
-.NFLLogos {
-    height: 2vmin;
-    width: 150px;
-    height: 200px;
-    position: absolute;
-    left:5mm;
-    top:15mm;
-}
+
 .App-logo-pages {
   text-align: center;
   margin-left: auto;
@@ -37,11 +29,20 @@
   height: 10vmin;
 }
 
-.MLBLogos {
-    height: 2vmin;
-    width: 200px;
-    height: 125px;
-    position: absolute;
-    left:5mm;
-    top:17mm;
+@media (max-width: 1000px) {
+  .NBALogos, .NFLLogos, .MLBLogos {
+    position: relative;
+    left: -70px;
+    top: 10px;
+    width: auto;
+    height: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .NBALogos, .NFLLogos, .MLBLogos {
+    left: -40px;
+    top: 10px;
+    height: 30px;
+  }
 }
