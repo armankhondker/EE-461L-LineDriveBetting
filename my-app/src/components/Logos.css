@@ -13,10 +13,9 @@
   right: 0 !important;
 }
 
-.NBALogos, .NFLLogos {
-    height: 2vmin;
+.NBALogos, .NFLLogos, .MLBLogos {
     width: 100px;
-    height: 200px;
+    height: auto;
     position: absolute;
     left:5mm;
     top:15mm;
@@ -30,17 +29,8 @@
   height: 10vmin;
 }
 
-.MLBLogos {
-    height: 2vmin;
-    width: 200px;
-    height: 125px;
-    position: absolute;
-    left:5mm;
-    top:17mm;
-}
-
 @media (max-width: 1000px) {
-  .NBALogos, .NFLLogos {
+  .NBALogos, .NFLLogos, .MLBLogos {
     position: relative;
     left: -70px;
     top: 10px;
@@ -50,7 +40,7 @@
 }
 
 @media (max-width: 600px) {
-  .NBALogos, .NFLLogos {
+  .NBALogos, .NFLLogos, .MLBLogos {
     left: -40px;
     top: 10px;
     height: 30px;
