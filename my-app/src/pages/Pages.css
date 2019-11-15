@@ -45,12 +45,12 @@
 
 .comments-section {
   background: gray;
-  border-radius: 2px;
+  border-radius: 4px;
   margin-bottom: 1rem;
 }
 .post {
   border: 1px solid black;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .submit-button {
@@ -66,4 +66,8 @@
 .post-content {
   text-align: center;
   padding: 10px;
+}
+
+.post-date {
+  font-size: 10px;
 }

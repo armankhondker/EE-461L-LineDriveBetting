@@ -13,6 +13,7 @@
     "react-chat-widget": "^2.1.5",
     "react-dom": "^16.10.2",
     "react-loading": "^2.0.3",
+    "react-moment": "^0.9.6",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "yarn": "^1.19.1"
