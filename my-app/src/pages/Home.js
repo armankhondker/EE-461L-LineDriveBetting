@@ -16,7 +16,7 @@ import Basketball from '../assets/images/white-basketball.png';
 class Home extends React.Component {
     handleSubmit = function(e) {
         e.preventDefault();
-        window.location = `http://localhost:3000/Search?value=${document.getElementById('search').value}`;
+        window.location = `http://www.linedrivebetting.com/Search?value=${document.getElementById('search').value}`;
         return false;
     }
 

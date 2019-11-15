@@ -151,7 +151,7 @@ class Search extends React.Component {
 
     handleSubmit = function(e) {
         e.preventDefault();
-        window.location = `http://localhost:3000/Search?value=${this.state.value}`;
+        window.location = `http://www.linedrivebetting.com/Search?value=${this.state.value}`;
         return false;
     }
 
