@@ -10,10 +10,6 @@ var blogSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  likes: {
-    type: String,
-    default: '0'
-  },
   team1: {
     type: String
   },
@@ -21,6 +17,9 @@ var blogSchema = mongoose.Schema({
     type: String
   },
   game_date: {
+    type: String
+  },
+  game_id: {
     type: String
   },
   create_date: {

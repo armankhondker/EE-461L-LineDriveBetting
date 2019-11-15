@@ -7,11 +7,13 @@ import Nba from './pages/Nba';
 import Nfl from './pages/Nfl';
 import Mlb from './pages/Mlb';
 import Home from './pages/Home';
-import Blog from './components/Blog';
+import Blog from './pages/Blog';
 import Login from './components/Login';
 import Game from './pages/Game';
+import Bet from './pages/Bet';
+import Search from './pages/Search';
 import StickNavbar from "./components/StickyNavbar";
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 
 
 class App extends React.Component{
@@ -106,6 +108,8 @@ class App extends React.Component{
                 <Route exact={true} path='/Nba' render={() => (<Nba games={this.state.nbaGames} />)}/>
                 <Route exact={true} path='/Nfl' render={() => (<Nfl games={this.state.nflGames} />)}/>
                 <Route exact={true} path='/Mlb' render={() => (<Mlb games={this.state.mlbGames} />)}/>
+
+
                 {hasMounted ? (
                     this.state.nflGames.map((value, index) => {
                         return (
@@ -156,6 +160,12 @@ class App extends React.Component{
                 )}
                 <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
                 <Route exact={true} path='/Login' render={() => (<Login />)}/>
+                <Route exact={true} path='/Bet' render={() => (<Bet />)}/>
+                <Route exact={true} path='/Search' render={() => (<Search
+                    nbaGames={this.state.nbaGames}
+                    nflGames={this.state.nflGames}
+                    mlbGames={this.state.mlbGames}
+                />)}/>
                 <Route exact={true} path='/Nflgame' render={() => (<Game />)}/>
             </BrowserRouter>
         );
