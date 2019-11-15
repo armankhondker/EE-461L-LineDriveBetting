@@ -18,7 +18,7 @@ class Mlb extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/Mlb/Teams.json')
+        fetch('/MLB/Teams.json')
             .then(response => {
                 response.json().then(data => {
                     console.log(data);
@@ -37,7 +37,7 @@ class Mlb extends React.Component {
         var teams = this.state.teams;
         for(i = 0; i < teams.length; i ++) {
             if(teams[i].location === team) {
-                return teams[i].abbreviation;
+                return teams[i].code;
             }
         }
     }

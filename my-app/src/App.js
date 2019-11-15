@@ -7,11 +7,13 @@ import Nba from './pages/Nba';
 import Nfl from './pages/Nfl';
 import Mlb from './pages/Mlb';
 import Home from './pages/Home';
-import Blog from './components/Blog';
+import Blog from './pages/Blog';
 import Login from './components/Login';
 import Game from './pages/Game';
+import Bet from './pages/Bet';
+import Search from './pages/Search';
 import StickNavbar from "./components/StickyNavbar";
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 
 
 class App extends React.Component{
@@ -25,7 +27,7 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        fetch('https://cors-anywhere.herokuapp.com/nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', {
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -47,7 +49,7 @@ class App extends React.Component{
             })
             .catch(err => console.log(err));
 
-        fetch('https://cors-anywhere.herokuapp.com/nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba', {
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba', {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -69,7 +71,7 @@ class App extends React.Component{
             })
             .catch(err => console.log(err));
 
-        fetch('https://cors-anywhere.herokuapp.com/nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb', {
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb', {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -106,6 +108,8 @@ class App extends React.Component{
                 <Route exact={true} path='/Nba' render={() => (<Nba games={this.state.nbaGames} />)}/>
                 <Route exact={true} path='/Nfl' render={() => (<Nfl games={this.state.nflGames} />)}/>
                 <Route exact={true} path='/Mlb' render={() => (<Mlb games={this.state.mlbGames} />)}/>
+
+
                 {hasMounted ? (
                     this.state.nflGames.map((value, index) => {
                         return (
@@ -120,7 +124,7 @@ class App extends React.Component{
                         );
                     })
                 ) : (
-                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                    <div></div>// <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
                 )}
                 {hasMounted ? (
                     this.state.nbaGames.map((value, index) => {
@@ -136,7 +140,7 @@ class App extends React.Component{
                         );
                     })
                 ) : (
-                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                    <div></div>// <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
                 )}
                 {hasMounted ? (
                     this.state.mlbGames.map((value, index) => {
@@ -152,11 +156,16 @@ class App extends React.Component{
                         );
                     })
                 ) : (
-                    <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
+                    <div></div>// <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
                 )}
                 <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
                 <Route exact={true} path='/Login' render={() => (<Login />)}/>
-                <Route exact={true} path='/Nflgame' render={() => (<Game />)}/>
+                <Route exact={true} path='/Bet' render={() => (<Bet />)}/>
+                <Route exact={true} path='/Search' render={() => (<Search
+                    nbaGames={this.state.nbaGames}
+                    nflGames={this.state.nflGames}
+                    mlbGames={this.state.mlbGames}
+                />)}/>
             </BrowserRouter>
         );
     }

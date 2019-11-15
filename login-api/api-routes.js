@@ -8,8 +8,9 @@ router.get('/', function (req, res) {
         message: 'Welcome to RESTHub crafted with love!',
     });
 });
-// Import account controller
+// Import controllers
 var accountController = require('./accountController');
+var blogController = require('./blogController');
 
 // account routes
 router.route('/accounts')
@@ -20,6 +21,15 @@ router.route('/accounts/:account_id')
     .patch(accountController.update)
     .put(accountController.update)
     .delete(accountController.delete);
+// blog routes
+router.route('/blog_posts')
+    .get(blogController.index)
+    .post(blogController.new);
+router.route('/blog_posts/:blog_id')
+    .get(blogController.view)
+    .patch(blogController.update)
+    .put(blogController.update)
+    .delete(blogController.delete);
 
 // Export API routes
 module.exports = router;

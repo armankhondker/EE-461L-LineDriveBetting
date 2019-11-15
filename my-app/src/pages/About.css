@@ -9,12 +9,24 @@ ul {
 
 .About {
     text-align: left;
-    background-color: #fffdd0
+    background-color:#282c34;
 }
 
 h1 {
   color: red;
   font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+
+}
+p{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+
+
+}
+ul{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 
 }
 

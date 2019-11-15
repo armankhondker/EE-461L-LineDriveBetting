@@ -9,6 +9,16 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+.Pages-Search {
+  background-color: #282c34;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
 .Pages-Nfl {
     background-color: #282c34;
     min-height: 100vh;
@@ -20,4 +30,110 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+
+.chartClicker {
+  margin-top: 10px;
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 43%;
+}
+
+.App-logo {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+.sport-buttons {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comments-section {
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.post {
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100%;
+  background: dimgray;
+}
+
+.submit-button {
+  float: right;
+  padding: 2px;
+  margin-top: -10px;
+}
+
+.post p {
+  padding-left: 10px;
+}
+
+textarea.form-control {
+    background: lightgrey;
+}
+
+.post-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.blog-page {
+  margin-top: 75px;
+  padding-bottom: 25px;
+}
+
+.post-teams {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.post-date {
+  font-size: 10px;
+}
+
+@media (max-width: 900px) {
+  table {
+    transform: scale(0.7);
+    position: relative;
+    left: -70px;
+  }
+}
+
+@media (max-width: 750px) {
+  table {
+    transform: scale(0.6);
+    left: -120px;
+  }
+}
+
+@media (max-width: 600px) {
+  table {
+    transform: scale(0.5);
+    left: -190px;
+  }
+  .navbar, .navbar-brand {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  table {
+    transform: scale(0.4);
+    left: -240px;
+  }
+  .navbar, .navbar-brand {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar, .navbar-brand {
+    font-size: 8px;
+  }
 }
