@@ -14,14 +14,37 @@ import Baseball from '../assets/images/white-baseball.png';
 import Basketball from '../assets/images/white-basketball.png';
 
 class Home extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.setState({
+    //         value: ''
+    //     });
+    //
+    //     this.searchHandler = this.searchHandler.bind(this);
+    // }
+    //
+    // searchHandler(event) {
+    //     this.setState({ value: event.target.value });
+    // }
+
+    handleSubmit = function(e) {
+        e.preventDefault();
+        window.location = `http://localhost:3000/Search?value=${document.getElementById('search').value}`;
+        return false;
+    }
+
     render() {
         return(
             <div className="App">
                 <div className="App-header">
                     <img src={Logo} className="App-logo" alt="logo" />
-                    <Form inline>
-                        <FormControl size="lg" type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Go</Button>
+                    <Form inline onSubmit={this.handleSubmit}>
+                        <FormControl size="lg" type="text"
+                                     placeholder="Search"
+                                     className="mr-sm-2"
+                                     id="search"
+                        />
+                        <Button variant="outline-info" onClick={this.handleSubmit}>Go</Button>
                     </Form>
                     <br/>
                     <br/>

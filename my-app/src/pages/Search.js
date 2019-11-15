@@ -152,9 +152,8 @@ class Search extends React.Component {
     }
 
     handleSubmit = function(e) {
-        alert('it works');
         e.preventDefault();
-        window.location = 'http://localhost:3000/Search?value=hi';
+        window.location = `http://localhost:3000/Search?value=${this.state.value}`;
         return false;
     }
 
@@ -264,5 +263,4 @@ class Search extends React.Component {
     }
 }
 
-// {/*<ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />*/}
 export default Search;
