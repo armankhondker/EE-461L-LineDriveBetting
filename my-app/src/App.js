@@ -166,7 +166,6 @@ class App extends React.Component{
                     nflGames={this.state.nflGames}
                     mlbGames={this.state.mlbGames}
                 />)}/>
-                <Route exact={true} path='/Nflgame' render={() => (<Game />)}/>
             </BrowserRouter>
         );
     }
