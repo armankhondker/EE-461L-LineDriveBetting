@@ -25,6 +25,11 @@
 .chartClicker {
   margin-top: 10px;
 }
+.links {
+  display: flex; 
+  justify-content: space-between;
+  width: 43%;
+}
 
 .App-logo {
   width: 100%;
