@@ -117,6 +117,9 @@ textarea.form-control {
     transform: scale(0.5);
     left: -190px;
   }
+  .navbar, .navbar-brand {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -125,6 +128,12 @@ textarea.form-control {
     left: -240px;
   }
   .navbar, .navbar-brand {
-    font-size: 10px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar, .navbar-brand {
+    font-size: 8px;
   }
 }
