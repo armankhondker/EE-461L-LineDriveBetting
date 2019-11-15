@@ -1,9 +1,5 @@
-
-import Logo from '../assets/images/LDBLogo.png';
-import ImgButton from "../components/Logos.css";
 import './Pages.css'
 import React, { Component } from 'react';
-import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 import BlogPost from "../components/BlogPost";
 import ReactLoading from "react-loading";

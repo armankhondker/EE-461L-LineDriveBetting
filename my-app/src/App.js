@@ -11,8 +11,9 @@ import Blog from './pages/Blog';
 import Login from './components/Login';
 import Game from './pages/Game';
 import Bet from './pages/Bet';
+import Search from './pages/Search';
 import StickNavbar from "./components/StickyNavbar";
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 
 
 class App extends React.Component{
@@ -160,6 +161,11 @@ class App extends React.Component{
                 <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
                 <Route exact={true} path='/Login' render={() => (<Login />)}/>
                 <Route exact={true} path='/Bet' render={() => (<Bet />)}/>
+                <Route exact={true} path='/Search' render={() => (<Search
+                    nbaGames={this.state.nbaGames}
+                    nflGames={this.state.nflGames}
+                    mlbGames={this.state.mlbGames}
+                />)}/>
                 <Route exact={true} path='/Nflgame' render={() => (<Game />)}/>
             </BrowserRouter>
         );
