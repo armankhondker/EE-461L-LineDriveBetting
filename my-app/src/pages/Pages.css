@@ -86,3 +86,35 @@ textarea.form-control {
 .post-date {
   font-size: 10px;
 }
+
+@media (max-width: 900px) {
+  table {
+    transform: scale(0.7);
+    position: relative;
+    left: -70px;
+  }
+}
+
+@media (max-width: 750px) {
+  table {
+    transform: scale(0.6);
+    left: -120px;
+  }
+}
+
+@media (max-width: 600px) {
+  table {
+    transform: scale(0.5);
+    left: -190px;
+  }
+}
+
+@media (max-width: 500px) {
+  table {
+    transform: scale(0.4);
+    left: -240px;
+  }
+  .navbar, .navbar-brand {
+    font-size: 10px;
+  }
+}

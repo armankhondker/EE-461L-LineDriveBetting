@@ -13,7 +13,7 @@
   right: 0 !important;
 }
 
-.NBALogos {
+.NBALogos, .NFLLogos {
     height: 2vmin;
     width: 100px;
     height: 200px;
@@ -21,14 +21,7 @@
     left:5mm;
     top:15mm;
 }
-.NFLLogos {
-    height: 2vmin;
-    width: 150px;
-    height: 200px;
-    position: absolute;
-    left:5mm;
-    top:15mm;
-}
+
 .App-logo-pages {
   text-align: center;
   margin-left: auto;
@@ -44,4 +37,22 @@
     position: absolute;
     left:5mm;
     top:17mm;
+}
+
+@media (max-width: 1000px) {
+  .NBALogos, .NFLLogos {
+    position: relative;
+    left: -70px;
+    top: 10px;
+    width: auto;
+    height: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .NBALogos, .NFLLogos {
+    left: -40px;
+    top: 10px;
+    height: 30px;
+  }
 }
