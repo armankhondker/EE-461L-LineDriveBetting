@@ -161,7 +161,11 @@ class App extends React.Component{
                 <Route exact={true} path='/Blog' render={() => (<Blog />)}/>
                 <Route exact={true} path='/Login' render={() => (<Login />)}/>
                 <Route exact={true} path='/Bet' render={() => (<Bet />)}/>
-                <Route exact={true} path='/Search' render={() => (<Search />)}/>
+                <Route exact={true} path='/Search' render={() => (<Search
+                    nbaGames={this.state.nbaGames}
+                    nflGames={this.state.nflGames}
+                    mlbGames={this.state.mlbGames}
+                />)}/>
                 <Route exact={true} path='/Nflgame' render={() => (<Game />)}/>
             </BrowserRouter>
         );
