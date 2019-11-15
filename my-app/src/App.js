@@ -7,7 +7,7 @@ import Nba from './pages/Nba';
 import Nfl from './pages/Nfl';
 import Mlb from './pages/Mlb';
 import Home from './pages/Home';
-import Blog from './components/Blog';
+import Blog from './pages/Blog';
 import Login from './components/Login';
 import Game from './pages/Game';
 import Bet from './pages/Bet';
