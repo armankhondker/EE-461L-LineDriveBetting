@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { configure, shallow } from 'enzyme';
-import { expect } from 'chai';
 import Adapter from 'enzyme-adapter-react-16'
 import GameBar from "./components/GameBar";
 import Home from "./pages/Home";
@@ -11,6 +10,9 @@ import Football from './assets/images/white-football.png';
 import ImgButton from "./components/ImgButton";
 import StickNavbar from "./components/StickyNavbar";
 import OddsTable from "./components/OddsTable";
+import {expect as chaiExpect} from 'chai';
+import LinkButton from "./components/LinkButton";
+import BlogPost from "./components/BlogPost";
 
 configure({ adapter: new Adapter() });
 var gameData = {
@@ -268,24 +270,24 @@ describe('Components test', ()=> {
 
           let expectedDiv = <h3>HOU -3</h3>;
           let actualValue = wrapper.contains(expectedDiv);
-          expect(actualValue).to.equal(true);
+          chaiExpect(actualValue).to.equal(true);
 
           expectedDiv = <h3>+3 JAX</h3>;
           actualValue = wrapper.contains(expectedDiv);
-          expect(actualValue).to.equal(true);
+          chaiExpect(actualValue).to.equal(true);
       });
-  it('should render ImgButton', function() {
-      const wrapper = shallow(<ImgButton image={Football} label="NFL" path="nfl"/>);
-      let expected = 'NFL';
-      let actualValue = wrapper.contains(expected);
-      expect(actualValue).to.equal(true);
-  });
-  it('should render StickyNavbar', function () {
+      it('should render ImgButton', function() {
+          const wrapper = shallow(<ImgButton image={Football} label="NFL" path="nfl"/>);
+          let expected = 'NFL';
+          let actualValue = wrapper.contains(expected);
+          chaiExpect(actualValue).to.equal(true);
+      });
+    it('should render StickyNavbar', function () {
       const wrapper = shallow(<StickNavbar/>);
       let expected = 'LineDriveBetting';
       let actualValue = wrapper.contains(expected);
-      expect(actualValue).to.equal(true);
-  })
+      chaiExpect(actualValue).to.equal(true);
+    })
     it('should render OddsTable', function () {
         const wrapper = shallow(<OddsTable
             team1={gameData.team1}
@@ -305,6 +307,102 @@ describe('Components test', ()=> {
         />);
         let expected = <td>Washington</td>;
         let actualValue = wrapper.contains(expected);
-        expect(actualValue).to.equal(true);
+        chaiExpect(actualValue).to.equal(true);
+    })
+    it('should render LinkButton', function() {
+        const wrapper = shallow(<LinkButton image={Football} link="https://www.betonline.ag"/>)
+        let expected = <a href="https://www.betonline.ag" target="_blank" rel="noopener noreferrer">
+            <button className="img-button">
+                <img className="btn-img" src={Football} alt="Logo"/>
+            </button>
+        </a>;
+        let actualValue = wrapper.contains(expected);
+        chaiExpect(actualValue).to.equal(true);
+    })
+    it('should render a BlogPost', function() {
+        const Post = {
+            _id: "5dcdc6f920deeb00089c1a01",
+            create_date: "2019-11-14T21:28:25.061Z",
+            username: "jpapermaster",
+            content: "I have this weird felling that Kansas City will win :/",
+            game_id: "5db27394de21098efc873a3f",
+            team1: "Minnesota",
+            team2: "Kansas City",
+            game_date: "November 03, 2019, 1:00 PM ET",
+            __v: 0
+        }
+        const wrapper = shallow(
+            <BlogPost team1={Post.team1}
+                      team2={Post.team2}
+                      game_date={Post.game_date}
+                      username={Post.username}
+                      content={Post.content}
+                      create_date={Post.create_date}/>
+        )
+        let comment = <p className="post-content">I have this weird felling that Kansas City will win :/</p>
+        let username = <p className="post-username">jpapermaster:</p>
+        let info = <p className="post-teams">Minnesota vs Kansas City on November 03, 2019, 1:00 PM ET</p>
+        chaiExpect(wrapper.contains(comment)).to.equal(true);
+        chaiExpect(wrapper.contains(username)).to.equal(true);
+        chaiExpect(wrapper.contains(info)).to.equal(true);
+    })
+});
+
+describe('Integration test', ()=> {
+    it('fetches NFL game data from server when server returns a successful response', () => { // 1
+        return fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl')
+            .then(response => {
+                response.json().then(data => {
+                    if (data.status !== 'success') {
+                        throw Error('Network request failed.')
+                    }
+                });
+            })
+            .catch(err => console.log(err));
+    })
+    it('fetches NBA game data from server when server returns a successful response', () => { // 1
+        return fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba')
+            .then(response => {
+                response.json().then(data => {
+                    if (data.status !== 'success') {
+                        throw Error('Network request failed.')
+                    }
+                });
+            })
+            .catch(err => console.log(err));
+    })
+    it('fetches MLB game data from server when server returns a successful response', () => { // 1
+        return fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb')
+            .then(response => {
+                response.json().then(data => {
+                    if (data.status !== 'success') {
+                        throw Error('Network request failed.')
+                    }
+                });
+            })
+            .catch(err => console.log(err));
+    })
+    it('fetches Account data from server when server returns a successful response', () => { // 1
+        return fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/accounts')
+            .then(response => {
+                response.json().then(data => {
+                    if (data.status !== 'success') {
+                        throw Error('Network request failed.')
+                    }
+                });
+            })
+            .catch(err => console.log(err));
+    })
+
+    it('fetches Blog Post data from server when server returns a successful response', () => { // 1
+        return fetch('https://e6x9m59wb1.execute-api.us-east-1.amazonaws.com/latest/api/blog_posts/')
+            .then(response => {
+                response.json().then(data => {
+                    if (data.status !== 'success') {
+                        throw Error('Network request failed.')
+                    }
+                });
+            })
+            .catch(err => console.log(err));
     })
 });
