@@ -35,6 +35,11 @@
 .chartClicker {
   margin-top: 10px;
 }
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 43%;
+}
 
 .App-logo {
   width: 100%;
@@ -49,13 +54,14 @@
 }
 
 .comments-section {
-  background: gray;
-  border-radius: 2px;
+  border-radius: 4px;
   margin-bottom: 1rem;
 }
 .post {
   border: 1px solid black;
-  border-radius: 2px;
+  border-radius: 4px;
+  width: 100%;
+  background: dimgray;
 }
 
 .submit-button {
@@ -68,7 +74,25 @@
   padding-left: 10px;
 }
 
+textarea.form-control {
+    background: lightgrey;
+}
+
 .post-content {
   text-align: center;
   padding: 10px;
+}
+
+.blog-page {
+  margin-top: 75px;
+  padding-bottom: 25px;
+}
+
+.post-teams {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.post-date {
+  font-size: 10px;
 }
