@@ -1,6 +1,5 @@
 import React from 'react';
 import Logo from '../assets/images/LDBLogo.png';
-import ImgButton from "../components/ImgButton";
 import LinkButton from "../components/LinkButton";
 import '../components/ImgButton.css';
 import Bovada from '../assets/images/Bovada.png';

@@ -13,7 +13,7 @@ import Game from './pages/Game';
 import Bet from './pages/Bet';
 import Search from './pages/Search';
 import StickNavbar from "./components/StickyNavbar";
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 
 
 class App extends React.Component{
