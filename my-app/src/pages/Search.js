@@ -2,10 +2,8 @@ import React from 'react';
 import './Pages.css';
 import './Autosuggest.css';
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import GameBar from "../components/GameBar";
-import ReactLoading from "react-loading";
 import queryString from 'query-string';
 
 function searchingFor(term) {
