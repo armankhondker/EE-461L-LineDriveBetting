@@ -1,8 +1,8 @@
 import React from 'react';
 import Logo from '../assets/images/LDBLogo.png';
 import ImgButton from "../components/ImgButton";
-
-import Football from '../assets/images/white-football.png';
+import LinkButton from "../components/LinkButton";
+import '../components/ImgButton.css';
 import Bovada from '../assets/images/Bovada.png';
 import Betnow from '../assets/images/Betnow.jpg';
 import Betonline from '../assets/images/Betonline.png';
@@ -19,29 +19,16 @@ class Bet extends React.Component {
                 <div className="App-header">
                     <br></br>
                     <img src={Logo} className="App-logo" alt="logo" />
-                   <div>
-                    <ImgButton image={Betonline} path="/"> <a href ="http://www.google.com" target="_blank">BetOnline</a></ImgButton> 
-                    
-                    <ImgButton image={Bovada} path="/"/>
-                    <ImgButton image={Betnow} path="/"/>
-                    </div> 
-                    <div className="links">
-                    <a href ="https://www.betonline.ag" target="_blank">BetOnline</a>
-                    <a href ="http://www.bovada.com" target="_blank">Bovada</a>
-                    <a href ="https://www.betnow.eu" target="_blank">BetNow</a>
+                    <div>
+                        <LinkButton image={Betonline} link="https://www.betonline.ag"/>
+                        <LinkButton image={Bovada} link="http://www.bovada.com"/>
+                        <LinkButton image={Betnow} link="https://www.betnow.eu"/>
                     </div>
                     <div>
-                    <ImgButton image={Sportsbetting} path="/"/>
-                    <ImgButton image={Openbet} path="/"/>
-                    <ImgButton image={Innertops} path="/"/>
-                    </div> 
-                    <div className="links">
-                    <a href ="https://www.sportsbetting.ag" target="_blank">SportsBetting</a>
-                    <a href ="https://www.openbet.com" target="_blank">OpenBet</a>
-                    <a href ="https://sports.intertops.eu" target="_blank">Innertops</a>
+                        <LinkButton image={Sportsbetting} link="https://www.sportsbetting.ag"/>
+                        <LinkButton image={Openbet} link="https://www.openbet.com"/>
+                        <LinkButton image={Innertops} link="https://sports.intertops.eu"/>
                     </div>
-
-                    
                 </div>
             </div>
         );
