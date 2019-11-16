@@ -269,7 +269,7 @@ class Game extends React.Component {
                       betnow2={gameData.betnow_ml_2.slice(-1)[0]}
                   />
                   <br/>
-                  <LineGraph team1={gameData.team1} team2={gameData.team2} team1_Data={team1_ml_Data == null ? gameData.bovada_ps_1 : team1_ml_Data} team2_Data={team2_ml_Data == null ? gameData.bovada_ps_2 : team2_ml_Data}  times={gameData.sys_time}/>
+                  <LineGraph team1={gameData.team1} team2={gameData.team2} team1_Data={team1_ml_Data == null ? gameData.bovada_ml_1 : team1_ml_Data} team2_Data={team2_ml_Data == null ? gameData.bovada_ml_2 : team2_ml_Data}  times={gameData.sys_time}/>
                   <Table className="chartClicker" striped bordered hover variant="dark" size="sm">
                       <thead>
                           <tr>
