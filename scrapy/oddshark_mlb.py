@@ -28,19 +28,39 @@ for link in link_elements:
     links.append(link.get_attribute('href'))
 
 dates = []
+moneylines = []
 for link in links:
     driver.get(link)
     date = driver.find_element_by_class_name('gc-date').text
     dates.append(date)
+    driver.find_element_by_xpath('//*[@id="gc-content"]/div/div[2]/div[1]/div/div/div[1]/div[1]/ul/li[1]/span').click()
+    line = driver.find_elements_by_class_name('moneyline')
+    if len(line) < 13:
+        if type(line) is not list:
+            line = []
+            line[0] = 'trash'
+        j = len(line)
+        while j < 13:
+            line[j] = 'not released yet'
+    texts = []
+    for elem in line[1:13]:
+        if elem is '0':
+            texts.append('not released yet')
+            continue
+        texts.append(elem.text)
+    j = 0
+    for elem in texts:
+        if elem is '':
+            texts[j] = 'not released yet'
+        j = j + 1   
+    moneylines.append(texts)
 
 driver.get(url)
-driver.find_element_by_xpath('//*[@id="op-sticky-header-wrapper"]/div[1]/div/button').click()
-driver.find_element_by_xpath('//*[@id="op-sticky-header-wrapper"]/div[1]/div/ul/li[2]/a').click()
 teamdata = driver.find_element_by_xpath("//*[@id='op-content-wrapper']/div[1]/div[1]")
 matchups = teamdata.find_elements_by_class_name('op-matchup-wrapper')
 scorelines = driver.find_element_by_id("op-results").find_elements_by_class_name('op-item-row-wrapper')
 systime = time.gmtime()
-for matchup, date, scoreline in zip(matchups, dates, scorelines):
+for matchup, date, scoreline, moneyline in zip(matchups, dates, scorelines, moneylines):
     match_data = matchup.text.split('\n')
     obj = {}
 
@@ -62,34 +82,35 @@ for matchup, date, scoreline in zip(matchups, dates, scorelines):
         while j < 24:
             score_data.append('not released yet')
             j = j + 1
+    
     match = db.mlb_data.find_one({"date": date, "team1": team1, "team2": team2})
     if match:
         #update
         match['sys_time'].append(systime)
         match['opening_ps_1'].append(score_data[0])
-        match['opening_ml_1'].append(score_data[1])
+        match['opening_ml_1'].append(moneyline[0])
         match['opening_ps_2'].append(score_data[2])
-        match['opening_ml_2'].append(score_data[3])
+        match['opening_ml_2'].append(moneyline[1])
         match['bovada_ps_1'].append(score_data[4])
-        match['bovada_ml_1'].append(score_data[5])
+        match['bovada_ml_1'].append(moneyline[2])
         match['bovada_ps_2'].append(score_data[6])
-        match['bovada_ml_2'].append(score_data[7])
+        match['bovada_ml_2'].append(moneyline[3])
         match['betonline_ps_1'].append(score_data[8])
-        match['betonline_ml_1'].append(score_data[9])
+        match['betonline_ml_1'].append(moneyline[4])
         match['betonline_ps_2'].append(score_data[10])
-        match['betonline_ml_2'].append(score_data[11])
+        match['betonline_ml_2'].append(moneyline[5])
         match['intertops_ps_1'].append(score_data[12])
-        match['intertops_ml_1'].append(score_data[13])
+        match['intertops_ml_1'].append(moneyline[6])
         match['intertops_ps_2'].append(score_data[14])
-        match['intertops_ml_2'].append(score_data[15])
+        match['intertops_ml_2'].append(moneyline[7])
         match['sportsbetting_ps_1'].append(score_data[16])
-        match['sportsbetting_ml_1'].append(score_data[17])
+        match['sportsbetting_ml_1'].append(moneyline[8])
         match['sportsbetting_ps_2'].append(score_data[18])
-        match['sportsbetting_ml_2'].append(score_data[19])
+        match['sportsbetting_ml_2'].append(moneyline[9])
         match['betnow_ps_1'].append(score_data[20])
-        match['betnow_ml_1'].append(score_data[21])
+        match['betnow_ml_1'].append(moneyline[10])
         match['betnow_ps_2'].append(score_data[22])
-        match['betnow_ml_2'].append(score_data[23])
+        match['betnow_ml_2'].append(moneyline[11])
         db.mlb_data.replace_one({'_id': match['_id']}, match)
     else:
         #make a new one
@@ -99,29 +120,29 @@ for matchup, date, scoreline in zip(matchups, dates, scorelines):
         obj['team2'] = team2
         obj['sys_time'] = [systime]
         obj['opening_ps_1'] = [score_data[0]]
-        obj['opening_ml_1'] = [score_data[1]]
+        obj['opening_ml_1'] = [moneyline[0]]
         obj['opening_ps_2'] = [score_data[2]]
-        obj['opening_ml_2'] = [score_data[3]]
+        obj['opening_ml_2'] = [moneyline[1]]
         obj['bovada_ps_1'] = [score_data[4]]
-        obj['bovada_ml_1'] = [score_data[5]]
+        obj['bovada_ml_1'] = [moneyline[2]]
         obj['bovada_ps_2'] = [score_data[6]]
-        obj['bovada_ml_2'] = [score_data[7]]
+        obj['bovada_ml_2'] = [moneyline[3]]
         obj['betonline_ps_1'] = [score_data[8]]
-        obj['betonline_ml_1'] = [score_data[9]]
+        obj['betonline_ml_1'] = [moneyline[4]]
         obj['betonline_ps_2'] = [score_data[10]]
-        obj['betonline_ml_2'] = [score_data[11]]
+        obj['betonline_ml_2'] = [moneyline[5]]
         obj['intertops_ps_1'] = [score_data[12]]
-        obj['intertops_ml_1'] = [score_data[13]]
+        obj['intertops_ml_1'] = [moneyline[6]]
         obj['intertops_ps_2'] = [score_data[14]]
-        obj['intertops_ml_2'] = [score_data[15]]
+        obj['intertops_ml_2'] = [moneyline[7]]
         obj['sportsbetting_ps_1'] = [score_data[16]]
-        obj['sportsbetting_ml_1'] = [score_data[17]]
+        obj['sportsbetting_ml_1'] = [moneyline[8]]
         obj['sportsbetting_ps_2'] = [score_data[18]]
-        obj['sportsbetting_ml_2'] = [score_data[19]]
+        obj['sportsbetting_ml_2'] = [moneyline[9]]
         obj['betnow_ps_1'] = [score_data[20]]
-        obj['betnow_ml_1'] = [score_data[21]]
+        obj['betnow_ml_1'] = [moneyline[10]]
         obj['betnow_ps_2'] = [score_data[22]]
-        obj['betnow_ml_2'] = [score_data[23]]
+        obj['betnow_ml_2'] = [moneyline[11]]
         db.mlb_data.insert_one(obj)
 
 driver.quit()
