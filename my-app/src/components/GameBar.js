@@ -26,9 +26,11 @@ function GameBar(props) {
     // var day = 'Sunday';
     var logo1 = `/${props.league}/Logos/${props.league}_${props.team1}.png`;
     var logo2 = `/${props.league}/Logos/${props.league}_${props.team2}.png`;
-
+    if (props.spread1 == "not released yet" || props.spread2 == "not released yet")
+      return (<div></div>)
     return(
-        <Link to={props.link} style={{ textDecoration: 'none' }}>
+        <div>
+          <Link to={props.link} style={{ textDecoration: 'none' }}>
             <div className="gb-btn" onClick={() => "location.href='/NBA'"}>
                 <div className="gb-column">
                     <img src={logo1} className="gb-logo" alt="Logo"/>
@@ -43,7 +45,9 @@ function GameBar(props) {
                     <h3>{props.spread2} {props.team2}</h3>
                 </div>
             </div>
-        </Link>
+          </Link>
+          <br/>
+        </div>
     );
 }
 
