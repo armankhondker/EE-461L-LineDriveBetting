@@ -84,7 +84,7 @@ class Search extends React.Component {
                 })
             })
             .catch(err => console.log(err));
-            
+
         await fetch('/MLB/Teams.json')
             .then(response => {
                 response.json().then(data => {
@@ -94,8 +94,8 @@ class Search extends React.Component {
                     });
                 })
             })
-            .catch(err => console.log(err)); 
-            
+            .catch(err => console.log(err));
+
         let combinedTeams = [].concat(this.state.mlbTeams, this.state.nbaTeams, this.state.nflTeams);
         await combinedTeams.shift();
         const queryValue = queryString.parse(window.location.search);
@@ -213,7 +213,6 @@ class Search extends React.Component {
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Nfl/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })
@@ -234,7 +233,6 @@ class Search extends React.Component {
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Nba/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })
@@ -255,7 +253,6 @@ class Search extends React.Component {
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Mlb/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })
