@@ -112,7 +112,7 @@ for matchup, date, scoreline, moneyline in zip(matchups, dates, scorelines, mone
         match['betnow_ps_2'].append(score_data[22])
         match['betnow_ml_2'].append(moneyline[11])
         print(moneyline)
-        # db.nba_data.replace_one({'_id': match['_id']}, match)
+        db.nba_data.replace_one({'_id': match['_id']}, match)
     else:
         #make a new one
         obj['date'] = date
@@ -145,6 +145,6 @@ for matchup, date, scoreline, moneyline in zip(matchups, dates, scorelines, mone
         obj['betnow_ps_2'] = [score_data[22]]
         obj['betnow_ml_2'] = [moneyline[11]]
         print(moneyline)
-        # db.nba_data.insert_one(obj)
+        db.nba_data.insert_one(obj)
 
 driver.quit()
