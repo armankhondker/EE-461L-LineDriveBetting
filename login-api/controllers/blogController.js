@@ -1,9 +1,9 @@
-// accountController.js
+// blogController.js
 // Import user model
-account = require('./accountModel');
+blog = require('../models/blogModel');
 // Handle index actions
 exports.index = function (req, res) {
-    account.get(function (err, users) {
+    blog.get(function (err, users) {
         if (err) {
             res.json({
                 status: "error",
@@ -12,29 +12,36 @@ exports.index = function (req, res) {
         }
         res.json({
             status: "success",
-            message: "Accounts retrieved successfully",
+            message: "Blog posts retrieved successfully",
             data: users
         });
     });
 };
 // Handle create user actions
 exports.new = function (req, res) {
-    var user = new account();
+    var user = new blog();
     user.username = req.body.username ? req.body.username : user.username;
-    user.password = req.body.password ? req.body.password : user.password;
+    user.content = req.body.content;
+    user.game_id = req.body.game_id;
+    user.team1 = req.body.team1;
+    user.team2 = req.body.team2;
+    user.game_date = req.body.game_date;
 // save the user and check for errors
     user.save(function (err) {
         // if (err)
         //     res.json(err);
         res.json({
-            message: 'New user created!',
+            message: 'New post created!',
             data: user
         });
     });
 };
 // Handle view user info
 exports.view = function (req, res) {
-    account.findById(req.params.account_id, function (err, user) {
+    var query = {
+      game_id : req.params.blog_id
+    }
+    blog.find(query, function (err, user) {
         if (err)
             res.send(err);
         res.json({
@@ -45,11 +52,15 @@ exports.view = function (req, res) {
 };
 // Handle update user info
 exports.update = function (req, res) {
-account.findById(req.params.account_id, function (err, user) {
+blog.findById(req.params.blog_id, function (err, user) {
         if (err)
             res.send(err);
             user.username = req.body.username ? req.body.username : user.username;
-            user.password = req.body.password ? req.body.password : user.password;
+            user.content = req.body.content;
+            user.game_id = req.body.game_id;
+            user.team1 = req.body.team1;
+            user.team2 = req.body.team2;
+            user.game_date = req.body.game_date;
 // save the user and check for errors
         user.save(function (err) {
             if (err)
@@ -63,8 +74,8 @@ account.findById(req.params.account_id, function (err, user) {
 };
 // Handle delete user
 exports.delete = function (req, res) {
-    account.remove({
-        _id: req.params.account_id
+    blog.remove({
+        _id: req.params.blog_id
     }, function (err, user) {
         if (err)
             res.send(err);
