@@ -67,7 +67,6 @@ class Nba extends React.Component {
                                     spread2={value.opening_ps_2.slice(-1)[0]}
                                     link={`/Nba/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })

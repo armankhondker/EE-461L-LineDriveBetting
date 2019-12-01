@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import GameBar from "../components/GameBar";
 import queryString from 'query-string';
+import ReactLoading from "react-loading";
 
 function searchingFor(term) {
     return function (x) {
@@ -83,7 +84,7 @@ class Search extends React.Component {
                 })
             })
             .catch(err => console.log(err));
-            
+
         await fetch('/MLB/Teams.json')
             .then(response => {
                 response.json().then(data => {
@@ -93,8 +94,8 @@ class Search extends React.Component {
                     });
                 })
             })
-            .catch(err => console.log(err)); 
-            
+            .catch(err => console.log(err));
+
         let combinedTeams = [].concat(this.state.mlbTeams, this.state.nbaTeams, this.state.nflTeams);
         await combinedTeams.shift();
         const queryValue = queryString.parse(window.location.search);
@@ -159,23 +160,29 @@ class Search extends React.Component {
         const { value } = this.state;
         const { nflGames, nbaGames, mlbGames } = this.props;
         let hasMounted = false;
-        let hasResults = true;
         let nflResults = null;
         let nbaResults = null;
         let mlbResults = null;
+        let loader = <ReactLoading type={"spin"} color={"#ffffff"} height={'20%'} width={'20%'} />
 
         if(nflGames !== null && nbaGames !== null && mlbGames !== null && value !== ''){
             hasMounted = true;
             nflResults = nflGames.filter(searchingFor(value));
             nbaResults = nbaGames.filter(searchingFor(value));
             mlbResults = mlbGames.filter(searchingFor(value));
-            if(nflResults.length + nbaResults.length + mlbResults.length === 0) {
-                hasResults = false;
+            let resultsLength = nflResults.length + nbaResults.length + mlbResults.length;
+            if(resultsLength > 0) {
+                loader = <h2></h2>;
+            } else if(resultsLength === 0) {
+                loader= <h2>No results found.</h2>;
             }
         }
 
-        if(nflResults === null && nbaResults === null && mlbResults === null) {
-            hasResults = false;
+        if(nflResults === null && nbaResults === null && mlbResults === null &&
+            nflGames !== null && nbaGames !== null && mlbGames !== null ) {
+            if(value === '') {
+                loader = <h2>Type above to search.</h2>;
+            }
         }
 
         return(
@@ -206,7 +213,6 @@ class Search extends React.Component {
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Nfl/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })
@@ -227,7 +233,6 @@ class Search extends React.Component {
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Nba/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })
@@ -248,14 +253,13 @@ class Search extends React.Component {
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Mlb/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
                                 />
-                                <br/>
                             </React.Fragment>
                         )
                     })
                 ) : (
                     <div></div>
                 )}
-                {!hasResults ? (<h2>No results found</h2>) : (<div></div>) }
+                {loader}
             </div>
         );
     }
