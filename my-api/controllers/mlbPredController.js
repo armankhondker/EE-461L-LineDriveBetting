@@ -1,6 +1,6 @@
 // mlbController.js
 // Import game model
-mlbPred = require('./mlbPredModel');
+mlbPred = require('../models/mlbPredModel');
 // Handle index actions
 exports.index = function (req, res) {
   var dateObj = new Date();

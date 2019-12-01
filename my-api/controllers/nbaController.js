@@ -1,6 +1,6 @@
 // nbaController.js
 // Import game model
-nbaGame = require('./nbaModel');
+nbaGame = require('../models/nbaModel');
 // Handle index actions
 exports.index = function (req, res) {
     nbaGame.get(function (err, games) {

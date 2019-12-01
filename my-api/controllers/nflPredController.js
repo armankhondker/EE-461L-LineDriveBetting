@@ -1,6 +1,6 @@
 // nflController.js
 // Import game model
-nflPred = require('./nflPredModel');
+nflPred = require('../models/nflPredModel');
 // Handle index actions
 exports.index = function (req, res) {
   var dateObj = new Date();

@@ -1,6 +1,6 @@
 // nflController.js
 // Import game model
-nflGame = require('./nflModel');
+nflGame = require('../models/nflModel');
 // Handle index actions
 exports.index = function (req, res) {
     nflGame.get(function (err, games) {
