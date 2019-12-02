@@ -93,7 +93,7 @@ class About extends React.Component {
           }
         }
         return(
-            <div className="About">
+          <div className="About">
            <h1>placeholder</h1>
            <div className="AboutInformation">
            <h1 className = "AboutTitles">  Vision</h1>
@@ -148,7 +148,7 @@ class About extends React.Component {
            <ul><b>Punit Patel </b>
            { <img className="prof_pic" src={Punit} alt="Punit" /> }
               <br></br>
-               Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichmnent
+               Bio:A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
@@ -259,5 +259,4 @@ class About extends React.Component {
     }
 
 }
-
 export default About;
