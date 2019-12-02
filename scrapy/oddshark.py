@@ -9,8 +9,20 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 import time
+import sys
 
-url = 'https://www.oddsshark.com/mlb/odds'
+if len(sys.argv) < 2:
+    print('Need to pass an argument for sport type')
+    exit()
+
+arg = sys.argv[1]
+
+if arg == 'nfl':
+    url = 'https://www.oddsshark.com/nfl/odds'
+if arg == 'nba':
+    url = 'https://www.oddsshark.com/nba/odds'
+if arg == 'mlb':
+    url = 'https://www.oddsshark.com/mlb/odds'
 
 options = Options()
 options.headless = True
@@ -83,7 +95,13 @@ for matchup, date, scoreline, moneyline in zip(matchups, dates, scorelines, mone
             score_data.append('not released yet')
             j = j + 1
     
-    match = db.mlb_data.find_one({"date": date, "team1": team1, "team2": team2})
+    if arg == 'nfl':
+        match = db.nfl_data.find_one({"date": date, "team1": team1, "team2": team2})
+    if arg == 'nba':
+        match = db.nba_data.find_one({"date": date, "team1": team1, "team2": team2})
+    if arg == 'mlb':
+        match = db.mlb_data.find_one({"date": date, "team1": team1, "team2": team2})
+
     if match:
         #update
         match['sys_time'].append(systime)
@@ -111,7 +129,12 @@ for matchup, date, scoreline, moneyline in zip(matchups, dates, scorelines, mone
         match['betnow_ml_1'].append(moneyline[10])
         match['betnow_ps_2'].append(score_data[22])
         match['betnow_ml_2'].append(moneyline[11])
-        db.mlb_data.replace_one({'_id': match['_id']}, match)
+        if arg == 'nfl':
+            db.nfl_data.replace_one({'_id': match['_id']}, match)
+        if arg == 'nba':
+            db.nba_data.replace_one({'_id': match['_id']}, match)
+        if arg == 'mlb':
+            db.mlb_data.replace_one({'_id': match['_id']}, match)
     else:
         #make a new one
         obj['date'] = date
@@ -143,6 +166,11 @@ for matchup, date, scoreline, moneyline in zip(matchups, dates, scorelines, mone
         obj['betnow_ml_1'] = [moneyline[10]]
         obj['betnow_ps_2'] = [score_data[22]]
         obj['betnow_ml_2'] = [moneyline[11]]
-        db.mlb_data.insert_one(obj)
+        if arg == 'nfl':
+            db.nfl_data.insert_one(obj)
+        if arg == 'nba':
+            db.nba_data.insert_one(obj)
+        if arg == 'mlb':
+            db.mlb_data.insert_one(obj)
 
 driver.quit()
