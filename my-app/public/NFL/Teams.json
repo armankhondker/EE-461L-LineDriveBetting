@@ -2,161 +2,161 @@
     {
         "code": "ARI",
         "fullName": "Arizona Cardinals",
-        "shortName": "Arizona"
+        "location": "Arizona"
     },
     {
         "code": "ATL",
         "fullName": "Atlanta Falcons",
-        "shortName": "Atlanta"
+        "location": "Atlanta"
     },
     {
         "code": "BAL",
         "fullName": "Baltimore Ravens",
-        "shortName": "Baltimore"
+        "location": "Baltimore"
     },
     {
         "code": "BUF",
         "fullName": "Buffalo Bills",
-        "shortName": "Buffalo"
+        "location": "Buffalo"
     },
     {
         "code": "CAR",
         "fullName": "Carolina Panthers",
-        "shortName": "Carolina"
+        "location": "Carolina"
     },
     {
         "code": "CHI",
         "fullName": "Chicago Bears",
-        "shortName": "Chicago"
+        "location": "Chicago"
     },
     {
         "code": "CIN",
         "fullName": "Cincinnati Bengals",
-        "shortName": "Cincinnati"
+        "location": "Cincinnati"
     },
     {
         "code": "CLE",
         "fullName": "Cleveland Browns",
-        "shortName": "Cleveland"
+        "location": "Cleveland"
     },
     {
         "code": "DAL",
         "fullName": "Dallas Cowboys",
-        "shortName": "Dallas"
+        "location": "Dallas"
     },
     {
         "code": "DEN",
         "fullName": "Denver Broncos",
-        "shortName": "Denver"
+        "location": "Denver"
     },
     {
         "code": "DET",
         "fullName": "Detroit Lions",
-        "shortName": "Detroit"
+        "location": "Detroit"
     },
     {
         "code": "GB",
         "fullName": "Green Bay Packers",
-        "shortName": "Green Bay"
+        "location": "Green Bay"
     },
     {
         "code": "HOU",
         "fullName": "Houston Texans",
-        "shortName": "Houston"
+        "location": "Houston"
     },
     {
         "code": "IND",
         "fullName": "Indianapolis Colts",
-        "shortName": "Indianapolis"
+        "location": "Indianapolis"
     },
     {
         "code": "JAX",
         "fullName": "Jacksonville Jaguars",
-        "shortName": "Jacksonville"
+        "location": "Jacksonville"
     },
     {
         "code": "KC",
         "fullName": "Kansas City Chiefs",
-        "shortName": "Kansas City"
+        "location": "Kansas City"
     },
     {
         "code": "MIA",
         "fullName": "Miami Dolphins",
-        "shortName": "Miami"
+        "location": "Miami"
     },
     {
         "code": "MIN",
         "fullName": "Minnesota Vikings",
-        "shortName": "Minnesota"
+        "location": "Minnesota"
     },
     {
         "code": "NYG",
         "fullName": "New York Giants",
-        "shortName": "NY Giants"
+        "location": "NY Giants"
     },
     {
         "code": "NYJ",
         "fullName": "New York Jets",
-        "shortName": "NY Jets"
+        "location": "NY Jets"
     },
     {
         "code": "NE",
         "fullName": "New England Patriots",
-        "shortName": "New England"
+        "location": "New England"
     },
     {
         "code": "NO",
         "fullName": "New Orleans Saints",
-        "shortName": "New Orleans"
+        "location": "New Orleans"
     },
     {
         "code": "OAK",
         "fullName": "Oakland Raiders",
-        "shortName": "Oakland"
+        "location": "Oakland"
     },
     {
         "code": "PHI",
         "fullName": "Philadelphia Eagles",
-        "shortName": "Philadelphia"
+        "location": "Philadelphia"
     },
     {
         "code": "PIT",
         "fullName": "Pittsburgh Steelers",
-        "shortName": "Pittsburgh"
+        "location": "Pittsburgh"
     },
     {
         "code": "LAC",
         "fullName": "Los Angeles Chargers",
-        "shortName": "LA Chargers"
+        "location": "LA Chargers"
     },
     {
         "code": "SF",
         "fullName": "San Francisco 49ers",
-        "shortName": "San Francisco"
+        "location": "San Francisco"
     },
     {
         "code": "SEA",
         "fullName": "Seattle Seahawks",
-        "shortName": "Seattle"
+        "location": "Seattle"
     },
     {
         "code": "LAR",
         "fullName": "Los Angeles Rams",
-        "shortName": "LA Rams"
+        "location": "LA Rams"
     },
     {
         "code": "TB",
         "fullName": "Tampa Bay Buccaneers",
-        "shortName": "Tampa Bay"
+        "location": "Tampa Bay"
     },
     {
         "code": "TEN",
         "fullName": "Tennessee Titans",
-        "shortName": "Tennessee"
+        "location": "Tennessee"
     },
     {
         "code": "WAS",
         "fullName": "Washington Redskins",
-        "shortName": "Washington"
+        "location": "Washington"
     }
   ]

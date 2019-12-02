@@ -1,13 +1,15 @@
 import React from 'react';
+import NBALogo from '../assets/images/NBA.png';
+import NFLLogo from '../assets/images/NFL.png';
 import MLBLogo from '../assets/images/MLB.png';
 import Logo from '../assets/images/LDBLogo.png';
 import '../components/Logos.css';
 import './Pages.css';
 import GameBar from "../components/GameBar";
+import '../components/ImgButton.css';
 import ReactLoading from "react-loading";
 
-class Mlb extends React.Component {
-
+class League extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +20,7 @@ class Mlb extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/MLB/Teams.json')
+        fetch(`/${this.props.league}/Teams.json`)
             .then(response => {
                 response.json().then(data => {
                     console.log(data);
@@ -43,29 +45,30 @@ class Mlb extends React.Component {
     }
 
     render() {
+        const {games, league} = this.props;
         var hasMounted = false;
-        if(this.props.games !== null) hasMounted = true;
+        if(games !== null) hasMounted = true;
         return(
             <div className = "Pages-Nfl">
                 <div>
                     <br/>
-                    <img src={MLBLogo} className = "MLBLogos" alt="MLB" />
+                    <img src={NBALogo} className = {`${league}Logos`} alt={league} />
                     <img src={Logo} className="App-logo-pages" alt="logo" />
                     <br/>
                 </div>
                 {hasMounted ? (
-                    this.props.games.map((value, index) => {
+                    games.map((value, index) => {
                         return(
                             <React.Fragment key={index}>
                                 <GameBar
                                     key={index}
-                                    league="MLB"
+                                    league={league}
                                     date={value.date}
                                     team1={this.encodeTeam(value.team1)}
                                     team2={this.encodeTeam(value.team2)}
                                     spread1={value.opening_ps_1.slice(-1)[0]}
                                     spread2={value.opening_ps_2.slice(-1)[0]}
-                                    link={`/Mlb/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                    link={`/${league}/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
                                 />
                             </React.Fragment>
                         )
@@ -78,4 +81,4 @@ class Mlb extends React.Component {
     }
 }
 
-export default Mlb;
+export default League;
