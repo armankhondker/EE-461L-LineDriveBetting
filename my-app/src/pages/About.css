@@ -5,6 +5,8 @@ ul:first-of-type {
 ul {
   border-bottom: 3px solid;
   padding: 10px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .About {
@@ -24,12 +26,6 @@ p{
 
 
 }
-ul{
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-
-}
-
 .prof_pic {
   width: 200px;
   display: inherit;
