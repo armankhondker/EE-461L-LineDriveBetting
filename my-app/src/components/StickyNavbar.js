@@ -12,17 +12,17 @@ function StickNavbar() {
 
     return(
         <Navbar bg="dark" variant="dark" fixed="top">
-            <Navbar.Brand href="/">LineDriveBetting</Navbar.Brand>
+            <Navbar.Brand href="/"><b>LineDriveBetting</b></Navbar.Brand>
             <Nav className="mr-auto">
                {/* <Nav.Link href="/">Home</Nav.Link> */}
-                <Nav.Link href="/About">About</Nav.Link>
-                <Nav.Link href="/Blog">Blog</Nav.Link>
+                <Nav.Link href="/About"><b>About</b></Nav.Link>
+                <Nav.Link href="/Blog"><b>Blog</b></Nav.Link>
                 {
-                  un.length === 0 ? <Nav.Link className="Login" href="/Login">Login</Nav.Link>
-                  : <Nav.Link className="Login" href="/Login">{un}</Nav.Link>
+                  un.length === 0 ? <Nav.Link className="Login" href="/Login"><b>Login</b></Nav.Link>
+                  : <Nav.Link className="Login" href="/Login"><b>{un}</b></Nav.Link>
                 }
-                 <Nav.Link href="/Search">Search</Nav.Link>
-                 <Nav.Link href="/Bet">Bet</Nav.Link>
+                 <Nav.Link href="/Search"><b>Search</b></Nav.Link>
+                 <Nav.Link href="/Bet"><b>Bet</b></Nav.Link>
             </Nav>
         </Navbar>
     );
