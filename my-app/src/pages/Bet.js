@@ -10,7 +10,6 @@ import Innertops from '../assets/images/Innertops.jpeg';
 import Openbet from '../assets/images/Openbet.jpg';
 import './Pages.css'
 
-
 class Bet extends React.Component {
     render() {
         return(

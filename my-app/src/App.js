@@ -43,7 +43,7 @@ class App extends React.Component{
                         throw Error('Network request failed.')
                     }
                     this.setState({
-                        nflGames: data.data
+                        nflGames: data.data.reverse()
                     });
                 });
             })
@@ -65,7 +65,7 @@ class App extends React.Component{
                         throw Error('Network request failed.')
                     }
                     this.setState({
-                        nbaGames: data.data
+                        nbaGames: data.data.reverse()
                     });
                 });
             })
@@ -87,7 +87,7 @@ class App extends React.Component{
                         throw Error('Network request failed.')
                     }
                     this.setState({
-                        mlbGames: data.data
+                        mlbGames: data.data.reverse()
                     });
                 });
             })
