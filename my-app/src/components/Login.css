@@ -6,3 +6,13 @@
 .form-label {
   margin-right: 10px;
 }
+
+@media (max-width: 500px) {
+  .login {
+    width: 100%;
+  }
+
+  .btn {
+    font-size: 12px;
+  }
+}
