@@ -1,6 +1,6 @@
 // mlbController.js
 // Import game model
-mlbGame = require('./mlbModel');
+mlbGame = require('../models/mlbModel');
 // Handle index actions
 exports.index = function (req, res) {
     mlbGame.get(function (err, games) {

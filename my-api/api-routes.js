@@ -9,12 +9,12 @@ router.get('/', function (req, res) {
     });
 });
 // Import nfl controller
-var nflController = require('./nflController');
-var nbaController = require('./nbaController');
-var mlbController = require('./mlbController');
-var nflPredController = require('./nflPredController');
-var nbaPredController = require('./nbaPredController');
-var mlbPredController = require('./mlbPredController');
+var nflController = require('./controllers/nflController');
+var nbaController = require('./controllers/nbaController');
+var mlbController = require('./controllers/mlbController');
+var nflPredController = require('./controllers/nflPredController');
+var nbaPredController = require('./controllers/nbaPredController');
+var mlbPredController = require('./controllers/mlbPredController');
 
 // nfl routes
 router.route('/nfl')

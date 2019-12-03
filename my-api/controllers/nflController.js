@@ -1,9 +1,9 @@
-// nbaController.js
+// nflController.js
 // Import game model
-nbaGame = require('./nbaModel');
+nflGame = require('../models/nflModel');
 // Handle index actions
 exports.index = function (req, res) {
-    nbaGame.get(function (err, games) {
+    nflGame.get(function (err, games) {
         if (err) {
             res.json({
                 status: "error",
@@ -12,14 +12,14 @@ exports.index = function (req, res) {
         }
         res.json({
             status: "success",
-            message: "nbaGames retrieved successfully",
+            message: "nflGames retrieved successfully",
             data: games
         });
     });
 };
 // Handle create game actions
 exports.new = function (req, res) {
-    var game = new nbaGame();
+    var game = new nflGame();
     game.team1 = req.body.team1 ? req.body.team1 : game.team1;
     game.team2 = req.body.team2 ? req.body.team2 : game.team2;
     game.time = req.body.time;
@@ -59,18 +59,18 @@ res.json({
 };
 // Handle view game info
 exports.view = function (req, res) {
-    nbaGame.findById(req.params.nba_id, function (err, game) {
+    nflGame.findById(req.params.nfl_id, function (err, game) {
         if (err)
             res.send(err);
         res.json({
-            message: 'nbaGame details loading..',
+            message: 'nflGame details loading..',
             data: game
         });
     });
 };
 // Handle update game info
 exports.update = function (req, res) {
-nbaGame.findById(req.params.nba_id, function (err, game) {
+nflGame.findById(req.params.nfl_id, function (err, game) {
         if (err)
             res.send(err);
             game.team1 = req.body.team1 ? req.body.team1 : game.team1;
@@ -105,7 +105,7 @@ nbaGame.findById(req.params.nba_id, function (err, game) {
             if (err)
                 res.json(err);
             res.json({
-                message: 'nbaGame Info updated',
+                message: 'nflGame Info updated',
                 data: game
             });
         });
@@ -113,14 +113,14 @@ nbaGame.findById(req.params.nba_id, function (err, game) {
 };
 // Handle delete game
 exports.delete = function (req, res) {
-    nbaGame.remove({
-        _id: req.params.nba_id
+    nflGame.remove({
+        _id: req.params.nfl_id
     }, function (err, game) {
         if (err)
             res.send(err);
 res.json({
             status: "success",
-            message: 'nbaGame deleted'
+            message: 'nflGame deleted'
         });
     });
 };

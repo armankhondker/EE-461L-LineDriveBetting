@@ -9,8 +9,8 @@ router.get('/', function (req, res) {
     });
 });
 // Import controllers
-var accountController = require('./accountController');
-var blogController = require('./blogController');
+var accountController = require('./controllers/accountController');
+var blogController = require('./controllers/blogController');
 
 // account routes
 router.route('/accounts')

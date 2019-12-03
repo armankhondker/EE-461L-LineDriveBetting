@@ -1,6 +1,6 @@
 // nbaPredModel.js
 // Import game model
-nbaPred = require('./nbaPredModel');
+nbaPred = require('../models/nbaPredModel');
 
 
 
