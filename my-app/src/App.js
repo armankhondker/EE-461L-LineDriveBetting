@@ -25,16 +25,18 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', {
+        let fetchParams = {
             method: 'GET',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
-                'Access-Control-Allow-Credentials' : true ,
+                'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+                'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        })
+            }
+        }
+
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', fetchParams)
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
@@ -47,16 +49,7 @@ class App extends React.Component{
             })
             .catch(err => console.log(err));
 
-        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba', {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
-                'Access-Control-Allow-Credentials' : true ,
-                'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        })
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba', fetchParams)
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
@@ -69,16 +62,7 @@ class App extends React.Component{
             })
             .catch(err => console.log(err));
 
-        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb', {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
-                'Access-Control-Allow-Credentials' : true ,
-                'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        })
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb', fetchParams)
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
