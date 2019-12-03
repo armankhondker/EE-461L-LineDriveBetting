@@ -1,6 +1,6 @@
-// mlbController.js
+// nflController.js
 // Import game model
-mlbPred = require('./mlbPredModel');
+nflPred = require('../models/nflPredModel');
 // Handle index actions
 exports.index = function (req, res) {
   var dateObj = new Date();
@@ -22,16 +22,16 @@ exports.index = function (req, res) {
       '$and': [
           {
               'date': {
-                  '$gte': '2019-10-24'
+                  '$gte': lastWeekDate
               }
           }, {
               'date': {
-                  '$lte': 'nextWeekDate'
+                  '$lte': nextWeekDate
               }
           }
       ]
   };
-  mlbPred.find(query, function (err, games) {
+  nflPred.find(query, function (err, games) {
         if (err) {
             res.json({
                 status: "error",
@@ -40,14 +40,14 @@ exports.index = function (req, res) {
         }
         res.json({
             status: "success",
-            message: "MLB Predictions retrieved successfully",
+            message: "NFL Predictions retrieved successfully",
             data: games
         });
     });
 };
 // Handle create game actions
 exports.new = function (req, res) {
-    var pred = new mlbPred();
+    var pred = new nflPred();
     pred.team1 = req.body.team1 ? req.body.team1 : pred.team1;
     pred.team2 = req.body.team2 ? req.body.team2 : pred.team2;
     pred.date = req.body.date;
@@ -60,18 +60,22 @@ exports.new = function (req, res) {
     pred.elo_prob2 = req.body.elo_prob2;
     pred.elo1_post = req.body.elo1_post;
     pred.elo2_post = req.body.elo2_post;
-    pred.rating1_pre = req.body.rating1_pre;
-    pred.rating2_pre = req.body.rating2_pre;
-    pred.pitcher1 = req.body.pitcher1;
-    pred.pitcher2 = req.body.pitcher2;
-    pred.pitcher1_rgs = req.body.pitcher1_rgs;
-    pred.pitcher2_rgs = req.body.pitcher2_rgs;
-    pred.pitcher1_adj = req.body.pitcher1_adj;
-    pred.pitcher2_adj = req.body.pitcher2_adj;
-    pred.rating_prob1 = req.body.rating_prob1;
-    pred.rating_prob2 = req.body.rating_prob2;
-    pred.rating1_post = req.body.rating1_post;
-    pred.rating2_post = req.body.rating2_post;
+    pred.qbelo1_pre = req.body.qbelo1_pre;
+    pred.qbelo2_pre = req.body.qbelo2_pre;
+    pred.qb1 = req.body.qb1;
+    pred.qb2 = req.body.qb2;
+    pred.qb1_value_pre = req.body.qb1_value_pre;
+    pred.qb2_value_pre = req.body.qb2_value_pre;
+    pred.qb1_adj = req.body.qb1_adj;
+    pred.qb2_adj = req.body.qb2_adj;
+    pred.qbelo_prob1 = req.body.qbelo_prob1;
+    pred.qbelo_prob2 = req.body.qbelo_prob2;
+    pred.qb1_game_value = req.body.qb1_game_value;
+    pred.qb2_game_value = req.body.qb2_game_value;
+    pred.qb1_value_post = req.body.qb1_value_post;
+    pred.qb2_value_post = req.body.qb2_value_post;
+    pred.qbelo1_post = req.body.qbelo1_post;
+    pred.qbelo2_post = req.body.qbelo2_post;
     pred.score1 = req.body.score1;
     pred.score2 = req.body.score2;
 // save the pred and check for errors
@@ -86,18 +90,18 @@ res.json({
 };
 // Handle view pred info
 exports.view = function (req, res) {
-    mlbPred.findById(req.params.mlb_id, function (err, pred) {
+    nflPred.findById(req.params.nfl_id, function (err, pred) {
         if (err)
             res.send(err);
         res.json({
-            message: 'mlbGame details loading..',
+            message: 'nflGame details loading..',
             data: pred
         });
     });
 };
 // Handle update pred info
 exports.update = function (req, res) {
-mlbPred.findById(req.params.mlb_id, function (err, pred) {
+nflPred.findById(req.params.nfl_id, function (err, pred) {
         if (err)
             res.send(err);
             pred.team1 = req.body.team1 ? req.body.team1 : pred.team1;
@@ -112,18 +116,22 @@ mlbPred.findById(req.params.mlb_id, function (err, pred) {
             pred.elo_prob2 = req.body.elo_prob2;
             pred.elo1_post = req.body.elo1_post;
             pred.elo2_post = req.body.elo2_post;
-            pred.rating1_pre = req.body.rating1_pre;
-            pred.rating2_pre = req.body.rating2_pre;
-            pred.pitcher1 = req.body.pitcher1;
-            pred.pitcher2 = req.body.pitcher2;
-            pred.pitcher1_rgs = req.body.pitcher1_rgs;
-            pred.pitcher2_rgs = req.body.pitcher2_rgs;
-            pred.pitcher1_adj = req.body.pitcher1_adj;
-            pred.pitcher2_adj = req.body.pitcher2_adj;
-            pred.rating_prob1 = req.body.rating_prob1;
-            pred.rating_prob2 = req.body.rating_prob2;
-            pred.rating1_post = req.body.rating1_post;
-            pred.rating2_post = req.body.rating2_post;
+            pred.qbelo1_pre = req.body.qbelo1_pre;
+            pred.qbelo2_pre = req.body.qbelo2_pre;
+            pred.qb1 = req.body.qb1;
+            pred.qb2 = req.body.qb2;
+            pred.qb1_value_pre = req.body.qb1_value_pre;
+            pred.qb2_value_pre = req.body.qb2_value_pre;
+            pred.qb1_adj = req.body.qb1_adj;
+            pred.qb2_adj = req.body.qb2_adj;
+            pred.qbelo_prob1 = req.body.qbelo_prob1;
+            pred.qbelo_prob2 = req.body.qbelo_prob2;
+            pred.qb1_game_value = req.body.qb1_game_value;
+            pred.qb2_game_value = req.body.qb2_game_value;
+            pred.qb1_value_post = req.body.qb1_value_post;
+            pred.qb2_value_post = req.body.qb2_value_post;
+            pred.qbelo1_post = req.body.qbelo1_post;
+            pred.qbelo2_post = req.body.qbelo2_post;
             pred.score1 = req.body.score1;
             pred.score2 = req.body.score2;
 // save the pred and check for errors
@@ -131,7 +139,7 @@ mlbPred.findById(req.params.mlb_id, function (err, pred) {
             if (err)
                 res.json(err);
             res.json({
-                message: 'mlbPred Info updated',
+                message: 'nflPred Info updated',
                 data: game
             });
         });
@@ -139,14 +147,14 @@ mlbPred.findById(req.params.mlb_id, function (err, pred) {
 };
 // Handle delete game
 exports.delete = function (req, res) {
-    mlbPred.remove({
-        _id: req.params.mlb_id
+    nflPred.remove({
+        _id: req.params.nfl_id
     }, function (err, game) {
         if (err)
             res.send(err);
 res.json({
             status: "success",
-            message: 'mlbPred deleted'
+            message: 'nflPred deleted'
         });
     });
 };
