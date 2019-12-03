@@ -36,22 +36,22 @@ class Search extends React.Component {
     componentWillReceiveProps(nextProps, nextContext) {
         if(nextProps.nflGames !== null) {
             nextProps.nflGames.forEach((game) => {
-                game.team1FullName = this.encodeNflTeam(game.team1).fullName;
-                game.team2FullName = this.encodeNflTeam(game.team2).fullName;
+                game.team1FullName = this.encodeTeam(game.team1, 'nfl').fullName;
+                game.team2FullName = this.encodeTeam(game.team2, 'nfl').fullName;
             })
         }
 
         if(nextProps.nbaGames !== null) {
             nextProps.nbaGames.forEach((game) => {
-                game.team1FullName = this.encodeNbaTeam(game.team1).fullName;
-                game.team2FullName = this.encodeNbaTeam(game.team2).fullName;
+                game.team1FullName = this.encodeTeam(game.team1, 'nba').fullName;
+                game.team2FullName = this.encodeTeam(game.team2, 'nba').fullName;
             })
         }
 
         if(nextProps.mlbGames !== null) {
             nextProps.mlbGames.forEach((game) => {
-                game.team1FullName = this.encodeMlbTeam(game.team1).fullName;
-                game.team2FullName = this.encodeMlbTeam(game.team2).fullName;
+                game.team1FullName = this.encodeTeam(game.team1, 'mlb').fullName;
+                game.team2FullName = this.encodeTeam(game.team2, 'mlb').fullName;
             })
         }
 
@@ -111,41 +111,25 @@ class Search extends React.Component {
         });
     }
 
-    encodeNflTeam(team) {
-        const { nflTeams } = this.state;
-        if(nflTeams === null) return 0;
-        var i;
-        var teams = nflTeams;
-        for(i = 0; i < teams.length; i ++) {
-            if(teams[i].shortName === team) {
+    encodeTeam(team, league) {
+        const { nbaTeams, mlbTeams, nflTeams } = this.state;
+        let teams;
+        league = league.toLowerCase();
+        if(league === 'nba') {
+            teams = nbaTeams;
+        } else if(league === 'nfl') {
+            teams = nflTeams;
+        } else if(league === 'mlb') {
+            teams = mlbTeams;
+        }
+
+        for(let i = 0; i < teams.length; i ++) {
+            if (teams[i].location === team) {
                 return teams[i];
             }
         }
     }
 
-    encodeNbaTeam(team) {
-        const { nbaTeams } = this.state;
-        if(nbaTeams === null) return 0;
-        var i;
-        var teams = nbaTeams;
-        for(i = 0; i < teams.length; i ++) {
-            if(teams[i].location === team) {
-                return teams[i];
-            }
-        }
-    }
-
-    encodeMlbTeam(team) {
-        const { mlbTeams } = this.state;
-        if(mlbTeams === null) return 0;
-        var i;
-        var teams = mlbTeams;
-        for(i = 0; i < teams.length; i ++) {
-            if(teams[i].location === team) {
-                return teams[i];
-            }
-        }
-    }
     searchHandler(event) {
         this.setState({ value: event.target.value });
     }
@@ -207,8 +191,8 @@ class Search extends React.Component {
                                     key={index}
                                     league="NFL"
                                     date={game.date}
-                                    team1={this.encodeNflTeam(game.team1).code}
-                                    team2={this.encodeNflTeam(game.team2).code}
+                                    team1={this.encodeTeam(game.team1,'nfl').code}
+                                    team2={this.encodeTeam(game.team2, 'nfl').code}
                                     spread1={game.opening_ps_1.slice(-1)[0]}
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Nfl/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
@@ -227,8 +211,8 @@ class Search extends React.Component {
                                     key={index}
                                     league="NBA"
                                     date={game.date}
-                                    team1={this.encodeNbaTeam(game.team1).code}
-                                    team2={this.encodeNbaTeam(game.team2).code}
+                                    team1={this.encodeTeam(game.team1, 'nba').code}
+                                    team2={this.encodeTeam(game.team2, 'nba').code}
                                     spread1={game.opening_ps_1.slice(-1)[0]}
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Nba/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
@@ -247,8 +231,8 @@ class Search extends React.Component {
                                     key={index}
                                     league="MLB"
                                     date={game.date}
-                                    team1={this.encodeMlbTeam(game.team1).code}
-                                    team2={this.encodeMlbTeam(game.team2).code}
+                                    team1={this.encodeTeam(game.team1, 'mlb').code}
+                                    team2={this.encodeTeam(game.team2, 'mlb').code}
                                     spread1={game.opening_ps_1.slice(-1)[0]}
                                     spread2={game.opening_ps_2.slice(-1)[0]}
                                     link={`/Mlb/${game.team1.replace(' ','-')}-${game.team2.replace(' ', '-')}-${game._id}`}
