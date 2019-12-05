@@ -3,9 +3,6 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import About from './pages/About';
-import Nba from './pages/Nba';
-import Nfl from './pages/Nfl';
-import Mlb from './pages/Mlb';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Login from './components/Login';
@@ -13,6 +10,7 @@ import Game from './pages/Game';
 import Bet from './pages/Bet';
 import Search from './pages/Search';
 import StickNavbar from "./components/StickyNavbar";
+import League from "./pages/League";
 // import ReactLoading from 'react-loading';
 
 
@@ -27,16 +25,18 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', {
+        let fetchParams = {
             method: 'GET',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
-                'Access-Control-Allow-Credentials' : true ,
+                'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+                'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        })
+            }
+        }
+
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nfl', fetchParams)
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
@@ -49,16 +49,7 @@ class App extends React.Component{
             })
             .catch(err => console.log(err));
 
-        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba', {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
-                'Access-Control-Allow-Credentials' : true ,
-                'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        })
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/nba', fetchParams)
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
@@ -71,16 +62,7 @@ class App extends React.Component{
             })
             .catch(err => console.log(err));
 
-        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb', {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
-                'Access-Control-Allow-Credentials' : true ,
-                'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        })
+        fetch('https://nu97ojsfol.execute-api.us-east-1.amazonaws.com/latest/api/mlb', fetchParams)
             .then(response => {
                 response.json().then(data => {
                     if(data.status !== 'success') {
@@ -105,9 +87,9 @@ class App extends React.Component{
                 <Route path ='/' render={() => (<StickNavbar />)}/>
                 <Route exact={true} path='/' render={() => (<Home />)}/>
                 <Route exact={true} path='/About' render={() => (<About />)}/>
-                <Route exact={true} path='/Nba' render={() => (<Nba games={this.state.nbaGames} />)}/>
-                <Route exact={true} path='/Nfl' render={() => (<Nfl games={this.state.nflGames} />)}/>
-                <Route exact={true} path='/Mlb' render={() => (<Mlb games={this.state.mlbGames} />)}/>
+                <Route exact={true} path='/NBA' render={() => (<League games={this.state.nbaGames} league="NBA"/>)}/>
+                <Route exact={true} path='/NFL' render={() => (<League games={this.state.nflGames} league="NFL"/>)}/>
+                <Route exact={true} path='/MLB' render={() => (<League games={this.state.mlbGames} league="MLB" />)}/>
 
 
                 {hasMounted ? (
@@ -116,7 +98,7 @@ class App extends React.Component{
                             <Route
                                 key={index}
                                 exact={true}
-                                path={`/Nfl/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                path={`/NFL/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
                                 render={() => (
                                     <Game gameData={value}/>
                                 )}
@@ -132,7 +114,7 @@ class App extends React.Component{
                             <Route
                                 key={index}
                                 exact={true}
-                                path={`/Nba/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                path={`/NBA/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
                                 render={() => (
                                     <Game gameData={value}/>
                                 )}
@@ -148,7 +130,7 @@ class App extends React.Component{
                             <Route
                                 key={index}
                                 exact={true}
-                                path={`/Mlb/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
+                                path={`/MLB/${value.team1.replace(' ','-')}-${value.team2.replace(' ', '-')}-${value._id}`}
                                 render={() => (
                                     <Game gameData={value}/>
                                 )}
