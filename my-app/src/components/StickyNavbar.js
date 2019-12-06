@@ -21,8 +21,8 @@ function StickNavbar() {
                   un.length === 0 ? <Nav.Link className="Login" href="/Login"><b>Login</b></Nav.Link>
                   : <Nav.Link className="Login" href="/Login"><b>{un}</b></Nav.Link>
                 }
-                 <Nav.Link href="/Search"><b>Search</b></Nav.Link>
                  <Nav.Link href="/Bet"><b>Bet</b></Nav.Link>
+                 <Nav.Link href="/Search"><b>Search</b></Nav.Link>
             </Nav>
         </Navbar>
     );
