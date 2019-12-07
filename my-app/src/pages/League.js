@@ -48,25 +48,25 @@ class League extends React.Component {
         const {games, league} = this.props;
         var hasMounted = false;
         if(games !== null) hasMounted = true;
-        let logo; 
+        let leaugeLogo; 
         if(league == "NFL")
         {
-        logo = <img src= {NFLlogo} className = {`${league}Logos`} alt={league} />
+        leaugeLogo = <img src= {NFLlogo} className = {`${league}Logos`} alt={league} />
         } 
         else if (league == "NBA")
         {
-            logo = <img src= {NBAlogo} className = {`${league}Logos`} alt={league} />
+            leaugeLogo = <img src= {NBAlogo} className = {`${league}Logos`} alt={league} />
 
         }  
-        else{
-            logo = <img src= {MLBlogo} className = {`${league}Logos`} alt={league} />
+        else if(league == "MLB"){
+            leaugeLogo = <img src= {MLBlogo} className = {`${league}Logos`} alt={league} />
 
         }
         return(
             <div className = "Pages-Nfl">
                 <div>
                     <br/>
-                    {logo}
+                    {leaugeLogo}
                     <img src={Logo} className="App-logo-pages" alt="logo" />
                     <br/>
                 </div>
