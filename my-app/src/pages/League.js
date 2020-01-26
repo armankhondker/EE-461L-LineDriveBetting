@@ -1,7 +1,7 @@
 import React from 'react';
-import NBALogo from '../assets/images/NBA.png';
-import NFLLogo from '../assets/images/NFL.png';
-import MLBLogo from '../assets/images/MLB.png';
+import NBAlogo from '../assets/images/NBA.png';
+import NFLlogo from '../assets/images/NFL.png';
+import MLBlogo from '../assets/images/MLB.png';
 import Logo from '../assets/images/LDBLogo.png';
 import '../components/Logos.css';
 import './Pages.css';
@@ -48,11 +48,25 @@ class League extends React.Component {
         const {games, league} = this.props;
         var hasMounted = false;
         if(games !== null) hasMounted = true;
+        let leaugeLogo; 
+        if(league == "NFL")
+        {
+        leaugeLogo = <img src= {NFLlogo} className = {`${league}Logos`} alt={league} />
+        } 
+        else if (league == "NBA")
+        {
+            leaugeLogo = <img src= {NBAlogo} className = {`${league}Logos`} alt={league} />
+
+        }  
+        else if(league == "MLB"){
+            leaugeLogo = <img src= {MLBlogo} className = {`${league}Logos`} alt={league} />
+
+        }
         return(
             <div className = "Pages-Nfl">
                 <div>
                     <br/>
-                    <img src={NBALogo} className = {`${league}Logos`} alt={league} />
+                    {leaugeLogo}
                     <img src={Logo} className="App-logo-pages" alt="logo" />
                     <br/>
                 </div>
