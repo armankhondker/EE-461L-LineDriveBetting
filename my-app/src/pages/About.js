@@ -13,22 +13,22 @@ class About extends React.Component {
       super(props);
       this.state = {
         rohangit: {
-          total: null
+          total: "N/A"
         },
         punitgit: {
-          total: null
+          total: "N/A"
         },
         zachgit: {
-          total: null
+          total: "N/A"
         },
         thiensongit: {
-          total: null
+          total: "N/A"
         },
         joshgit: {
-          total: null
+          total: "N/A"
         },
         armangit: {
-          total: null
+          total: "N/A"
         },
         issues: []
       };
@@ -114,10 +114,26 @@ class About extends React.Component {
 
            <h1>LineDriveBetting Development Team</h1>
            </div>
+
+           <ul><b>Josh Papermaster</b>
+              { <img className="prof_pic" src={Josh} alt="Josh" /> }
+              <br></br>
+               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment
+               <br></br>
+               Major: Electrical and Computer Engineering
+               <br></br>
+               Responsibilites: Backend Development using AWS S3, Set up MongoDB, Built API using Node.js, Set up Website Hosting, Web Scraping
+               <br></br>
+               Number of Commits: {this.state.joshgit.total}
+               <br></br>
+               Total Number of Github Issues Authored: {joshIssues}
+               <br></br>
+           </ul>
+
            <ul><b>Arman Khondker</b>
            { <img className="prof_pic" src={Arman} alt="Arman" /> }
            <br></br>
-               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
+               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic Enrichment
                <br></br>
                Major: Electrical and Computer Engineering
                <br></br>
@@ -128,22 +144,6 @@ class About extends React.Component {
                Total Number of Github Issues Authored: {armanIssues}
                <br></br>
            </ul>
-
-           <ul><b>Josh Papermaster</b>
-              { <img className="prof_pic" src={Josh} alt="Josh" /> }
-              <br></br>
-               Bio: A senior Computer Engineering student with technical cores in Software Engineering and Academic enrichmnent
-               <br></br>
-               Major: Electrical and Computer Engineering
-               <br></br>
-               Responsibilites: Backend development using AWS S3, Set up MongoDB, Built API using Node.js, Set up website hosting, Web scraping
-               <br></br>
-               Number of Commits: {this.state.joshgit.total}
-               <br></br>
-               Total Number of Github Issues Authored: {joshIssues}
-               <br></br>
-           </ul>
-
 
            <ul><b>Punit Patel </b>
            { <img className="prof_pic" src={Punit} alt="Punit" /> }
