@@ -8,7 +8,13 @@ LineDriveBetting aims to target all bettors and sports enthusiasts. By providing
 
 # Technolgies Used
 
-
+* React: Front End Javascript Framework
+* Node.js: Back End Javascript Framework 
+* Github API: User stats dynamically pulled from Github.com
+* Amazon Web Services: Hosting of web applicaiton
+* Python: Backend webscrapping
+* MongoDB: Database to store our scrapping data
+* Namecheap: Purchase linedrivebetting domain
 
 
 # Development Team 
@@ -24,7 +30,7 @@ LineDriveBetting aims to target all bettors and sports enthusiasts. By providing
 
 
 
-## Git Workflow Guide
+# Git Workflow Guide
 ### Rules
 1. Anything in the master branch is always deployable meaning it is fully functional and tested
 2. Don't work on or push directly to master 
