@@ -1,4 +1,29 @@
 # EE-461L-LineDriveBetting
+
+# About
+
+The vision for LineDriveBetting is to provide both an aggregated betting analytics platform that provides bettors nationwide with moneyline and point spreads from the most popular websites, as well as a reddit-like blog forum to have intellectual conversations about betting lines.
+
+LineDriveBetting aims to target all bettors and sports enthusiasts. By providing a single hub for all necessary betting data of their desired team as well as a discussion forum, there are numerous use cases. Bettors who are looking for opportune bets benefit from the display of information of different betting websites, sports fan’s interested in aggregated data of win predictions for their favorite teams, and people looking to argue about why they think a certain team will win all benefit from LineDriveBetting’s platform.
+
+# Technolgies Used
+
+
+
+
+# Development Team 
+
+* **Arman Khondker** - *Fullstack Development*
+* **Rohan Garg** - *Back-end Development*
+* **Josh Papermaster** - *Fullstack Development*
+* **Punit Patel** - *Front-end Development*
+* **Thienson Ho** - *Fullstack Development*
+* **Zach Herink** - *Back-end Development*
+
+
+
+
+
 ## Git Workflow Guide
 ### Rules
 1. Anything in the master branch is always deployable meaning it is fully functional and tested
