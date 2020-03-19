@@ -1,4 +1,4 @@
-# EE-461L-LineDriveBetting
+# LineDriveBetting - Documentation 
 
 # About
 
