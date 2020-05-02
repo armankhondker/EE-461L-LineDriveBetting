@@ -1,3 +1,5 @@
+![build-passing](https://img.shields.io/badge/build-passing-brightgreen) ![test-passing](https://img.shields.io/badge/test-passing-brightgreen)
+
 # LineDriveBetting - Documentation 
 
 # About
