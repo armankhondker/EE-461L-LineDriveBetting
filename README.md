@@ -12,7 +12,7 @@ LineDriveBetting aims to target all bettors and sports enthusiasts. By providing
 * Node.js: Back End Javascript Framework 
 * Github API: User stats dynamically pulled from Github.com
 * Amazon Web Services: Hosting of web applicaiton
-* Python: Backend webscrapping
+* Python: Backend webscraping
 * MongoDB: Database to store our scrapping data
 * Namecheap: Purchase linedrivebetting domain
 
