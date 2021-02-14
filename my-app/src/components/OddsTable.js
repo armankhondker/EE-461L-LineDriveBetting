@@ -22,7 +22,7 @@ function OddsTable(props) {
                     <td>{props.bovada1}</td>
                     <td>{props.betonline1}</td>
                     <td>{props.intertops1}</td>
-                    <td>{props.sportsbetting2}</td>
+                    <td>{props.sportsbetting1}</td>
                     <td>{props.betnow1}</td>
                 </tr>
             </tbody>
