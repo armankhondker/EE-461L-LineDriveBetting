@@ -6,7 +6,7 @@
     "assert": "^2.0.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "query-string": "^6.9.0",
     "react": "^16.10.2",
     "react-autosuggest": "^9.4.3",
