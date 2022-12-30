@@ -49,6 +49,6 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "jsdom": "^15.2.0",
-    "mocha": "^6.2.2"
+    "mocha": "^10.2.0"
   }
 }
